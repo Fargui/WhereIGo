@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de nos lieux insolites{% endblock %}
+
+{# Début body #}
+{% block body %}
+<div class="container">
+    <h1>Bienvenue sur la liste de nos wigs !</h1>
+    <div class="row">
+        {# Boucle qui récupère et affiche toutes les places #}
+        {% for place in places %}
+            <div class="col-md-4">
+                <div class="card mb-3" style="width: 18rem;">
+                    <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
+                        <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
+                        <a href="{{path( 'place_show', {id: place.id} )}}" class="btn btn-primary">Go !</a>
+                    </div>
+                </div>
+             </div>       
+        {% endfor %}
+        {# Fin de boucle #}
+    </div>
+</div>
+
+{% endblock %}
+{# Fin du body #}
