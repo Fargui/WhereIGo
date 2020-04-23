@@ -1,0 +1,68 @@
+
+
+/* A partir de la LARGEUR d'un laptop, ci-dessous le comportement des elements */
+@media screen and (min-width: 992px)
+{
+    .row{
+        padding-top: 0.2em;
+        height: initial !important;
+       
+    }
+
+    .page{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    main{
+       
+        flex-grow: 1;
+    }
+
+    header{
+        height: 200px;
+    }
+
+
+    .nav-links{
+        min-width: 100vw;
+        justify-content: space-evenly;
+        padding: 0.7em;
+        padding-top: 1.5em;
+    }
+
+  .nav-links{
+      display: flex;
+      align-items: baseline;
+
+      .bloc-middle{
+          flex-direction: row;
+
+          li{
+              margin: 0.5em;
+          }
+      }
+
+      .bloc-end{
+        flex-direction: row;
+
+        .search{
+            order: 1;
+            margin: 0.5em;
+        }
+
+        .connexion{
+            order: 2;
+            margin: 0.5em;
+        }
+
+        .inscription{
+            order: 3;
+            margin: 0.5em;
+        }
+      }   
+  } 
+}
+
