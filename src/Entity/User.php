@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * @UniqueEntity("username", message = "Ce nom d'utilisateur est déjà pris")
+ * @UniqueEntity("email", message = "Cette adresse e-mail est déjà utilisée")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User 
@@ -22,12 +24,23 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message = "Vous devez saisir un nom d'utilisateur")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 25,
+     *      minMessage = "Le nom doit comporter au minimum {{ limit }} caractères",
+     *      maxMessage = "Le nom doit comporter au maximum {{ limit }} caractères",
+     * )
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank( message = "Vous devez saisir une adresse e-mail" )
+     * @Assert\Email(
+     *     message = "L'adresse e-mail n'est pas valide"
+     * )
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
@@ -37,16 +50,32 @@ class User
     private $password;
 
     /**
+     * @Assert\NotBlank( message = "Vous devez saisir votre prénom" )
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le prénom doit comporter au minimum {{ limit }} caractères",
+     *      maxMessage = "Le prénom doit comporter au maximum {{ limit }} caractères",
+     * )
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
+     * @Assert\NotBlank( message = "Vous devez saisir votre nom" )
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Le nom doit comporter au minimum {{ limit }} caractères",
+     *      maxMessage = "Le nom doit comporter au maximum {{ limit }} caractères",
+     * )
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lastname;
 
     /**
+     * @Assert\NotBlank( message = "Vous devez sélectionner la date de naissance" )
+     * @Assert\LessThanOrEqual("-18 years", message = "Vous devez être majeur pour créer un compte")
      * @ORM\Column(type="date", nullable=true)
      */
     private $birthday;
@@ -264,4 +293,43 @@ class User
 
         return $this;
     }
+
+    /**
+     * Get the value of plainPassword
+     */ 
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * Set the value of plainPassword
+     *
+     * @return  self
+     */ 
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+  
 }

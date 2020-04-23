@@ -1,5 +1,18 @@
 @import 'variables.scss';
+@import 'forms.scss';
 
-body {
-    background-color: lightgray;
+
+@import 'header.scss';
+@import 'footer.scss';
+@import 'header-responsive.scss';
+@import 'footer-responsive.scss';
+
+
+
+
+
+li{
+    list-style: none;
 }
+
+
