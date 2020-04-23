@@ -1,35 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Where I Go - Expériences uniques{% endblock %}</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;523;600;700;800&display=swap" rel="stylesheet">
-        {{ encore_entry_link_tags('app') }}
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-       
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Where I Go - Expériences uniques{% endblock %}</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;523;600;700;800&display=swap"
+        rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+
+
+
+    <div class="page">
+
+        {# HEADER #}
+
+        <header>
+            
+            <div class="row">       
+                <nav class="nav-links">
+                    <div class="logo" class="col-lg-2 col-xl-2">
+                        <li> <a class="navbar-brand text-light mr-0" href="">WIG</a></li>
+                    </div>      
+                    <ul class="bloc-middle" class="col-lg-6 col-xl-6">
+                        <li><a href="" class="start btn btn-light">commencer une expérience</a></li>
+                        <li><a href="" class="experience btn btn-light">nos expériences</a></li>
+                    </ul>       
+                    <div class="bloc-end" class="col-lg-4 col-xl-4">
+                        <input type="text" placeholder="rechercher une expérience" class="search btn btn-light">
+                        <a href="" class="connexion btn btn-light">connexion</a>
+                        <a href="" class="inscription btn btn-light">inscription</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
 
         <main>
             {% block body %}{% endblock %}
         </main>
 
+        {# FOOTER #}
+        <footer>
+
+            <div class="row">
+                <div class="footer-container">
+
+                    <div class="logo-footer col-lg-3">
+                        <span>WHERIGO</span>
+                    </div>
+
+                    <div class="left-footer-container">
 
 
+                        <div class="nav-footer col-lg-6 col-6">
+                            <ul>
+                                <li><a href="">Accueil</a></li>
+                                <li><a href="">Commencer une expérience</a></li>
+                                <li><a href="">Nos expériences</a></li>
+                                <li><a href="">Inscription</a></li>
+                                <li><a href="">Connexion</a></li>
+                            </ul>
+                        </div>
 
-        {# <footer>
-           <p class="text-center">WhereIGo - Tous droits reservés </p> 
-        </footer> #}
+                        <div class="middle-footer col-lg-6 col-6">
+                            <ul>
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="">Qui sommes-nous</a></li>
+                                <li><a href="">Plan du site</a></li>
+                            </ul>
+                        </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="https://kit.fontawesome.com/e427cc501a.js"></script>
-        {{ encore_entry_script_tags('app') }}
-        {% block javascripts %}{% endblock %}
-    </body>
+                    </div>
+
+                    <div class="end-footer col-lg-3 col-12">
+                        <ul class="d-flex">
+                            <li><a href="">Nous contacter</a></li>
+                            <li><a href="">Mentions légales</a></li>
+                            <li><a href="">CGV</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>{# footer #}
+</div>{# Page #}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/e427cc501a.js"></script>
+    {{ encore_entry_script_tags('app') }}
+    {% block javascripts %}{% endblock %}
+</body>
+
 </html>
