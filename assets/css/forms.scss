@@ -1,0 +1,13 @@
+@import 'variables.scss';
+
+.form-error {
+	color: #e04447;
+    font-size: 13px;
+    li{
+        list-style:none;
+    }
+}
+
+.form-control{
+    margin-top: 10px;
+}

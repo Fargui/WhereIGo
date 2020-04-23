@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Where I Go{% endblock %}
+
+{% block body %}
+    {{ form_start( form, {
+        'attr': {
+            'class': 'container text-center my-2',
+            'novalidate': 'novalidate',
+        }
+    } ) }}
+
+    <div class="row">
+        <div class="col-12 my-2">
+            <!-- Affichage de l'input username -->
+            <div class="form-control">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.username) }}
+                </div>
+            </div>
+            <!-- Affichage de l'input email -->
+            <div class="form-control">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+             <!-- Affichage de l'input password -->
+             <div class="form-control">
+                
+                {{ form_label(form.plainPassword.first) }}
+                {{ form_widget(form.plainPassword.first) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.plainPassword.first) }}
+                </div>
+            </div>
+             <!-- Affichage de l'input confirm password -->
+             <div class="form-control">
+                
+                {{ form_label(form.plainPassword.second) }}
+                {{ form_widget(form.plainPassword.second) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.plainPassword.second) }}
+                </div>
+            </div>
+        
+            <!-- Affichage de l'input firstname -->
+            <div class="form-control">
+                {{ form_label(form.firstname) }}
+                {{ form_widget(form.firstname) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.firstname) }}
+                </div>
+            </div>
+
+            <!-- Affichage de l'input password -->
+             <div class="form-control">
+                {{ form_label(form.lastname) }}
+                {{ form_widget(form.lastname) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.lastname) }}
+                </div>
+            </div>
+            <!-- Affichage de l'input password -->
+            <div class="form-control">
+                {{ form_label(form.birthday) }}
+                {{ form_widget(form.birthday) }}
+            
+                <div class="form-error">
+                    {{ form_errors(form.birthday) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-2 text-center">
+        <button type="submit" class="btn btn-primary btn-lg">S'inscrire</button>
+    </div>
+    {{ form_end( form ) }}
+
+{% endblock %}
