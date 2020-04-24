@@ -1,6 +1,7 @@
 @import 'variables.scss';
 @import 'forms.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 @import 'header.scss';
 @import 'footer.scss';
@@ -9,7 +10,10 @@
 
 
 
-
+body {
+    font-family: 'Manrope', sans-serif ;
+    color: #717f7c;
+}
 
 li{
     list-style: none;
