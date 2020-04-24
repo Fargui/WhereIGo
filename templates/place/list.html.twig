@@ -2,32 +2,37 @@
 
 {% block title %}Liste de nos lieux insolites{% endblock %}
 
-{# Début body #}
-{% block body %}
-<div class="container">
-    <h1>Bienvenue sur la liste de nos wigs !</h1>
-    <div class="row">
-        {# Boucle qui récupère et affiche toutes les places #}
-        {% for place in places %}
-            <div class="col-md-3">
-            
-                <div class="card mb-3" style="width: 18rem;">
-                    <?php <pre>
-                        {{ dump(random(place.pictures)) }}
-                    </pre>
-                    ;?>
-                    <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
-                        <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
-                        <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
+    {# Début body #}
+    {% block body %}
+
+    {% set bg = asset('build/images/' ~ background)  %}
+
+    <div class="background" style="background-image:url('{{ bg }}');"> 
+    <div class="container">
+        <h1 class="text-center">Bienvenue sur la liste de nos wigs !</h1>
+        <div class="row">
+            {# Boucle qui récupère et affiche toutes les places #}
+            {% for place in places %}
+                <div class="col-md-3">
+                
+                    <div class="card mb-3" style="width: 18rem;">
+                      
+                       
+                        <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
+                            <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
+                            <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
+                        </div>
                     </div>
-                </div>
-             </div>       
-        {% endfor %}
-        {# Fin de boucle #}
+                 </div>
+            {# Fin de boucle #}       
+            {% endfor %}
+             
+        </div>
     </div>
 </div>
+    {# Fin du body #}
+    {% endblock %}
 
-{% endblock %}
-{# Fin du body #}
+

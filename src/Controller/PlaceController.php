@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-use App\Repository\PictureRepository;
 use App\Service\PlaceService;
+use App\Service\BackgroundService;
 use App\Repository\PlaceRepository;
-use App\Service\PictureService;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -13,17 +12,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PlaceController extends AbstractController
 {
 
-    private $placeService;
+    
     private $placeRepository;
 
  
-    private $pictureService;
+    private $backgroundService;
 
-    public function __construct( PlaceService $placeService, PlaceRepository $placeRepository, PictureService $pictureService){
+    public function __construct( PlaceService $placeService, PlaceRepository $placeRepository, BackgroundService $backgroundService){
         $this->placeService = $placeService;
         $this->placeRepository = $placeRepository;
 
-        $this->pictureService = $pictureService;
+        $this->backgroundService = $backgroundService;
         
     }
 
@@ -37,17 +36,17 @@ class PlaceController extends AbstractController
 
         return $this->render('place/list.html.twig', [
             'places' => $places,
-            'randPhotos' => $this->placeService->getRandom()
+            'background' => $this->backgroundService->getBackgroundRandom( )
         ]);
     }
 
     /**
      * @Route("/list/{id}", name="show", requirements={"id"="\d+"})
      */
-    public function show(  )
+    public function show()
     {
         return $this->render( 'place/show.html.twig', array(
-            'place' => $this->pictureService->getPictureRandom(  ),
+            'background' => $this->backgroundService->getbackgroundRandom(  ),
         ));
     }
 
