@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Place;
+use App\Service\PlaceService;
+use App\Service\BackgroundService;
+use App\Repository\PlaceRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -10,34 +12,43 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PlaceController extends AbstractController
 {
 
+    
+    private $placeRepository;
+
+ 
+    private $backgroundService;
+
+    public function __construct( PlaceService $placeService, PlaceRepository $placeRepository, BackgroundService $backgroundService){
+        $this->placeService = $placeService;
+        $this->placeRepository = $placeRepository;
+
+        $this->backgroundService = $backgroundService;
+        
+    }
+
+
     /**
-     * @Route("/place", name="place")
+     * @Route("/list", name="list")
      */
     public function list()
     {
-        $repo = $this->getDoctrine()->getRepository(Place::class);
-        $places = $repo->findAll();
+        $places = $this->placeRepository->findAll();
 
         return $this->render('place/list.html.twig', [
             'places' => $places,
+            'background' => $this->backgroundService->getBackgroundRandom( )
         ]);
     }
 
     /**
-     * @Route("/place/{id}", name="place_show", requirements={"id"="\d+"})
+     * @Route("/list/{id}", name="show", requirements={"id"="\d+"})
      */
-    public function show($id)
+    public function show()
     {
-        $repo = $this->getDoctrine()->getRepository(Place::class);
-
-        foreach ( $this->$places as $place ){
-            if ($place['id'] == $id){
-            break;
-            }
-        }
-
-        return $this->render('place/show.html.twig', [
-            "place" => $places( $id )
-        ]);
+        return $this->render( 'place/show.html.twig', array(
+            'background' => $this->backgroundService->getbackgroundRandom(  ),
+        ));
     }
+
+   
 }

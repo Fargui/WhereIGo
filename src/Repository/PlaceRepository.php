@@ -19,6 +19,15 @@ class PlaceRepository extends ServiceEntityRepository
         parent::__construct($registry, Place::class);
     }
 
+    public function getPictureRandom(){
+        $stmt = $this->createQueryBuilder( 'e' );
+        $stmt->select('e');
+        $stmt->orderBy( 'RAND()' );
+        $stmt->setMaxResults( 5 );
+
+        return $stmt->getQuery()->getResult();
+    }
+
 /*     public function allCustomQuery()
     {
         $stmt = $this->createQueryBuilder('p');
