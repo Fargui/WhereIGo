@@ -1,0 +1,10 @@
+easy_admin:
+    entities:
+        - App\Entity\Category
+        - App\Entity\PlaceHasCategory
+        - App\Entity\Place
+        - App\Entity\CalendarHasPlace
+        - App\Entity\Calendar
+        - App\Entity\UserHasCalendar
+        - App\Entity\User
+        - App\Entity\Picture
