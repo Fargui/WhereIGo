@@ -38,23 +38,3 @@ $(document).ready(function(){
     
 
 
-
-
-
-/* var btnMenu  = document.getElementById('btnLink');
-var menu = document.getElementById('hideMenu');
-
-var hideMenu = false;
-
-menu.addEventListener('click', function(){
-    console.log('ooooo');
-     if (hideMenu === false) {
-        menu.style.display = 'flex',
-        menu.style.alignItems = 'center'
-
-        hideMenu = true;
-    }
-    else {
-        hideMenu == false
-    } */
-

@@ -19,6 +19,13 @@ class PlaceRepository extends ServiceEntityRepository
         parent::__construct($registry, Place::class);
     }
 
+/*     public function allCustomQuery()
+    {
+        $stmt = $this->createQueryBuilder('p');
+        $stmt->select('p.name, p.description');
+        return $stmt->getQuery()->getResult();
+    } */
+
     // /**
     //  * @return Place[] Returns an array of Place objects
     //  */

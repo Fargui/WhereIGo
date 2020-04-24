@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @UniqueEntity("email", message = "Cette adresse e-mail est déjà utilisée")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface
+class User 
 {
     /**
      * @ORM\Id()
