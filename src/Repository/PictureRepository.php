@@ -19,6 +19,21 @@ class PictureRepository extends ServiceEntityRepository
         parent::__construct($registry, Picture::class);
     }
 
+
+
+    public function getPictureRandom(){
+        $stmt = $this->createQueryBuilder( 'e' );
+        $stmt->select('e.name');
+        $stmt->orderBy( 'RAND()' );
+        $stmt->setMaxResults( 1 );
+
+        return $stmt->getQuery()->getScalarResult();
+    }
+
+
+
+
+
     // /**
     //  * @return Picture[] Returns an array of Picture objects
     //  */

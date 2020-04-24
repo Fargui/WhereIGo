@@ -1,32 +1,21 @@
 <?php
-
 namespace App\Service;
 
-use App\Entity\Place;
 use App\Repository\PlaceRepository;
 
+class PlaceService{
 
-class PlaceService {
+    private $placeRepository;
 
-/*     public function __construct( PlaceRepository $placeRepository)
-    {
-        return $this->placeRepository = $placeRepository;
-    } */
-/*     public function getAll()
-    {
-        $repo = $this->getDoctrine()->getRepository(Place::class);
-        return $repo->findAll();
-    } */
+    public function __construct( PlaceRepository $placeRepository){
+        $this->placeRepository = $placeRepository;
+    }
 
+    public function get( $id ){
+        return $this->placeRepository->find( $id );
+    }
 
-
-/*     public function getOne( $id ) {
-        $repo = getDoctrine( Place::class );
-        return $repo->find( $id );
-    } */
-
-/*     public function getAll()
-    {
-        return $this->placeRepository->findAll();
-    } */
+    public function getRandom(){
+        return $this->placeRepository->getRandom();
+    }
 }
