@@ -5,10 +5,43 @@
         border-radius: 1.5em;
     }
 }
-.list-container{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+
+
+
+.photo-wigs{
+    overflow: hidden;
+    height: fit-content;
+    
+}
+
+.filters{
+    display: flex;
+    
+}
+
+.filters-container{
+    padding-top: 4em;
+}
+
+.first-container{
+    width: 100%;
+}
+
+html{
+    width: 100%;
+}
+
+.wigs{
+    width: 25em;
+    padding: 0px;
+}
+
+.row{
+    div{
+        padding: 0;
+        div{
+            margin: 0!important;
+        }
+        
+    }
 }

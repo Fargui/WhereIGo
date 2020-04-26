@@ -2,36 +2,51 @@
 
 {% block title %}Liste de nos lieux insolites{% endblock %}
 
-    {# Début body #}
-    {% block body %}
+{# Début body #}
+{% block body %}
 
-    {% set bg = asset('build/images/' ~ background)  %}
+{% set bg = asset('build/images/' ~ background)  %}
 
-    <div class="background" style="background-color: white;"> </div>
-    <div class="list-container">
+<div class="background" style="background-color: white;"> </div>
+<div class="list-container">
+    <div class="filters-container">
+        <div class="first-container">
+            <h2>Bienvenue sur la liste de nos wigs !</h2>
+            <p>La Paz Fugitate mporeptata sitiam haritFuga. Sedi dendi odist ut fugit re volorro magnihilit autas asinum
+                quas autenti busanto maio molecaboreri doluptae debissi blabo. Maionsequae nus, qui- busa pelectat.
+                Sapidendae. Occabor endenient rero to incil eos volorrovitis elendeb itiatem alitium quodita turiam</p>
+            <ul class="filters">
+                <li><a class="btn btn-light" href="">Plage</a></li>
+                <li><a class="btn btn-light" href="">Forêts</a></li>
+                <li><a class="btn btn-light" href="">Villes</a></li>
+                <li><a class="btn btn-light" href="">Montagne</a></li>
+                <li><a class="btn btn-light" href="">Tente</a></li>
+                <li><a class="btn btn-light" href="">Cabane</a></li>
+                <li><a class="btn btn-light" href="">Hotels</a></li>
+                <li><a class="btn btn-light" href="">Belle-étoile</a></li>
+            </ul>
+        </div>
+        <div class="second-container"></div>
         <div class="row">
             {# Boucle qui récupère et affiche toutes les places #}
             {% for place in places %}
-                <div class="col-sm-6 col-lg-3 ">
-                
-                    <div class="card mb-3 p-1" style="width: 18rem;">
-                      
-                       
-                        <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
-                            <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
-                            <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
-                        </div>
+            <div class="col-sm-6 col-lg-3 photo-wigs">
+
+                <div class="card  wigs" >
+
+
+                    <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
+                        <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
+                        <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
                     </div>
                 </div>
-            {# Fin de boucle #}       
+            </div>
+            {# Fin de boucle #}
             {% endfor %}
-             
-        
         </div>
     </div>
-    {# Fin du body #}
-    {% endblock %}
-
-
+</div>
+{# Fin du body #}
+{% endblock %}
