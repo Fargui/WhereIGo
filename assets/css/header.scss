@@ -1,10 +1,10 @@
 
 /* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
 
-.html{
-    height: 100%;
-}
 
+main{
+    flex-grow: 1;
+}
 .page {
 
     min-height: 100vh;
@@ -13,12 +13,10 @@
     min-height: auto;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    overflow: hidden;
 
 
-main{
-    flex-grow: 1;
-}
+
     
 
 
