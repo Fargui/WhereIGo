@@ -16,10 +16,28 @@ body {
     color: #717f7c;
 }
 
+.background-header{
+    height: 0px;
+    width: 100%;
+    background: linear-gradient(white,white, rgba(255, 255, 255, 0.404), rgba(255, 255, 255, 0.192));
+    z-index: 7000;
+    position: absolute;
+    box-shadow:  -1px 9px 56px 69px rgba(255,255,255,1);
+    /* box-shadow: 13px 35px 72px 27px rgba(255,255,255,1); */
+}
+
 li{
     list-style: none;
 }
 
+.background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0.2;
+}
 
 
 

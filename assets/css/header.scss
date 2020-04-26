@@ -1,15 +1,25 @@
 
 /* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
 
+.html{
+    height: 100%;
+}
 
 .page {
 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* background-color: url('');
-    background-size: 30rem;
-    background-size: cover; */
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
+
+
+main{
+    flex-grow: 1;
+}
+    
 
 
     ::placeholder {
