@@ -29,10 +29,12 @@ $(document).ready(function(){
         }
         else
         {
+           
+            
             $(this).text('Menu');   
         }
     
-      });
+      }); 
     
 });
     
