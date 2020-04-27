@@ -1,3 +1,22 @@
+/* Text top */
+
+.filters-container{
+    padding: 1em;
+    padding-top: 6em;
+}
+.first-container{
+
+    width: 100%;
+
+    .filters{
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* CARDS */
+
 .card{
     border: none;
 
@@ -9,18 +28,6 @@
 .photo-wigs{
     overflow: hidden;
     height: fit-content;    
-}
-
-.filters{
-    display: flex;
-}
-
-.filters-container{
-    padding-top: 6em;
-}
-
-.first-container{
-    width: 100%;
 }
 
 html{
@@ -77,5 +84,15 @@ html{
       -webkit-column-count: 4;
          -moz-column-count: 4;
               column-count: 4;
+             
     }
+  }
+
+  @media screen and (max-width: 1571px) {
+    
+
+              .test{
+                  margin-right: 1em;
+              }
+            
   }

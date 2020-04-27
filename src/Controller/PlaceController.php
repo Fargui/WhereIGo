@@ -27,8 +27,7 @@ class PlaceController extends AbstractController
      * @Route("/list", name="list")
      */
     public function list()
-    {
-        
+    {   
         $places = $this->placeRepository->findAll();
         return $this->render('place/list.html.twig', [
             'places' => $places,
