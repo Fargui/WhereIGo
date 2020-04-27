@@ -1,0 +1,8 @@
+easy_admin:
+    entities:
+        CalendarHasPlace:
+            class: App\Entity\CalendarHasPlace
+            list:
+                actions:
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
