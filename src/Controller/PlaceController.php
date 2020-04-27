@@ -11,11 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PlaceController extends AbstractController
 {
-
-    
     private $placeRepository;
-
- 
     private $backgroundService;
 
     public function __construct( PlaceService $placeService, PlaceRepository $placeRepository, BackgroundService $backgroundService){
@@ -32,8 +28,8 @@ class PlaceController extends AbstractController
      */
     public function list()
     {
+        
         $places = $this->placeRepository->findAll();
-
         return $this->render('place/list.html.twig', [
             'places' => $places,
             'background' => $this->backgroundService->getBackgroundRandom( )
@@ -45,8 +41,11 @@ class PlaceController extends AbstractController
      */
     public function show()
     {
+
+        $places = $this->placeRepository->findAll();
         return $this->render( 'place/show.html.twig', array(
             'background' => $this->backgroundService->getbackgroundRandom(  ),
+            'places' => $places,
         ));
     }
 
