@@ -1,5 +1,5 @@
 import '../css/app.scss';
-
+import Headroom from "headroom.js";
 
 /************************
 
@@ -37,6 +37,12 @@ $(document).ready(function(){
       }); 
     
 });
-    
 
+
+
+var myElement = $(".nav-links");
+var headroom  = new Headroom(myElement);
+
+ console.log(headroom);
+ 
 
