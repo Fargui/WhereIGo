@@ -1,0 +1,14 @@
+easy_admin:
+    design:
+        menu:
+            - label: 'Where I Go'
+              icon: 'newspaper-o'
+              children:
+                  - {entity: 'Category', icon: book, label: 'Catégories'}
+                  - {entity: 'PlaceHasCategory', icon: plane-departure, label: 'Expériences et Catégorie'}
+                  - {entity: 'Place', icon: map-marker, label: 'Expériences'}
+                  - {entity: 'CalendarHasPlace', icon: calendar-plus, label: 'Calendriers et Expériences'}
+                  - {entity: 'Calendar', icon: calendar, label: 'Calendriers'}
+                  - {entity: 'UserHasCalendar', icon: calendar-check, label: 'Utilisateurs et Calendriers'}
+                  - {entity: 'Picture', icon: images, label: 'Photos'}
+                  - {entity: 'Background', icon: image, label: 'Images de fond'}

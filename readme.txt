@@ -1,0 +1,1 @@
+24 Avril : Ajout de easyAdmin: composer require admin

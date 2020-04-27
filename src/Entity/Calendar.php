@@ -43,6 +43,11 @@ class Calendar
      */
     private $userHasCalendars;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
     public function __construct()
     {
         $this->calendarHasPlaces = new ArrayCollection();
@@ -148,6 +153,23 @@ class Calendar
                 $userHasCalendar->setCalendar(null);
             }
         }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
