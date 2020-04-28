@@ -1251,20 +1251,6 @@
                 "orm",
                 "persistence"
             ],
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-03-21T15:13:52+00:00"
         },
         {
@@ -1347,16 +1333,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v2.3.6",
+            "version": "v2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "60e30c341d0f33ee30931c93cc2a74dee2d9eb5e"
+                "reference": "61625643a171bfe63f76fcbabf8179effc72cc6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/60e30c341d0f33ee30931c93cc2a74dee2d9eb5e",
-                "reference": "60e30c341d0f33ee30931c93cc2a74dee2d9eb5e",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/61625643a171bfe63f76fcbabf8179effc72cc6a",
+                "reference": "61625643a171bfe63f76fcbabf8179effc72cc6a",
                 "shasum": ""
             },
             "require": {
@@ -1434,7 +1420,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-04-19T14:14:32+00:00"
+            "time": "2020-04-24T18:12:45+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -2370,16 +2356,6 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "funding": [
-                {
-                    "url": "https://github.com/kukulich",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/slevomat/coding-standard",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-04-20T12:29:46+00:00"
         },
         {
@@ -4481,20 +4457,6 @@
                 "config",
                 "configuration",
                 "options"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-03-27T16:56:45+00:00"
         },

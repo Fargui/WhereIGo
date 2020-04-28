@@ -8,7 +8,7 @@
         <div class="test" >
 
             <div class="card  wigs" >
-
+                {% include 'place/_filter.html.twig' with {form:form} only %}
 
                 <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
                 <div class="card-body">

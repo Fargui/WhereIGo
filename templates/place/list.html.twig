@@ -2,7 +2,6 @@
 
 {% block title %}Liste de nos lieux insolites{% endblock %}
 
-<<<<<<< HEAD
 {# Début body #}
 {% block body %}
 
@@ -26,43 +25,6 @@
                 <li><a class="btn btn-light" href="">Hotels</a></li>
                 <li><a class="btn btn-light" href="">Belle-étoile</a></li>
             </ul>
-=======
-    {# Début body #}
-    {% block body %}
-
-    {% set bg = asset('build/images/' ~ background)  %}
-
-    <div class="background" style="background-color: white;"> </div>
-    <div class="list-container mt-5">
-        
-        <div class="row">
-            
-            {# inclusion du formulaire de filtre de recherche #}
-            {% include 'place/_filter.html.twig' with {form: form} only %}
-            
-            {# Boucle qui récupère et affiche toutes les places #}
-            {% for place in places %}
-                <div class="col-sm-6 col-lg-3 ">
-                
-                    <div class="card mb-3 p-1" style="width: 18rem;">
-                      
-                       
-                        {# <img src="{{ asset('build/images/' ~ place.pictures.1.name) }}" class="card-img-top" alt="..."> #}
-                        
-
-                        <img src="https://via.placeholder.com/150">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
-                            <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
-                            <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
-                        </div>
-                    </div>
-                </div>
-            {# Fin de boucle #}       
-            {% endfor %}
-             
-        
->>>>>>> Filtres
         </div>
         <div class="second-container"></div>
     </div>

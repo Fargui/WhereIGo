@@ -14,10 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PlaceController extends AbstractController
 {
     private $placeRepository;
-<<<<<<< HEAD
-=======
-
->>>>>>> Filtres
     private $backgroundService;
 
 
