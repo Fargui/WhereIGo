@@ -32,7 +32,6 @@ class SearchFormType extends AbstractType {
             'data_class'      => SearchData::class,
             'method'          => 'GET',
             'csrf_protection' => false,
-
         ]);
     }
 
