@@ -28,6 +28,7 @@
         </div>
         <div class="second-container"></div>
     </div>
+    {% include 'place/_filter.html.twig' with {form: form} only %}
     {# Boucle qui récupère et affiche toutes les places #}
     <div class="masonry">
         {% for place in places %}
