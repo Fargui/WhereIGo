@@ -1,0 +1,13 @@
+@mixin shadow {
+    -webkit-box-shadow: 0px -1px 16px -7px black;
+    -moz-box-shadow: 0px -1px 16px -7px black;
+    box-shadow: 0px -1px 16px -7px black;
+}
+
+@mixin bg-pos {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
