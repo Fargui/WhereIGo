@@ -49,13 +49,13 @@ class PlaceController extends AbstractController
     /**
      * @Route("/list/{id}", name="show", requirements={"id"="\d+"})
      */
-    public function show()
+    public function show($id)
     {
 
-        $places = $this->placeRepository->findAll();
+        
         return $this->render( 'place/show.html.twig', array(
             'background' => $this->backgroundService->getbackgroundRandom(  ),
-            'places' => $places,
+            'place' => $this->placeService->get( $id ),
         ));
     }
 

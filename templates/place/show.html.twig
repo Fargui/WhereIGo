@@ -3,22 +3,7 @@
 {% block title %}Votre prochain voyage{% endblock %}
 
 {% block body %}
-    <div class="masonry">
-        {% for place in places %}
-        <div class="test" >
-
-            <div class="card  wigs" >
-                {% include 'place/_filter.html.twig' with {form:form} only %}
-
-                <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
-                    <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
-                    <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
-                </div>
-            </div>
-        </div>
-        {# Fin de boucle #}
-        {% endfor %}
+    <div class="container mt-5">
+        <h1>{{place.name}}</h1>
     </div>
 {% endblock %}
