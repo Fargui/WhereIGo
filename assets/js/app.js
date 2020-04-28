@@ -26,16 +26,24 @@ $(document).ready(function(){
         if($(this).text() == 'Menu')
         {
             $(this).text('Fermer');
+            
+            blurBg.css({
+                "filter": "blur(5px)"
+              });  
         }
         else
-        {
-           
-            
+        {   
             $(this).text('Menu');   
+            blurBg.css({ 
+                "filter": "initial"
+              });  
         }
     
       }); 
+      var blurBg = $(".blur-bg");
+      console.log($(blurBg));
     
+      
 });
 
 

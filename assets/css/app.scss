@@ -15,6 +15,12 @@
 body {
     font-family: 'Manrope', sans-serif ;
     color: $text_color;
+    position: relative;
+}
+
+.blur-background{
+    @include bg-pos;
+    z-index: 7000;
 }
 
 .background-header{
@@ -32,14 +38,7 @@ li{
     list-style: none;
 }
 
-.background{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    opacity: 0.2;
-}
+
 
 
 

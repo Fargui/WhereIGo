@@ -42,6 +42,10 @@ html{
 
 /* Masonry pour layout list */
 
+.mansory-container{
+    
+}
+
 .masonry {
     margin: 0;
     -webkit-column-gap: 1.5rem;
@@ -61,15 +65,17 @@ html{
     .test {
       counter-reset: div;
       display: inline-block;
+      margin: 0 auto;
     }
   } 
   .masonry  {
     counter-increment: div;
   }
   .masonry > * .test:first-child::before {
-    display: inline;
     content: counter(div) '/ ';
   }
+
+  /* Responsive */
 
   @media screen and (min-width: 768px) {
     .masonry {
@@ -88,11 +94,13 @@ html{
     }
   }
 
-  @media screen and (max-width: 1571px) {
+  @media screen and (min-width: 1764px) {
     
 
-              .test{
-                  margin-right: 1em;
-              }
+    .masonry {
+        
+        margin-left: 2px;
+               
+      }
             
   }
