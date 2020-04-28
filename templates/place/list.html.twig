@@ -5,9 +5,6 @@
 {# Début body #}
 {% block body %}
 
-{% set bg = asset('build/images/' ~ background)  %}
-
-
 
 <div class="list-container">
     <div class="blur-bg">
@@ -19,16 +16,8 @@
                     quas autenti busanto maio molecaboreri doluptae debissi blabo. Maionsequae nus, qui- busa pelectat.
                     Sapidendae. Occabor endenient rero to incil eos volorrovitis elendeb itiatem alitium quodita turiam
                 </p>
-                <ul class="filters">
-                    <li><a class="btn btn-light" href="">Plage</a></li>
-                    <li><a class="btn btn-light" href="">Forêts</a></li>
-                    <li><a class="btn btn-light" href="">Villes</a></li>
-                    <li><a class="btn btn-light" href="">Montagne</a></li>
-                    <li><a class="btn btn-light" href="">Tente</a></li>
-                    <li><a class="btn btn-light" href="">Cabane</a></li>
-                    <li><a class="btn btn-light" href="">Hotels</a></li>
-                    <li><a class="btn btn-light" href="">Belle-étoile</a></li>
-                </ul>
+                 {# inclusion du formulaire de filtre de recherche #}
+            {% include 'place/_filter.html.twig' with {form: form} only %}
             </div>
             <div class="second-container"></div>
         </div>

@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Place;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Place|null find($id, $lockMode = null, $lockVersion = null)
@@ -27,6 +28,33 @@ class PlaceRepository extends ServiceEntityRepository
 
         return $stmt->getQuery()->getResult();
     }
+
+    /**
+     * Récupère les places en lien avec une recherche
+     *
+     * @return Place[]
+     */
+     public function findSearch(SearchData $data):array
+     {
+             
+        $query = $this->createQueryBuilder('p')
+             ->select('c', 'p')
+             ->leftJoin('p.placeHasCategories', 'c');
+
+        if (!empty($data->placeHasCategories)){           
+        $query = $query
+                 ->andWhere('c.category IN(:placeHasCategories)')
+                 ->setParameter('placeHasCategories', $data->placeHasCategories);
+            }
+
+         return $query->getQuery()->getResult();
+
+         
+
+
+     }
+        
+
 
 /*     public function allCustomQuery()
     {
