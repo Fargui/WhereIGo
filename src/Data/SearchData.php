@@ -12,6 +12,8 @@ class SearchData {
      * 
      */
     public $placeHasCategories = [];
+
+   public $subCategory =[];
 }
 
 

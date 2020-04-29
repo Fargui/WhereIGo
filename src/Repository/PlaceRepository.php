@@ -36,8 +36,7 @@ class PlaceRepository extends ServiceEntityRepository
      * @return Place[]
      */
      public function findSearch(SearchData $data):array
-     {
-             
+     {      
         $query = $this->createQueryBuilder('p')
              ->select('c', 'p')
              ->leftJoin('p.placeHasCategories', 'c');
@@ -50,7 +49,27 @@ class PlaceRepository extends ServiceEntityRepository
 
          return $query->getQuery()->getResult();
      }
-        
+
+
+     /**
+     * Récupère les places en lien avec une recherche
+     *
+     * 
+     */
+    public function tunnel(SearchData $data):array
+    {      
+       $query = $this->createQueryBuilder('p')
+            ->select('c', 'p')
+            ->leftJoin('p.placeHasCategories', 'c');
+
+       if (!empty($data->subcategories)){           
+       $query = $query
+                ->andWhere('c.category IN(:placeHasCategories)')
+                ->setParameter('placeHasCategories', $data->subcategories);
+           }
+
+        return $query->getQuery()->getResult();
+    }
 
 
 /*     public function allCustomQuery()
