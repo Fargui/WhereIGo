@@ -1,5 +1,5 @@
 import '../css/app.scss';
-import Headroom from "headroom.js";
+
 
 /************************
 
@@ -19,6 +19,8 @@ import Headroom from "headroom.js";
 }) */
 
 $(document).ready(function(){ 
+
+  var blurBg = $(".blur-bg");
       $(".toggle").click(function(e){
         e.preventDefault();
         $(".hideMenu").slideToggle(500);
@@ -40,17 +42,29 @@ $(document).ready(function(){
         }
     
       }); 
-      var blurBg = $(".blur-bg");
-      console.log($(blurBg));
-    
+      
+      
+
+    /*  var label = $('#placeHasCategories').find('label');
+
+    console.log($(label));
+     $($(label)).addClass(); */
+
+
+    /*  var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          $(".nav-links").style.top = "0";
+        }else {
+    $(".nav-links").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+     */
       
 });
 
 
 
-var myElement = $(".nav-links");
-var headroom  = new Headroom(myElement);
-
- console.log(headroom);
- 
 
