@@ -9,13 +9,25 @@
 @import 'footer-responsive.scss';
 @import 'list.scss';
 @import 'show.scss';
+@import 'landing-page.scss';
 
+
+html{
+    min-height: 100vh;
+}
+
+
+main{
+   min-height: 100vh;
+    flex-grow: 1;
+}
 
 
 body {
     font-family: 'Manrope', sans-serif ;
     color: $text_color;
     position: relative;
+    min-height: inherit;
 }
 
 .blur-background{

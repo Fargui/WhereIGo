@@ -15,6 +15,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class PlaceRepository extends ServiceEntityRepository
 {
+    /* Afficher des places aleatoires */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Place::class);
@@ -48,10 +49,6 @@ class PlaceRepository extends ServiceEntityRepository
             }
 
          return $query->getQuery()->getResult();
-
-         
-
-
      }
         
 

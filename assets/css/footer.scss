@@ -4,8 +4,11 @@
 
 footer{
     height: 300px;
-    background-color: rgba(128, 128, 128, 0.459);
-
+    background-color: $btn_color;
+    
+    a{
+        color: $text_color;
+    }
 
     .logo-footer{
         visibility: hidden;

@@ -1,6 +1,9 @@
 {{ form_start(form) }}
     <div class="mt-5">
         {{ form_row(form.placeHasCategories) }}
+        <pre>
+            {{ dump(form.placeHasCategories) }}
+        </pre>
         <button type="submit">Go !</button>
     </div>
 {{ form_end(form) }}
