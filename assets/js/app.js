@@ -1,5 +1,5 @@
 import '../css/app.scss';
-import Headroom from "headroom.js";
+
 
 /************************
 
@@ -19,38 +19,60 @@ import Headroom from "headroom.js";
 }) */
 
 $(document).ready(function(){ 
-      $(".toggle").click(function(e){
-        e.preventDefault();
-        $(".hideMenu").slideToggle(500);
 
-        if($(this).text() == 'Menu')
-        {
-            $(this).text('Fermer');
-            
-            blurBg.css({
-                "filter": "blur(5px)"
-              });  
-        }
-        else
-        {   
-            $(this).text('Menu');   
-            blurBg.css({ 
-                "filter": "initial"
-              });  
-        }
+if (window.matchMedia("(min-width: 992px)").matches) {
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
     
-      }); 
-      var blurBg = $(".blur-bg");
-      console.log($(blurBg));
-    
+    if (prevScrollpos > currentScrollPos) {
+      $(".nav-links").css("top", "0");
+    }else {
+      $(".nav-links").css("top", "-100px");  
+    }
+    prevScrollpos = currentScrollPos;
+  }
+
+} else {
+ 
+
+}
+
+var blurBg = $(".blur-bg");
+$(".toggle").click(function(e){
+  e.preventDefault();
+  $(".hideMenu").slideToggle(500);
+
+  if($(this).text() == 'Menu')
+  {
+      $(this).text('Fermer');
       
+      blurBg.css({
+          "filter": "blur(5px)"
+        });  
+  }
+  else
+  {   
+      $(this).text('Menu');   
+      blurBg.css({ 
+          "filter": "initial"
+        });  
+  }
+
+}); 
 });
 
-
-
-var myElement = $(".nav-links");
-var headroom  = new Headroom(myElement);
-
- console.log(headroom);
  
+      
+
+    /*  var label = $('#placeHasCategories').find('label');
+
+    console.log($(label));
+     $($(label)).addClass(); */
+
+
+ 
+
+
+
 
