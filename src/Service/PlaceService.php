@@ -19,3 +19,5 @@ class PlaceService{
         return $this->placeRepository->getRandom();
     }
 }
+
+
