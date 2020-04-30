@@ -36,17 +36,7 @@
 
   .first-container{
     position: relative;
-  }
-
-  h2::before{
-    content: '';
-    background-color: red;
-    width: 100px;
-    height: 2px;
-    position: absolute;
-    top: 2vh;
-  }
-  
+  }  
 }
 
 /* CARDS */
@@ -59,9 +49,7 @@
     }
 }
 
-.card-img-top{
-  border-radius: 0.5em;
-}
+
 
 .photo-wigs{
     overflow: hidden;
@@ -117,6 +105,9 @@ html{
          -moz-column-count: 2;
               column-count: 2;
               overflow: hidden;
+              .card-img-top{
+                border-radius: 0.5em;
+              }
               
     }
 

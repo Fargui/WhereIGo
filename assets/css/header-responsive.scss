@@ -76,6 +76,9 @@
       min-width: 100vw;
       justify-content: space-around;
       padding-top: 1vh;
+      top: initial;
+      transition: top 0.8s;
+      padding-right: 1vw;
      
       .bloc-middle{
           flex-direction: row;
