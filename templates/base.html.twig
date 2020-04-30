@@ -7,6 +7,7 @@
     <title>{% block title %}Where I Go - Expériences uniques{% endblock %}</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
 
     {{ encore_entry_link_tags('app') }}
     {% block stylesheets %}{% endblock %}
@@ -14,14 +15,22 @@
 
 <body>
     <div class="page">
-
+        <div class="toaster">
+            {% for label, messages in app.flashes %}
+               {% for message in messages %}
+                   <div class="alert alert-{{ label }} alert-dismissible fade show">
+                       {{ message }}
+                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+               {% endfor %}
+            {% endfor %}
+       </div>
         {# HEADER #}
 
         <header>
            
-               
-                
-          
             <div class="row">       
                 <nav class="nav-links">
                     {# button menu #}
@@ -33,18 +42,18 @@
                     {# fin button menu #}
                     
                     <div class="logo" class="col-lg-2 col-xl-2">
-                        <li> <a class="navbar-brand text-light mr-0" href="">WIG</a></li>
+                        <li> <a class="navbar-brand text-light mr-0" href="{{ path('homepage') }}">WIG</a></li>
                     </div>
                     {# menu #}
                     <div class="hideMenu mt-0">    
                         <ul class="bloc-middle" class="col-lg-6 col-xl-6">
-                            <li><a href="" class="start btn btn-light">commencer une expérience</a></li>
-                            <li><a href="" class="experience btn btn-light">nos expériences</a></li>
+                            <li><a href="" class="start btn btn-light">Commencer une expérience</a></li>
+                            <li><a href="{{ path('list') }}" class="experience btn btn-light">Nos expériences</a></li>
                         </ul>       
                         <div class="bloc-end" class="col-lg-4 col-xl-4">
                             <input type="text" class="search btn btn-light">
-                            <a href="" class="connexion btn btn-light">connexion</a>
-                            <a href="" class="inscription btn btn-light">inscription</a>
+                            <a href="{{ path('user_login') }}" class="connexion btn btn-light">Connexion</a>
+                            <a href="{{ path('user_register') }}" class="inscription btn btn-light">Inscription</a>
                         </div> 
                     </div>
                     {# fin menu #}
@@ -63,18 +72,18 @@
 
 
                         <div class="logo" class="col-lg-2 col-xl-2">
-                            <li> <a class="navbar-brand text-dark mr-0" href="">WIG</a></li>
+                            <li> <a class="navbar-brand text-dark mr-0" href="{{ path('homepage') }}">WIG</a></li>
                         </div>
                         {# Toggle menu #}
                         <div class="hideMenu mt-0">
                             <ul class="bloc-middle" class="col-lg-6 col-xl-6">
-                                <li><a href="" class="start btn btn-light">commencer une expérience</a></li>
-                                <li><a href="" class="experience btn btn-light">nos expériences</a></li>
+                                <li><a href="" class="start btn btn-light">Commencer une expérience</a></li>
+                                <li><a href="{{ path('list') }}" class="experience btn btn-light">Nos expériences</a></li>
                             </ul>
                             <div class="bloc-end" class="col-lg-4 col-xl-4">
                                 <input type="text" placeholder="rechercher une expérience" class="search btn btn-light">
-                                <a href="" class="connexion btn btn-light">connexion</a>
-                                <a href="" class="inscription btn btn-light">inscription</a>
+                                <a href="{{ path('user_login') }}" class="connexion btn btn-light">Connexion</a>
+                                <a href="{{ path('user_register') }}" class="inscription btn btn-light">Inscription</a>
                             </div>
                         </div>
                         {# fin Toggle menu #}
@@ -105,17 +114,14 @@
 
                         <div class="nav-footer col-lg-6 col-6">
                             <ul>
-                                <li><a href="">Accueil</a></li>
+                                <li><a href="{{ path('homepage') }}">Accueil</a></li>
                                 <li><a href="">Commencer une expérience</a></li>
-                                <li><a href="">Nos expériences</a></li>
-                                <li><a href="">Inscription</a></li>
-                                <li><a href="">Connexion</a></li>
+                                <li><a href="{{ path('list') }}">Nos expériences</a></li>
                             </ul>
                         </div>
 
                         <div class="middle-footer col-lg-6 col-6">
                             <ul>
-                                <li><a href="">FAQ</a></li>
                                 <li><a href="">Qui sommes-nous</a></li>
                                 <li><a href="">Plan du site</a></li>
                             </ul>
@@ -125,7 +131,7 @@
 
                     <div class="end-footer col-lg-3 col-12">
                         <ul class="d-flex">
-                            <li><a href="">Nous contacter</a></li>
+                            <li><a href="{{ path('contact') }}">Nous contacter</a></li>
                             <li><a href="">Mentions légales</a></li>
                             <li><a href="">CGV</a></li>
                         </ul>
