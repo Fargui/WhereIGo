@@ -2,6 +2,9 @@
 
 {% block title %}Liste de nos lieux insolites{% endblock %}
 
+
+
+
 {# Début body #}
 {% block body %}
 
@@ -19,7 +22,10 @@
                  {# inclusion du formulaire de filtre de recherche #}
             {% include 'place/_filter.html.twig' with {form: form} only %}
             </div>
-            <div class="second-container"></div>
+            <div class="second-container">
+                <p id="result-1"></p>
+                <input type="text" id="datepicker"/>
+            </div>
         </div>
         <div class="masonry-container">
             {# Boucle qui récupère et affiche toutes les places #}
