@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Data\SearchData;
+use App\Data\TunnelData;
 use App\Entity\Place;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -56,11 +57,11 @@ class PlaceRepository extends ServiceEntityRepository
      *
      * 
      */
-    public function tunnel(SearchData $data):array
+    public function filterBy(TunnelData $data):array
     {      
        $query = $this->createQueryBuilder('p')
             ->select('c', 'p')
-            ->leftJoin('p.placeHasCategories', 'c');
+            ->leftJoin('r.placeHasCategories', 'c');
 
        if (!empty($data->subcategories)){           
        $query = $query

@@ -2,14 +2,14 @@
 
 namespace App\Data;
 
-class SearchData {
+class TunnelData {
 
     /**
      * 
      *
      * 
      */
-    public $placeHasCategories = [];
+    public $reponseHasQuestion = [];
 }
 
 
