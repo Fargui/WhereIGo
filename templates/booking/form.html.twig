@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+<div class="alert alert-secondary">
+    <h2>Nous vous laissons le choix dans la date !</h2>
+        
+{{ form_row(form.start_at) }}
+    <input class="range form-control" type="text" name="daterange"/>
+{{ form_row(form.end_at) }}
+    <h4>Prix de votre Wig :  <span id="total">...</span> € TTC </h4>
+    <span id="nights">0</span> nuit(s) à {{ place.price }} € / nuit     
+</div>
+
+<button type="submit" class="btn btn-success mt-5">Go ! Go ! Go !</button>
+{{ form_end(form) }}
