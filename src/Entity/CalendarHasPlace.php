@@ -28,6 +28,7 @@ class CalendarHasPlace
      */
     private $calendar;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +54,18 @@ class CalendarHasPlace
     public function setCalendar(?Calendar $calendar): self
     {
         $this->calendar = $calendar;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
