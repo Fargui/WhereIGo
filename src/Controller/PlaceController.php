@@ -40,7 +40,8 @@ class PlaceController extends AbstractController
         return $this->render('place/list.html.twig', [
             'places'     => $places,
             'form'       => $form->createView(),
-            'background' => $this->backgroundService->getBackgroundRandom()
+            'background' => $this->backgroundService->getBackgroundRandom(),
+            'data'       => $data->placeHasCategories // Represente les category cochées et envoyé au via form
         ]);
     }
 
@@ -58,21 +59,5 @@ class PlaceController extends AbstractController
         ));
     }
 
-    /**
-     * @Route("/list", name="list")
-     */
-/*     public function searchFilter(Request $request)
-    {
-        
-        $data   = new SearchData();
-        $places = $this->placeRepository->findSearch($data);
-        $form   = $this->createForm(SearchFormType::class, $data);
-        $form->handleRequest($request);
-
-        return $this->render('place/list.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
- */
    
 }

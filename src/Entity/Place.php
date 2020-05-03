@@ -82,6 +82,10 @@ class Place
      * @ORM\Column(type="float")
      */
     private $price;
+     /** 
+     * @ORM\ManyToMany(targetEntity="App\Entity\Reponse", mappedBy="hideCategory")
+     */
+    private $idReponse;
 
 
     public function __construct()

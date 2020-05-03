@@ -1,18 +1,42 @@
 /* Text top */
 
-.filters-container{
-    padding: 1em;
-    padding-top: 6em;
+#placeHasCategories{
+
+  label{
+    background-color: $btn_color;
+    border-radius: 2em;
+    padding: 0em 1em;
+    color: white;
+    @include text-disable;
+    margin-right: 0.5em;
+
+  }
+  input:checked + label{
+    background-color: rgb(88, 88, 88);
+  }
+
+  input{
+    display: none;
+  }
 }
-.first-container{
 
-    width: 100%;
+.btn-filter{
+  background-color: $btn_color;
+  border-radius: 2em;
+  padding: 0em 1em;
+  font-size: 1.3rem;
+  margin-top:1em ;
+  margin-bottom:1em ;
+}
 
-    .filters{
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-    }
+.filters-container{
+  padding-top: 28vh;
+  padding-left: 1em;
+  
+
+  .first-container{
+    position: relative;
+  }  
 }
 
 /* CARDS */
@@ -25,6 +49,8 @@
     }
 }
 
+
+
 .photo-wigs{
     overflow: hidden;
     height: fit-content;    
@@ -35,7 +61,7 @@ html{
 }
 
 .wigs{
-    width: 25em;
+  
     padding: 0px;
 }
 
@@ -78,6 +104,15 @@ html{
       -webkit-column-count: 2;
          -moz-column-count: 2;
               column-count: 2;
+              overflow: hidden;
+              .card-img-top{
+                border-radius: 0.5em;
+              }
+              
+    }
+
+    .masonry-container {
+              padding: 1em;
     }
 }
 
@@ -90,13 +125,4 @@ html{
     }
   }
 
-  @media screen and (min-width: 1764px) {
-    
-
-    .masonry {
-        
-        margin-left: 2px;
-               
-      }
-            
-  }
+ 

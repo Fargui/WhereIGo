@@ -1,15 +1,43 @@
 
 
 /* A partir de la LARGEUR d'un laptop, ci-dessous le comportement des elements */
+
+@media screen and (min-width: 1200px)
+{
+    .page .hideMenu {
+        display: flex;
+        padding-right: 10vw!important;   
+    } 
+    .bloc-middle{
+        flex-direction: row;
+        margin-right: 5vw!important;
+}
+
+.bloc-end{
+    margin-left: 5em!important;
+    margin-right: 1em!important;
+}
+
+.background-header{
+        height: 0px;
+        width: 100%;
+        z-index: 7000;
+        position: fixed;
+        box-shadow:  -1px 9px 56px 89px rgba(255,255,255,1);
+        /* box-shadow: 13px 35px 72px 27px rgba(255,255,255,1); */
+    }
+}
+
+
+
 @media screen and (min-width: 992px)
 {
 
     .background-header{
         height: 0px;
         width: 100%;
-        background: linear-gradient(white,white, rgba(255, 255, 255, 0.404), rgba(255, 255, 255, 0.192));
         z-index: 7000;
-        position: absolute;
+        position: fixed;
         box-shadow:  -1px 9px 56px 89px rgba(255,255,255,1);
         /* box-shadow: 13px 35px 72px 27px rgba(255,255,255,1); */
     }
@@ -17,10 +45,10 @@
 
     .logo{
         display: initial!important;
+        margin-right: 5vw;
     }
 
     .row{
-        padding-top: 0.2em;
         height: initial !important;
        
     }
@@ -28,8 +56,7 @@
     .page{
         min-height: 100vh;
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column; 
     }
 
     main{
@@ -43,20 +70,20 @@
     }
 
 
-
-
     .nav-links{
       display: flex;
       align-items: baseline;
       min-width: 100vw;
-      justify-content: center;
-      padding: 0em 1.5em;
-
-
+      justify-content: space-around;
+      padding-top: 1vh;
+      top: initial;
+      transition: top 0.8s;
+      padding-right: 1vw;
+     
       .bloc-middle{
           flex-direction: row;
+          margin-right: 0;
           
-
           li{
               margin: 0.5em;
 
@@ -66,14 +93,13 @@
                 font-weight: 600;
                 color:#7f7c71;
                 padding: 1em 2.6em;
-            }
-              
+              }   
           }
       }
 
       .bloc-end{
         flex-direction: row;
-        margin-left: 5em;
+        margin-left: 0;
 
         a{
             border-radius: 3em !important;
@@ -110,11 +136,14 @@
 
  .page .hideMenu {
     display: flex;
-    align-items: center;
+    padding-right: 0;
+    
 } 
 
   .page .toggle {
     display: none;
 }
 }
+
+
 

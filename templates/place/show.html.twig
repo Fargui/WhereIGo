@@ -3,8 +3,32 @@
 {% block title %}Votre prochain voyage{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
+    <div class="container mt-5 text-center">
+        
         <h1>{{place.name}}</h1>
         <a href="{{ path('booking_create', {'id': place.id}) }}" class="btn btn-primary">Réserver</a>
+        <p>{{place.description}}</p>
+
+        <div id="map"></div>
+        {% set latitude = place.latitude %}
+        {% set longitude = place.longitude %}
+
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of Place
+                var idLatitude = {{ latitude }};
+                var idLongitude = {{ longitude }};
+                var place = {lat: idLatitude, lng: idLongitude};
+                // The map, centered at experience ID
+                var map = new google.maps.Map(
+                    document.getElementById('map'), {zoom: 4, center: place});
+                // The marker, positioned at experience ID
+                var marker = new google.maps.Marker({position: place, map: map});
+            }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOnzyAI6UbZLbhsy0pSf2uyQdwMK-7j6A&callback=initMap">
+        </script>
     </div>
 {% endblock %}

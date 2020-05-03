@@ -15,6 +15,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class PlaceRepository extends ServiceEntityRepository
 {
+    /* Afficher des places aleatoires */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Place::class);
@@ -35,8 +36,7 @@ class PlaceRepository extends ServiceEntityRepository
      * @return Place[]
      */
      public function findSearch(SearchData $data):array
-     {
-             
+     {      
         $query = $this->createQueryBuilder('p')
              ->select('c', 'p')
              ->leftJoin('p.placeHasCategories', 'c');
@@ -48,13 +48,29 @@ class PlaceRepository extends ServiceEntityRepository
             }
 
          return $query->getQuery()->getResult();
-
-         
-
-
      }
-        
 
+
+     /**
+     * Récupère les places en lien avec une recherche
+     *
+     * 
+     */
+    public function tunnel(SearchData $data):array
+    {      
+       $query = $this->createQueryBuilder('p')
+            ->select('c', 'p')
+            ->leftJoin('p.placeHasCategories', 'c');
+
+       if (!empty($data->subcategories)){           
+       $query = $query
+                ->andWhere('c.category IN(:placeHasCategories)')
+                ->setParameter('placeHasCategories', $data->subcategories);
+           }
+
+        return $query->getQuery()->getResult();
+    }
+}
 
 /*     public function allCustomQuery()
     {
@@ -91,4 +107,4 @@ class PlaceRepository extends ServiceEntityRepository
         ;
     }
     */
-}
+

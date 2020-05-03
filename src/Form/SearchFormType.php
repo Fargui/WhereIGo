@@ -18,12 +18,13 @@ class SearchFormType extends AbstractType {
         $builder
 
             ->add('placeHasCategories', EntityType::class, [
-                'label'     => false,
-                'required'  => false,
-                'class'     => Category::class,
-                'expanded'  => true,
-                'multiple'  => true,
-            ]);
+                'label'         => false,
+                'choice_attr' => function () { return array('class' => 'flat'); },  
+                'required'      => false,
+                'class'         => Category::class,
+                'expanded'      => true,
+                'multiple'      => true,
+            ]); 
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -32,7 +33,6 @@ class SearchFormType extends AbstractType {
             'data_class'      => SearchData::class,
             'method'          => 'GET',
             'csrf_protection' => false,
-
         ]);
     }
 
