@@ -62,7 +62,7 @@ class UserController extends AbstractController
      */
     public function login_success(){
         $this->addFlash( 'success', 'Vous êtes bien connecté' );
-        return $this->redirectToRoute( 'user_register' );
+        return $this->redirectToRoute( 'homepage' );
     }
 
     /**
@@ -70,6 +70,6 @@ class UserController extends AbstractController
      */
     public function logout_success(){
         $this->addFlash( 'success', 'Vous êtes bien déconnecté' );
-        return $this->redirectToRoute( 'user_register' );
+        return $this->redirectToRoute( 'homepage' );
     }
 }

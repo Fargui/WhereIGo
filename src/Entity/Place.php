@@ -73,12 +73,18 @@ class Place
      */
     private $calendarHasPlaces;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Reponse", mappedBy="hideCategory")
+     */
+    private $idReponse;
+
 
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
         $this->placeHasCategories = new ArrayCollection();
         $this->calendarHasPlaces = new ArrayCollection();
+        $this->idReponse = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -278,5 +284,33 @@ class Place
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection|Reponse[]
+     */
+    public function getIdReponse(): Collection
+    {
+        return $this->idReponse;
+    }
+
+    public function addIdReponse(Reponse $idReponse): self
+    {
+        if (!$this->idReponse->contains($idReponse)) {
+            $this->idReponse[] = $idReponse;
+            $idReponse->addHideCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdReponse(Reponse $idReponse): self
+    {
+        if ($this->idReponse->contains($idReponse)) {
+            $this->idReponse->removeElement($idReponse);
+            $idReponse->removeHideCategory($this);
+        }
+
+        return $this;
     }
 }

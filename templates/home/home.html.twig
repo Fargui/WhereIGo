@@ -2,5 +2,7 @@
 
 {% block body %}
    
+{% set bg = asset('build/images/' ~ background)  %}
 
+<div class="landing-bg" style="background-image: url({{bg}});"></div>
 {% endblock %}
