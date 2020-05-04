@@ -61,7 +61,7 @@ class Booking
      */
     public function prePersist(){
         if(empty($this->createdAt)) {
-                 $this->createdAt = new\Datetime();
+                 $this->createdAt = new \Datetime();
         }
 
         if(empty($this->total_price)) {

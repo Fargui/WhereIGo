@@ -14,12 +14,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BookingController extends AbstractController
 {
+
+    /**
+     * Payment checkout
+     * 
+     * @Route("/booking/checkout", name="booking_checkout")
+     *  
+     */
+    public function checkout(Request $request){
+        return $this->render('booking/checkout.html.twig');
+    }
+    
     /**
      * @Route("/list/{id}/booking", name="booking_create")
      *  
      */
     public function book(Place $place, Request $request, ObjectManager $manager)
     {
+        
         $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
 
