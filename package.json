@@ -15,9 +15,13 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress"
     },
+<<<<<<< HEAD
     "dependencies": {
         "gulp-symfony": "^1.0.2",
         "headroom.js": "^0.11.0",
         "lightpick": "^1.6.1"
     }
+=======
+    "dependencies": {}
+>>>>>>> 513fae15d260150f4096e626b1ef40da8b3ceb1d
 }
