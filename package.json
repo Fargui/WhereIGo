@@ -20,4 +20,5 @@
         "headroom.js": "^0.11.0",
         "lightpick": "^1.6.1"
     }
+    "dependencies": {}
 }

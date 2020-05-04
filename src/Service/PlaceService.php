@@ -18,4 +18,10 @@ class PlaceService{
     public function getRandom(){
         return $this->placeRepository->getRandom();
     }
+
+    public function findSearch($data){
+        return $this->placeRepository->findSearch($data);
+    }
 }
+
+
