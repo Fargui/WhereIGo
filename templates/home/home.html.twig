@@ -4,18 +4,24 @@
    
 {% set bg = asset('build/images/' ~ background)  %}
 
-<div class="landing-bg" style="background-image: url({{bg}});">
+<div class="landing-bg" style="background-image: url({{bg}});">  </div>
 
-
-    {{ form_start(form) }}
-    <div class="form-tunnel">
-        {{ form_row(form.reponseHasQuestion) }}
-       
-    </div>
-{{ form_end(form) }}
-</div>
+<div style="background-color: wheat; width : 100vw; height: 10em"></div>
 
 <pre>
-    {{ dump(form.reponseHasQuestion.children.1.vars.label) }}
+    {{ dump(form) }}
 </pre>
+
+{{question}}
+    
+    {{ form_start(form) }}
+    {{ form_row(form.question) }}
+
+    <div class="reponses">
+        {{ form_row(form.reponses) }}
+    </div>
+    {{ form_end(form) }}
+  
+
+
 {% endblock %}

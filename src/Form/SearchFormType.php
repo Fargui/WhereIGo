@@ -35,10 +35,7 @@ class SearchFormType extends AbstractType {
         ]);
     }
 
-    public function getBlockPrefix()
-    {
-        return '';
-    }
+  
     // public function buildForm(FormBuilderInterface $builder, array $options)
     // {
     //     $builder

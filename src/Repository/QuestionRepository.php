@@ -2,9 +2,12 @@
 
 namespace App\Repository;
 
+use App\Data\TunnelData;
 use App\Entity\Question;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\OrderBy;
+use DoctrineExtensions\Query\Mysql\Rand;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Question|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +21,26 @@ class QuestionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Question::class);
     }
+
+
+    /**
+     * Récupère les reponses en lien avec une question
+     *
+     * @return Question[]
+     */
+    public function getQuestionRandom(){
+        $query = $this->createQueryBuilder( 'q' );
+        $query->select('q');
+        $query->orderBy( 'RAND()' );
+        $query->setMaxResults( 1 );
+
+        return $query->getQuery()->getSingleResult();
+    }
+
+    
+
+
+
 
     // /**
     //  * @return Question[] Returns an array of Question objects

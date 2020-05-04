@@ -52,25 +52,7 @@ class PlaceRepository extends ServiceEntityRepository
      }
 
 
-     /**
-     * Récupère les places en lien avec une recherche
-     *
-     * 
-     */
-    public function filterBy(TunnelData $data):array
-    {      
-       $query = $this->createQueryBuilder('p')
-            ->select('c', 'p')
-            ->leftJoin('r.placeHasCategories', 'c');
-
-       if (!empty($data->subcategories)){           
-       $query = $query
-                ->andWhere('c.category IN(:placeHasCategories)')
-                ->setParameter('placeHasCategories', $data->subcategories);
-           }
-
-        return $query->getQuery()->getResult();
-    }
+    
 }
 
 /*     public function allCustomQuery()

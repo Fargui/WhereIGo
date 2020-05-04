@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Data\TunnelData;
 use App\Form\TunnelFormType;
+use App\Service\TunnelService;
 use App\Service\BackgroundService;
+use App\Repository\QuestionRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,11 +15,13 @@ class HomeController extends AbstractController {
 
 
     private $backgroundService;
+    private $tunnelService;
 
 
-    public function __construct(   BackgroundService $backgroundService ){
+    public function __construct(   BackgroundService $backgroundService, TunnelService $tunnelService ){
         $this->backgroundService = $backgroundService;
-        // $this->request = $request;   
+        $this->tunnelService = $tunnelService;
+ 
     }
 
     /**
@@ -25,13 +29,15 @@ class HomeController extends AbstractController {
      */
     public function home(Request $request)
     {
-        $data = new TunnelData;
-        $form = $this->createForm(TunnelFormType::class, $data);
+        
+        $form = $this->createForm(TunnelFormType::class);
         $form->handleRequest($request);
+        $question = $this->tunnelService->getQuestionRandom();
 
         return $this->render('home/home.html.twig', [
             'background' => $this->backgroundService->getBackgroundRandom(),
             'form'       => $form->createView(),
+            'question'  =>  $question,
         ]);
     }
 }
