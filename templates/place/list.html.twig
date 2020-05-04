@@ -2,24 +2,31 @@
 
 {% block title %}Liste de nos lieux insolites{% endblock %}
 
+
+
+
 {# Début body #}
 {% block body %}
 
+{% set bg = asset('build/images/' ~ background)  %}
 
 <div class="list-container">
     <div class="blur-bg">
         <div class="filters-container">
-            <div class="first-container">
+            <div class="second-container" style="background-image: url({{bg}});">
+                <div class="voile"></div>
                 <h2>Bienvenue sur la liste de nos wigs !</h2>
                 <p>La Paz Fugitate mporeptata sitiam haritFuga. Sedi dendi odist ut fugit re volorro magnihilit autas
                     asinum
                     quas autenti busanto maio molecaboreri doluptae debissi blabo. Maionsequae nus, qui- busa pelectat.
                     Sapidendae. Occabor endenient rero to incil eos volorrovitis elendeb itiatem alitium quodita turiam
                 </p>
-                 {# inclusion du formulaire de filtre de recherche #}
-            {% include 'place/_filter.html.twig' with {form: form} only %}
+            
             </div>
-            <div class="second-container"></div>
+            <div class="first-container">
+                {# inclusion du formulaire de filtre de recherche #}
+                {% include 'place/_filter.html.twig' with {form: form} only %}
+            </div>
         </div>
         <div class="masonry-container">
             {# Boucle qui récupère et affiche toutes les places #}
@@ -27,7 +34,7 @@
                 {% for place in places %}
                 <div class="test">
 
-                    
+
 
                     <div class="card wigs">
                         <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">

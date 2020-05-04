@@ -21,7 +21,7 @@
 }
 
 .btn-filter{
-  background-color: $btn_color;
+  background-color: rgba(35, 35, 202, 0.815);
   border-radius: 2em;
   padding: 0em 1em;
   font-size: 1.3rem;
@@ -30,13 +30,30 @@
 }
 
 .filters-container{
-  padding-top: 28vh;
-  padding-left: 1em;
+  padding-top: 20vh;
   
 
   .first-container{
     position: relative;
+    padding-left: 1em;
   }  
+
+  .second-container{
+    width: 100%;
+    height: 16em;
+    background-size: cover;
+    position: relative;
+    z-index: -2;
+  }
+
+  .voile{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-color: white;
+    z-index: -1;
+  }
 }
 
 /* CARDS */
