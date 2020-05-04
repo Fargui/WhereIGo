@@ -19,7 +19,7 @@
     </p>
 <!-- Inclusion du formulaire de date !! -->
 {% include 'booking/form.html.twig' with {form: form} %}
-        
+<a class="btn btn-prymary" href="{{ path('booking_checkout') }}">payer</a>
 </div>
 
 {% endblock %}
