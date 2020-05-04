@@ -8,18 +8,11 @@
 
 <div style="background-color: wheat; width : 100vw; height: 10em"></div>
 
-<pre>
-    {{ dump(form) }}
-</pre>
 
-{{question}}
+
     
     {{ form_start(form) }}
-    {{ form_row(form.question) }}
-
-    <div class="reponses">
-        {{ form_row(form.reponses) }}
-    </div>
+    
     {{ form_end(form) }}
   
 

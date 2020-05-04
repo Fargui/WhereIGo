@@ -2,11 +2,9 @@
 
 namespace App\Controller;
 
-use App\Data\TunnelData;
 use App\Form\TunnelFormType;
 use App\Service\TunnelService;
 use App\Service\BackgroundService;
-use App\Repository\QuestionRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,7 +27,6 @@ class HomeController extends AbstractController {
      */
     public function home(Request $request)
     {
-        
         $form = $this->createForm(TunnelFormType::class);
         $form->handleRequest($request);
         $question = $this->tunnelService->getQuestionRandom();
@@ -38,6 +35,15 @@ class HomeController extends AbstractController {
             'background' => $background,
             'form'       => $form->createView(),
             'question'  =>  $question,
+
         ]);
     }
+
+
+     /*  $session = new Session;
+                
+                $listReponse = $session->get('listReponse', array());
+                dump($session->get('listReponse', array()));
+                $session->set('listReponse', $reponse);
+                dump($listReponse); */
 }

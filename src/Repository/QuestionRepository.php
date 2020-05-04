@@ -4,8 +4,6 @@ namespace App\Repository;
 
 use App\Data\TunnelData;
 use App\Entity\Question;
-use Doctrine\ORM\Query\Expr\OrderBy;
-use DoctrineExtensions\Query\Mysql\Rand;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
