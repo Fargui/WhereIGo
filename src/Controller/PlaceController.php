@@ -37,11 +37,13 @@ class PlaceController extends AbstractController
         // dd($data); 
         //$places = $this->placeRepository->findAll();
         $places = $this->placeService->findSearch($data);
+        $background = $this->backgroundService->getBackgroundRandom();
         
         return $this->render('place/list.html.twig', [
             'places'     => $places,
             'form'       => $form->createView(),
-            'data'       => $data->placeHasCategories // Represente les category cochées et envoyé au via form
+            'data'       => $data->placeHasCategories, // Represente les category cochées et envoyé au via form
+            'background' => $background,
         ]);
     }
 

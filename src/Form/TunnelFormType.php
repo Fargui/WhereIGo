@@ -29,7 +29,7 @@ class TunnelFormType extends AbstractType {
                 'class' => Reponse::class, 
                 'expanded' => true,
                 'label'  =>false,
-                'choice_attr' => function () { return array('class' => 'btn btn-succes'); }
+                'multiple'  => false,
             ])
             ->add('send', SubmitType::class, [
             
@@ -47,5 +47,10 @@ class TunnelFormType extends AbstractType {
                 dump($listReponse);
              }
             );
+    }
+
+    public function getBlockPrefix()
+    {
+        return '';
     }
 }

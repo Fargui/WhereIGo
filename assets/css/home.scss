@@ -16,9 +16,19 @@
     
 
     label{
-        background-color: gray;
-        padding: 1em, 0em;
-        color: rgb(21, 228, 38);
-        border-radius: 2em;
+      background-color: $btn_color;
+      border-radius: 2em;
+      padding: 0em 1em;
+      color: white;
+      @include text-disable;
+      margin-right: 0.5em;
+  
     }
-}
+    input:checked + label{
+      background-color: rgb(88, 88, 88);
+    }
+  
+    input{
+      display: none;
+    }
+  }

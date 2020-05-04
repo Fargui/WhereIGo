@@ -33,9 +33,9 @@ class HomeController extends AbstractController {
         $form = $this->createForm(TunnelFormType::class);
         $form->handleRequest($request);
         $question = $this->tunnelService->getQuestionRandom();
-
+        $background = $this->backgroundService->getBackgroundRandom();
         return $this->render('home/home.html.twig', [
-            'background' => $this->backgroundService->getBackgroundRandom(),
+            'background' => $background,
             'form'       => $form->createView(),
             'question'  =>  $question,
         ]);
