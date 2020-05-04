@@ -15,7 +15,5 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress"
     },
-    "dependencies": {
-        "headroom.js": "^0.11.0"
-    }
+    "dependencies": {}
 }

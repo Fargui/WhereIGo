@@ -36,7 +36,7 @@ class PlaceController extends AbstractController
         $form->handleRequest($request);
         // dd($data); 
         //$places = $this->placeRepository->findAll();
-        $places = $this->placeRepository->findSearch($data);
+        $places = $this->placeService->findSearch($data);
         
         return $this->render('place/list.html.twig', [
             'places'     => $places,

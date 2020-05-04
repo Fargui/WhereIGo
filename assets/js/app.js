@@ -1,6 +1,7 @@
 import '../css/app.scss';
 
 
+
 /************************
 
 // -- Menu 
@@ -18,7 +19,10 @@ import '../css/app.scss';
     
 }) */
 
+
+
 $(document).ready(function(){ 
+
 
 if (window.matchMedia("(min-width: 992px)").matches) {
   var prevScrollpos = window.pageYOffset;
