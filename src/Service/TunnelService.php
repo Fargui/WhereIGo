@@ -9,10 +9,6 @@ class TunnelService{
     
 
     private $questionRepository;
-<<<<<<< HEAD
-    private $session;
-=======
->>>>>>> 4169ba6abc8b63ed50867c57a50d6bcee647995b
 
     public function __construct( QuestionRepository $questionRepository, SessionInterface $session){
         $this->questionRepository = $questionRepository;

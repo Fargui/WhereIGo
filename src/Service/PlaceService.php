@@ -22,12 +22,8 @@ class PlaceService{
     public function findSearch($data){
         return $this->placeRepository->findSearch($data);
     }
-<<<<<<< HEAD
-    
-=======
 
     public function allPlace(){
         return $this->placeRepository->allPlace();
     }
->>>>>>> 4169ba6abc8b63ed50867c57a50d6bcee647995b
 }

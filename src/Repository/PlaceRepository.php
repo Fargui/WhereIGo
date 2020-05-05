@@ -86,9 +86,6 @@ class PlaceRepository extends ServiceEntityRepository
      }
 
 
-<<<<<<< HEAD
-    
-=======
      
    
 
@@ -118,7 +115,6 @@ class PlaceRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
->>>>>>> 4169ba6abc8b63ed50867c57a50d6bcee647995b
 }
 
 /*     public function allCustomQuery()
