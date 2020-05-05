@@ -22,6 +22,7 @@ class PlaceService{
     public function findSearch($data){
         return $this->placeRepository->findSearch($data);
     }
+
 }
 
 

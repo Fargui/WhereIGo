@@ -2,12 +2,17 @@
 
 namespace App\Form;
 
+
+
 use App\Data\SearchData;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 class SearchFormType extends AbstractType {
@@ -16,15 +21,46 @@ class SearchFormType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
+            
             ->add('placeHasCategories', EntityType::class, [
-                'label'         => false,
-                'choice_attr' => function () { return array('class' => 'flat'); },  
+                'label'         => false, 
                 'required'      => false,
                 'class'         => Category::class,
                 'expanded'      => true,
                 'multiple'      => true,
-            ]); 
+            ])
+
+            ->add('q', TextType::class, [
+                'label'         => false,       
+                'required'      => false,
+                'attr'          =>[
+                  'placeholder' => 'Rechercher'
+                ]
+            ])
+
+            ->add('min', NumberType::class, [
+                'label'         => false,       
+                'required'      => false,
+                'attr'          =>[
+                    'placeholder'=> 'Prix min'
+                ]
+            ])
+
+            ->add('max', NumberType::class, [
+                'label'         => false,       
+                'required'      => false,
+                'attr'          =>[
+                  'placeholder' => 'Prix max'
+                ]
+            ])
+
+     
+
+            ->add('valider', SubmitType::class, [
+                'attr' => ['class' => 'btn btn-primary'],
+            ]);
+            
+            ; 
     }
 
     public function configureOptions(OptionsResolver $resolver)

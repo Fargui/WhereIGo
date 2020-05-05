@@ -125,3 +125,21 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+if (!empty($data->min)){           
+    $query = $query
+             ->andWhere('p.price >= :min')
+             ->setParameter('min', $data->min);
+        }
+
+if (!empty($data->max)){           
+    $query = $query
+             ->andWhere('p.price <= :max')
+             ->setParameter('max', $data->max);
+        }

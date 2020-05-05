@@ -1,11 +1,18 @@
-{{ form_start(form) }}
-    <div class="mt-5">
+
+
+
+        {{ form_start(form) }}
         {{ form_row(form.placeHasCategories) }}
-       <!--  <pre>
-            {{ dump(form.placeHasCategories) }}
-        </pre> -->
-        <button type="submit" class="btn btn-filter text-light">Valider les filtres</button>
-    </div>
-{{ form_end(form) }}
+
+        {{ form_row(form.q) }}
+        {{ form_row(form.min) }}
+      
+        {{ form_row(form.max) }}
+       
+        {{ form_row(form.valider) }}
+        {{ form_end(form) }}
+
+
+
 
 
