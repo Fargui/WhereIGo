@@ -13,6 +13,7 @@
 <div class="list-container">
     <div class="blur-bg">
         <div class="filters-container">
+
             <div class="second-container" style="background-image: url({{bg}});">
                 <div class="voile"></div>
                 <h2>Bienvenue sur la liste de nos wigs !</h2>
@@ -21,40 +22,48 @@
                     quas autenti busanto maio molecaboreri doluptae debissi blabo. Maionsequae nus, qui- busa pelectat.
                     Sapidendae. Occabor endenient rero to incil eos volorrovitis elendeb itiatem alitium quodita turiam
                 </p>
-            
+
             </div>
-            <div class="first-container">
+            <div class="first-container mt-5">
+
                 {# inclusion du formulaire de filtre de recherche #}
                 {% include 'place/_filter.html.twig' with {form: form} only %}
             </div>
-        </div>
-        <div class="masonry-container">
-            {# Boucle qui récupère et affiche toutes les places #}
-            <div class="masonry">
-                {% for place in places %}
-                <div class="test">
+            <div>
 
-
-
-                    <div class="card wigs">
-                        <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
-                        <!-- <pre>
-                            {{ dump(data) }}
-                        </pre> -->
-                        <div class="card-body py-1">
-                            <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
-                            <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
-                            <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
-                        </div>
-                    </div>
-                </div>
-                {# Fin de boucle #}
-                {% endfor %}
-                {# BG blur #}
             </div>
         </div>
-    </div>
+    
+    <div class="masonry-container">
+        {# Boucle qui récupère et affiche toutes les places #}
+        <div class="masonry">
+            {% for place in places %}
+            <div class="test">
+                <div class="card wigs">
+                    <img src="{{ asset('build/images/' ~ place.pictures.0.name) }}" class="card-img-top" alt="...">
+                    <!-- <pre>
+                            {{ dump(data) }}
+                        </pre> -->
+                    <div class="card-body py-1">
+                        <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
+                        <p class="card-text">{{ place.description|slice(0, 40) }}...</p>
+                        <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus..</a>
+                    </div>
+                </div>
+            </div>
+            {# Fin de boucle #}
+            {% endfor %}
 
+        </div>
+        <div class="mt-4 d-flex justify-content-center">
+            {{ knp_pagination_render(places) }}
+        </div>
+    </div>
+    {# BG blur #}
 </div>
+</div>
+</div>
+
+{% block javascripts %}{{ encore_entry_script_tags('range') }}{% endblock %}
 {# Fin du body #}
 {% endblock %}

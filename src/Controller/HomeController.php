@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
+use App\Form\SearchFormType;
 use App\Service\BackgroundService;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 
 class HomeController extends AbstractController {
 
@@ -28,4 +31,9 @@ class HomeController extends AbstractController {
             'background' => $this->backgroundService->getBackgroundRandom(),
         ]);
     }
+
+    
+
+
+
 }

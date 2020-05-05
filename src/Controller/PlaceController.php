@@ -32,13 +32,12 @@ class PlaceController extends AbstractController
     public function list(Request $request)
     {
         $data = new SearchData();
+        $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchFormType::class, $data);
         $form->handleRequest($request);
-
-        $places = $this->placeRepository->findSearch($data);
-        // dd($data); 
-        //$places = $this->placeRepository->findAll();
         $places = $this->placeService->findSearch($data);
+
+       
         
         return $this->render('place/list.html.twig', [
             'places'     => $places,

@@ -8,8 +8,8 @@
 @import 'header-responsive.scss';
 @import 'footer-responsive.scss';
 @import 'list.scss';
+@import 'home.scss';
 @import 'show.scss';
-@import 'landing-page.scss';
 @import 'map.scss';
 
 
@@ -31,10 +31,6 @@ body {
     min-height: inherit;
 }
 
-.blur-background{
-    @include bg-pos;
-    z-index: 7000;
-}
 
 li{
     list-style: none;

@@ -32,8 +32,7 @@
 
         <header>
            
-            <div class="background-header">
-
+            <div class="background-header"></div>
 
                 <div class="row">
                     <nav class="nav-links">
@@ -55,8 +54,8 @@
                                 <li><a href="" class="start btn btn-light">Commencer une expérience</a></li>
                                 <li><a href="{{ path('list') }}" class="experience btn btn-light">Nos expériences</a></li>
                             </ul>
+                            
                             <div class="bloc-end" class="col-lg-4 col-xl-4">
-                                <input type="text" placeholder="rechercher une expérience" class="search btn btn-light">
                                 <a href="{{ path('user_login') }}" class="connexion btn btn-light">Connexion</a>
                                 <a href="{{ path('user_register') }}" class="inscription btn btn-light">Inscription</a>
                             </div>
@@ -66,10 +65,9 @@
                     </nav>
                 {# end Row #}
                 </div>
-            </div>
         </header>
 
-
+<div class="blur-bg">
         <main>
             {% block body %}{% endblock %}
         </main>
@@ -114,6 +112,8 @@
                 </div>
             </div>
         </footer>{# footer #}
+
+    </div>
     </div>{# Page #}
 
 
