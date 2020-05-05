@@ -3,17 +3,18 @@
 {% block title %}Inscription - Where I Go{% endblock %}
 
 {% block body %}
-    <div class="container my-5">
+    <div class="container login">
+        <h2 class="mb-5">Se connecter</h2>
         <div class="row">
-            <form method="post" class="col-12 col-lg-6 offset-lg-3">
+            <form method="post" class="col-12 col-lg-6">
                 {% if error %}
                     <div class="alert alert-danger">
                         Les identifiants saisis ne sont pas corrects
                     </div>
                 {% endif %}
-
+                
                 <div class="form-group">
-                    <label for="_username">Nom d'utilisateur</label>
+                    <label for="_username">Email de connexion</label>
                     <input type="text" name="_username" placeholder="E-mail" class="form-control" value="{{ lastUsername }}">
                 </div>
                 <div class="form-group">
@@ -22,7 +23,7 @@
                 </div>
                 <input type="hidden" name="_target_path" value="{{ path('user_login_success') }}">
 
-                <button type="submit" class="btn btn-primary btn-lg">Connexion</button>
+                <button type="submit" class="btn btn-primary btn-lg mt-2">Connexion</button>
             </form>
         </div>
     </div>

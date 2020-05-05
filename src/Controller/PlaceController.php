@@ -62,5 +62,18 @@ class PlaceController extends AbstractController
         ));
     }
 
+    /**
+     * @Route("/map", name="map")
+     */
+    public function map()
+    {
+        $places = $this->placeService->allPlace();
+        
+        return $this->render('place/map.html.twig', [
+            'places'     => $places,
+            'background' => $this->backgroundService->getBackgroundRandom(),
+        ]);
+    }
+
    
 }
