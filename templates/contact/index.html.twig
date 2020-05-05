@@ -3,11 +3,13 @@
 {% block title %}Contact - Where I Go{% endblock %}
 
 {% block body %}
-
+    
     <div id="contactForm" class="mt-4">
+        
         {{ form_start(form) }}
-            <div class="container text-center">
 
+            <div class="container text-center">
+                <h2 class="text-left mb-5">Nous contacter</h2>
          
                 <div class="col">{{ form_row(form.firstname) }}</div>
                 <div class="col">{{ form_row(form.lastname) }}</div>

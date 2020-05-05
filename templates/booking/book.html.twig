@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réserver votre WIG!{% endblock %}
+
+{% block stylesheets %}
+<!-- Datepicker link css-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+<!-- End Datepicker link css-->
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Réservez pour le WIG : {{place.name}}</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing 
+        elit. Alias ex officiis quae corrupti nemo iusto, possimus 
+        illo, aliquid rem voluptatibus amet at optio dolores autem do
+        loribus quibusdam numquam. Dolores, iure!
+    </p>
+<!-- Inclusion du formulaire de date !! -->
+{% include 'booking/form.html.twig' with {form: form} %}
+
+<a class="btn btn-prymary" href="{{ path('booking_checkout') }}">payer</a>
+        
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<!-- Datepicker link js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <script>
+
+        
+
+$(document).ready(function(){
+
+    var noValid = [{% for night in place.noDispoDate %}
+                        '{{night.date | date("d-m-Y")}}',
+                   {% endfor %}
+                  ]
+    $(function() {
+        //console.log(noValid);
+        $('.range').daterangepicker({
+          opens: 'center',
+          "maxSpan": {
+              "days": 7
+           },  
+           minDate: new Date(),
+          isInvalidDate: function(date){
+        //console.log(date);   
+          return noValid.includes(date.format("DD-MM-YYYY"));
+
+          }
+        },
+        function(start, end, label) {
+            console.log(start, end);
+            
+          $('#booking_start_at').val( start.format('YYYY-MM-DD') ) + ' to ' + $('#booking_end_at').val( end.format('YYYY-MM-DD') );
+        });
+    });
+    $('.range').on('change', totalNight);   
+});
+
+function totalNight(){
+        // on prend les dates
+        const startAt = new Date($('#booking_start_at').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
+        const endAt   = new Date($('#booking_end_at').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
+
+        if(startAt && endAt && startAt < endAt){
+
+            const DAY_TIME = 24 * 60 * 60 * 1000;
+
+            const interval = endAt.getTime() - startAt.getTime();
+            const nights   = interval / DAY_TIME;
+            const total    = nights * '{{ place.price }}';
+
+            $('#nights').text(nights);
+            $('#total').text(total.toLocaleString('fr-FR'));
+        }
+    }
+    
+    </script>
+{# {{ encore_entry_script_tags('datepicker') }} #}
+<!-- End Datepicker links js-->
+
+{% endblock %}

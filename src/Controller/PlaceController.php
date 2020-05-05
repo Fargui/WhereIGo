@@ -32,12 +32,12 @@ class PlaceController extends AbstractController
     public function list(Request $request)
     {
         $data = new SearchData();
+        $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchFormType::class, $data);
         $form->handleRequest($request);
-        // dd($data); 
-        //$places = $this->placeRepository->findAll();
         $places = $this->placeService->findSearch($data);
-        $background = $this->backgroundService->getBackgroundRandom();
+
+       
         
         return $this->render('place/list.html.twig', [
             'places'     => $places,
@@ -59,6 +59,19 @@ class PlaceController extends AbstractController
             'background' => $this->backgroundService->getbackgroundRandom(  ),
             'place' => $this->placeService->get( $id ),
         ));
+    }
+
+    /**
+     * @Route("/map", name="map")
+     */
+    public function map()
+    {
+        $places = $this->placeService->allPlace();
+        
+        return $this->render('place/map.html.twig', [
+            'places'     => $places,
+            'background' => $this->backgroundService->getBackgroundRandom(),
+        ]);
     }
 
    

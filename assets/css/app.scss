@@ -8,6 +8,7 @@
 @import 'header-responsive.scss';
 @import 'footer-responsive.scss';
 @import 'list.scss';
+@import 'home.scss';
 @import 'show.scss';
 @import 'home.scss';
 @import 'map.scss';
@@ -31,13 +32,15 @@ body {
     min-height: inherit;
 }
 
-.blur-background{
-    @include bg-pos;
-    z-index: 7000;
-}
 
 li{
     list-style: none;
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    background: 0 0;
+    color: red!important;
+    cursor: default;
 }
 
 

@@ -26,5 +26,6 @@ security:
     
 
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/(register|login)$, allow_if: "is_anonymous()" }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Form\TunnelFormType;
 use App\Service\TunnelService;
+use App\Data\SearchData;
+use App\Form\SearchFormType;
 use App\Service\BackgroundService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 
 class HomeController extends AbstractController {
 
@@ -39,6 +42,7 @@ class HomeController extends AbstractController {
         ]);
     }
 
+<<<<<<< HEAD
 
      /*  $session = new Session;
                 
@@ -46,4 +50,10 @@ class HomeController extends AbstractController {
                 dump($session->get('listReponse', array()));
                 $session->set('listReponse', $reponse);
                 dump($listReponse); */
+=======
+    
+
+
+
+>>>>>>> 4169ba6abc8b63ed50867c57a50d6bcee647995b
 }
