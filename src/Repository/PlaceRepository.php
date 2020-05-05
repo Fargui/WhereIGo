@@ -101,7 +101,19 @@ class PlaceRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
- 
+    /**
+     * Récupère les places en lien avec une recherche
+     *
+     * @return Place[]
+     */
+    public function allPlace():array
+    {      
+       $query = $this->createQueryBuilder('p')
+            ->select('c', 'p')
+            ->leftJoin('p.placeHasCategories', 'c');
+
+        return $query->getQuery()->getResult();
+    }
 }
 
 /*     public function allCustomQuery()

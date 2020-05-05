@@ -23,6 +23,9 @@ class PlaceService{
         return $this->placeRepository->findSearch($data);
     }
 
+    public function allPlace(){
+        return $this->placeRepository->allPlace();
+    }
 }
 
 

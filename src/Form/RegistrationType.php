@@ -37,6 +37,7 @@ class RegistrationType extends AbstractType
                 'label' => "Nom",
             ))
             ->add('birthday', BirthdayType::class, array(
+                'label' => "Date de naissance",
                 'format' => 'dd/MMMM/y',
                 'placeholder' => array(
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
