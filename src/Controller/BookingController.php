@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Place;
 use App\Entity\Booking;
 use App\Form\BookingType;
-use Doctrine\Persistence\ObjectManager;
+use App\Service\CartService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
@@ -16,49 +17,30 @@ class BookingController extends AbstractController
 {
 
     /**
-     * Payment checkout
-     * 
-     * @Route("/booking/checkout", name="booking_checkout")
-     *  
-     */
-    public function checkout(Request $request){
-        return $this->render('booking/checkout.html.twig');
-    }
-    
-    /**
      * @Route("/list/{id}/booking", name="booking_create")
-     *  
+     * @IsGranted("ROLE_USER")
      */
-    public function book(Place $place, Request $request, ObjectManager $manager)
+    public function book(Place $place, Request $request, CartService $cartService)
     {
         
         $booking = new Booking();
-        $form = $this->createForm(BookingType::class, $booking);
-
+        $form    = $this->createForm(BookingType::class, $booking);
+        
         $form->handleRequest($request); 
         
         if($form->isSubmitted() && $form->isValid()) {
+
             $user = $this->getUser();
 
             $booking->setBooker($user)
-                    ->setPlace($place);
+                    ->setPlace($place)->prePersist();
 
-                // Si les dates non dispos, message erreur
-                if (!$booking->dispoDate()) {
-                        $this->addFlash(
-                        'warning',
-                        "dates déjà prises !"
-                    );
-                } else {
-                $manager->persist($booking);
-                $manager->flush();
+            $cartService->add($booking);
 
-                return $this->redirectToRoute('booking_show', ['id' => $booking->getId(),
-                'withAlert' => true]); 
-                }
-   
+            return $this->redirectToRoute('cart');
         }
         return $this->render('booking/book.html.twig', [
+            
             'place' => $place,
             'form'  => $form->createView()
         ]);
@@ -66,11 +48,9 @@ class BookingController extends AbstractController
 
     /**
      * Permet d'afficher la page d'une résa
-     * 
+     *
      * @Route("/booking/{id}", name="booking_show")
      *
-     * @param Booking $booking
-     * @return Response
      */
     public function show(Booking $booking){
         return $this->render('booking/show.html.twig', [
