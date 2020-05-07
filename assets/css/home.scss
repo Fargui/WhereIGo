@@ -1,12 +1,21 @@
+
+
+
+
+
 .landing-bg{
     @include bg-pos;
     background-size: cover;
     z-index: -1;
 }
 
+
+/* TUNNEL */
 .form-tunnel{
-    margin-top: 10em;
+    margin-top: 10vh;
     height: 300px;
+    padding-top: 10vh;
+    font-size: 1.5vw;
 
     .question{
       flex-direction: column;

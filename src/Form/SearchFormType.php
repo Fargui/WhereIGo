@@ -22,6 +22,7 @@ class SearchFormType extends AbstractType {
             
             ->add('placeHasCategories', EntityType::class, [
                 
+                'label'         =>'Catégories',
                 'required'      => false,
                 'class'         => Category::class,
                 'expanded'      => true,
