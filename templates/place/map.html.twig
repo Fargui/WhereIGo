@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Where I Go{% endblock %}
+
+{% block body %}
+    {% set locations = [] %}
+    <div class="container claim">
+        <h3>Toutes nos expériences</h3>
+      
+        <div id="map"></div>
+    </div>
+    
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 45.193166741461, lng: -22.7657826013062}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+        var locations = [
+            {lat: 49.310365794908, lng: -0.56378930187987},
+            {lat: 44.297178214987, lng: 6.7840042772217},
+            {lat: 43.743460888716, lng: 17.815093106262},
+            {lat: 2.919233529165, lng: -73.959198885925},
+            {lat: -31.524537337831, lng: 26.138609951965},
+            {lat: 44.967546480253, lng: 6.4048042955322},
+            {lat: 43.4173592, lng: 6.2664597},
+            {lat: 58.797961084943, lng: -113.31625116216},
+            {lat: -14.412272444598, lng: -61.010847336719},
+            {lat: 43.193166741461, lng: -4.7657826013062},
+            {lat: 44.594596910112, lng: -0.92911595768662},
+            {lat: 50.402886625269, lng: 10.154029183915},
+            {lat: 69.685251001312, lng: 19.328680038452},
+            {lat: 43.564210217885, lng: -1.5186285972596},
+            {lat: 45.510830955914, lng: 10.536313056946},
+            {lat: 69.38256590171, lng: 27.311749458313},
+            {lat: 44.201838540382, lng: 9.6071529388427},
+            {lat: 47.372942242783, lng: 7.6728296279907},
+            {lat: 45.70726643344, lng: 6.1984118703639},
+            {lat: 44.28897207531, lng: -0.39591443790111},
+            {lat: 50.206967341668, lng: 5.6294773417534},
+            {lat: 42.705812665401, lng: 2.9171982836352},
+            {lat: 44.941775899507, lng: -1.1417093435288},
+            {lat: 21.384678643797, lng: 5.7967480377236},
+            {lat: 39.5158825, lng: -116.8537227},
+            {lat: 41.677006098876, lng: 8.8651741223244},
+            {lat: 65.821828421462, lng: -15.196185799033}
+        ]
+      
+    </script>
+    <!-- Replace following script src -->
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvks-_bKH_gbWvVYqzTeUaK1p29FxJnKA&callback=initMap">
+    </script>
+{% endblock %}

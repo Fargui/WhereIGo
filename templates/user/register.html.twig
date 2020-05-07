@@ -5,84 +5,37 @@
 {% block body %}
     {{ form_start( form, {
         'attr': {
-            'class': 'container text-center my-2',
+            'class': 'container text-center register',
             'novalidate': 'novalidate',
         }
     } ) }}
-
+    <h2 class="mb-5 text-left">S'inscrire</h2>
     <div class="row">
         <div class="col-12 my-2">
             <!-- Affichage de l'input username -->
-            <div class="form-control">
-                {{ form_label(form.username) }}
-                {{ form_widget(form.username) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.username) }}
-                </div>
-            </div>
+                {{ form_row(form.username) }}
+                
             <!-- Affichage de l'input email -->
-            <div class="form-control">
-                {{ form_label(form.email) }}
-                {{ form_widget(form.email) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.email) }}
-                </div>
-            </div>
+                {{ form_row(form.email) }}
+
              <!-- Affichage de l'input password -->
-             <div class="form-control">
-                
-                {{ form_label(form.plainPassword.first) }}
-                {{ form_widget(form.plainPassword.first) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.plainPassword.first) }}
-                </div>
-            </div>
+                {{ form_row(form.plainPassword.first) }}
+
              <!-- Affichage de l'input confirm password -->
-             <div class="form-control">
-                
-                {{ form_label(form.plainPassword.second) }}
-                {{ form_widget(form.plainPassword.second) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.plainPassword.second) }}
-                </div>
-            </div>
+                {{ form_row(form.plainPassword.second) }}
         
             <!-- Affichage de l'input firstname -->
-            <div class="form-control">
-                {{ form_label(form.firstname) }}
-                {{ form_widget(form.firstname) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.firstname) }}
-                </div>
-            </div>
+                {{ form_row(form.firstname) }}
 
             <!-- Affichage de l'input password -->
-             <div class="form-control">
-                {{ form_label(form.lastname) }}
-                {{ form_widget(form.lastname) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.lastname) }}
-                </div>
-            </div>
+                {{ form_row(form.lastname) }}
+
             <!-- Affichage de l'input password -->
-            <div class="form-control">
-                {{ form_label(form.birthday) }}
-                {{ form_widget(form.birthday) }}
-            
-                <div class="form-error">
-                    {{ form_errors(form.birthday) }}
-                </div>
-            </div>
+                {{ form_row(form.birthday) }}
         </div>
     </div>
 
-    <div class="my-2 text-center">
+    <div class="my-3 text-center">
         <button type="submit" class="btn btn-primary btn-lg">S'inscrire</button>
     </div>
     {{ form_end( form ) }}

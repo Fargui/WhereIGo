@@ -56,8 +56,14 @@
                             </ul>
                             
                             <div class="bloc-end" class="col-lg-4 col-xl-4">
-                                <a href="{{ path('user_login') }}" class="connexion btn btn-light">Connexion</a>
-                                <a href="{{ path('user_register') }}" class="inscription btn btn-light">Inscription</a>
+                                <input type="text" placeholder="rechercher une expérience" class="search btn btn-light">
+                                {% if app.user is empty %}
+                                    <a href="{{ path('user_login') }}" class="connexion btn btn-light">Connexion</a>
+                                    <a href="{{ path('user_register') }}" class="inscription btn btn-light">Inscription</a>
+                                {% else %}
+                                    <a href="{{ path('user_logout') }}" class="deconnexion btn text-light btn-danger">Déconnexion</a>
+                                {% endif %}
+
                             </div>
                         </div>
                         {# fin Toggle menu #}
