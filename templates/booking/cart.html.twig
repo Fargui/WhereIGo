@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Panier</h1>
+
+{% if items | length > 0 %}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>WIG</th>
+                <th>Date d'arrivée</th>
+                <th>Date de départ</th>
+                <th>Nombre de nuits</th>
+                <th>Prix de la nuit</th>
+                <th>Prix du séjour</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+
+                <tr>
+                    <td>{{ item.place.name }}</td>
+                    <td class="text-center">{{ item.startAt | date ('d/m/Y')}}</td>
+                    <td class="text-center">{{ item.endAt | date ('d/m/Y')}}</td>
+                    <td class="text-center">{{ item.duration }}</td>
+                    <td class="text-center">{{ item.place.price }}</td>
+                    <td class="text-center">{{ item.totalPrice }} €</td>
+
+                   <td><a href="{{ path('cart_remove', {'id': loop.index }) }}" class="text-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="font-weight-bold text-right" colspan="6">Total à payer : {{ total }} €</td>
+                <td></td> 
+            </tr>
+        </tfoot>
+    </table>
+    
+    <div class="container mb-5">
+
+            <!-- Formulaire de paiement Stripe -->
+           {{ form_start(form, {'attr': {'id': 'payment-form', 'data-secret': intent.client_secret }}) }}
+               <!-- We'll put the error messages in this element -->
+               <div id="card-errors" role="alert"></div>
+                   <input class="form-control w-25" type="text" id="name" placeholder="Nom">
+                   <input class="form-control w-25" type="text" id="firstname" placeholder="Prénom">
+                   <input type="hidden" id="token" name="token">
+               <div id="card-element" class="mb-3">
+                <!-- Elements will create input elements here -->   
+               </div>
+               <button type="submit" class="btn btn-primary" id="envoyer">Payer - {{ intent.amount / 100 }} €</button>
+           {{ form_end(form) }} 
+       </div>
+{% else %}
+    <h1>Vous n'avez pas de wigs dans votre liste</h1>
+{% endif %}
+</div>
+
+{% block javascript %}
+    <script src="https://js.stripe.com/v3/"></script>
+    {{ encore_entry_script_tags('stripe') }}
+{% endblock %}
+
+{% endblock %}

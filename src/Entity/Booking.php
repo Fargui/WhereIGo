@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -32,13 +31,13 @@ class Booking
 
     /**
      * @ORM\Column(type="datetime")
-     * Assert\Date(message="la date doit être valide")
+     * 
      */
     private $startAt;
 
     /**
      * @ORM\Column(type="datetime")
-     * Assert\Date(message="la date doit être valide")
+     * 
      */
     private $endAt;
 
@@ -51,6 +50,8 @@ class Booking
      * @ORM\Column(type="float")
      */
     private $total_price;
+
+
 
     /**
      * Callback appelé à chaque fois qu'on créé une réservation
