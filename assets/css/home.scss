@@ -6,29 +6,44 @@
 
 .form-tunnel{
     margin-top: 10em;
+    height: 300px;
+
+    .question{
+      flex-direction: column;
+      align-items: center;
+
+
+      div{
+
+        label{
+          border-radius: 2em;
+          padding: 0em 1em;
+          color: white;
+          @include text-disable;
+          margin-right: 0.5em;
+        }
+
+        input:checked + label{
+          background-color: rgb(88, 88, 88);
+        }
+
+        input:hover + label{
+          background-color: rgb(88, 88, 88);
+        }
+      }
+
+      input{
+        display: none;
+      }
+    }
+
+    .button-tunnel-container{
+      justify-content: center;
+
+      div{
+        justify-content: center;
+      }
+    }
 }
 
 
-.reponses{
-    input{
-        visibility: hidden;
-    }
-    
-
-    label{
-      background-color: $btn_color;
-      border-radius: 2em;
-      padding: 0em 1em;
-      color: white;
-      @include text-disable;
-      margin-right: 0.5em;
-  
-    }
-    input:checked + label{
-      background-color: rgb(88, 88, 88);
-    }
-  
-    input{
-      display: none;
-    }
-  }

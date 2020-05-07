@@ -1,25 +1,32 @@
 <?php
 namespace App\Service;
 
-
+use App\Repository\PlaceRepository;
 use App\Repository\QuestionRepository;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\ReponseRepository;
 
 class TunnelService{
     
 
     private $questionRepository;
+    private $placeRepository;
+    private $reponseRepository;
 
-    public function __construct( QuestionRepository $questionRepository, SessionInterface $session){
+    public function __construct( QuestionRepository $questionRepository, PlaceRepository $placeRepository, ReponseRepository $reponseRepository){
         $this->questionRepository = $questionRepository;
-        $this->session = $session;
+        $this->placeRepository = $placeRepository;
+        $this->reponseRepository = $reponseRepository;
     }
 
-   public function searchQuestion($data){
-       return $this->questionRepository->searchQuestion($data);   
-   }
+  
+
+   public function findTunnel($data){
+    return $this->placeRepository->findTunnel($data);   
+}
 
    public function getQuestionRandom(){
     return $this->questionRepository->getQuestionRandom();   
 }
+
+
 }

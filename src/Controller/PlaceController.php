@@ -36,8 +36,8 @@ class PlaceController extends AbstractController
         $form = $this->createForm(SearchFormType::class, $data);
         $form->handleRequest($request);
         $places = $this->placeService->findSearch($data);
-
-       
+        $background = $this->backgroundService->getBackgroundRandom();
+        dump($data);
         
         return $this->render('place/list.html.twig', [
             'places'     => $places,

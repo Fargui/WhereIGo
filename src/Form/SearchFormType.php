@@ -2,8 +2,6 @@
 
 namespace App\Form;
 
-
-
 use App\Data\SearchData;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
@@ -23,11 +21,7 @@ class SearchFormType extends AbstractType {
         $builder
             
             ->add('placeHasCategories', EntityType::class, [
-<<<<<<< HEAD
-                'label'         => false,  
-=======
-                'label'         => false, 
->>>>>>> 4169ba6abc8b63ed50867c57a50d6bcee647995b
+                
                 'required'      => false,
                 'class'         => Category::class,
                 'expanded'      => true,
@@ -57,8 +51,6 @@ class SearchFormType extends AbstractType {
                   'placeholder' => 'Prix max'
                 ]
             ])
-
-     
 
             ->add('valider', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-primary'],

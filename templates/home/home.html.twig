@@ -6,19 +6,27 @@
 
 <div class="landing-bg" style="background-image: url({{bg}});">  </div>
 
-<div style="background-color: wheat; width : 100vw; height: 10em"></div>
+
+
+
+<div class="form-tunnel-container ">
 
 
 
     
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'class': 'form-tunnel'}}) }}
+
+
+    <div class="button-tunnel-container">
+    {{ form_row(form.valider, {'attr': {'class': 'button-tunnel'}}) }}
+    </div>  
     
     {{ form_end(form) }}
   
+</div>
 
+{% block javascripts %}{% endblock %}
+{% endblock %}
 
-{% endblock %}
-<div class="landing-bg" style="background-image: url({{bg}});"></div>
-{% endblock %}
 
 
