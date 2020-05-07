@@ -14,7 +14,7 @@ class BookingType extends AbstractType
 
 {
 
-private $transformer;
+ private $transformer;
 
     public function __construct(FrenchToDateTimeTransformer $transformer)
     {
