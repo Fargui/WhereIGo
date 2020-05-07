@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PlaceController extends AbstractController
 {
-    private $placeRepository;
+
     private $backgroundService;
 
 
@@ -36,14 +36,14 @@ class PlaceController extends AbstractController
         $form = $this->createForm(SearchFormType::class, $data);
         $form->handleRequest($request);
         $places = $this->placeService->findSearch($data);
-
-       
+        $background = $this->backgroundService->getBackgroundRandom();
+        dump($data);
         
         return $this->render('place/list.html.twig', [
             'places'     => $places,
             'form'       => $form->createView(),
-            'background' => $this->backgroundService->getBackgroundRandom(),
-            'data'       => $data->placeHasCategories // Represente les category cochées et envoyé au via form
+            'data'       => $data->placeHasCategories, // Represente les category cochées et envoyé au via form
+            'background' => $background,
         ]);
     }
 

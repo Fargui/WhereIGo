@@ -4,7 +4,29 @@
    
 {% set bg = asset('build/images/' ~ background)  %}
 
-<div class="landing-bg" style="background-image: url({{bg}});"></div>
+<div class="landing-bg" style="background-image: url({{bg}});">  </div>
+
+
+
+
+<div class="form-tunnel-container ">
+
+
+
+    
+    {{ form_start(form, {'attr': {'class': 'form-tunnel'}}) }}
+
+
+    <div class="button-tunnel-container">
+    {{ form_row(form.valider, {'attr': {'class': 'button-tunnel'}}) }}
+    </div>  
+    
+    {{ form_end(form) }}
+  
+</div>
+
+{% block javascripts %}{% endblock %}
 {% endblock %}
+
 
 

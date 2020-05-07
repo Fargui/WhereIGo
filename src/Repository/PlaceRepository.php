@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Data\SearchData;
+use App\Data\TunnelData;
 use App\Entity\Place;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -38,28 +39,27 @@ class PlaceRepository extends ServiceEntityRepository
      public function findSearch(SearchData $data): PaginationInterface
  
      {      
-
-
        
         $query = $this->createQueryBuilder('p')
              ->select('c', 'p')
              ->leftJoin('p.placeHasCategories', 'c');
-
-
-             if (!empty($data->q)){ 
-        
-                $query = $query
-                          ->andWhere( 'p.name LIKE :query' )
-                          ->setParameter( 'query', '%' . ($data->q) . '%');
-                
-             }    
-             
+   
 
         if (!empty($data->placeHasCategories)){           
         $query = $query
                  ->andWhere('c.category IN(:placeHasCategories)')
                  ->setParameter('placeHasCategories', $data->placeHasCategories);
             }
+
+
+        if (!empty($data->q)){ 
+    
+            $query = $query
+                      ->andWhere( 'p.name LIKE :query' )
+                      ->setParameter( 'query', '%' . ($data->q) . '%');
+            
+         }  
+
 
         if (!empty($data->min)){           
             $query = $query
@@ -72,22 +72,36 @@ class PlaceRepository extends ServiceEntityRepository
                      ->andWhere('p.price <= :max')
                      ->setParameter('max', $data->max);
                 }
-
-
-            
+          
                 $query = $query->getQuery();
                 return $this->paginator->paginate(
                     $query,
                     $data->page,
                     8,
-                   
                 );
      }
 
 
-     
-   
+     /**
+     * Renvoie une place random // reponses user
+     */
+     public function findTunnel(TunnelData $data) {
+        $query = $this->createQueryBuilder( 'p' )
+        ->select('p', 'r')
+        ->leftJoin('p.idReponse', 'r')
+        
+        ;
 
+
+        if (!empty($data->reponse_)){           
+            $query = $query
+                     ->andWhere('r.id IN(:placeHasCategories)')
+                     ->setParameter('placeHasCategories', $data->reponse_);
+                }        
+        ;
+        return $query->getQuery()->getResult();
+    }
+     
    
 
 

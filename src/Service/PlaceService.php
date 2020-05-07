@@ -27,5 +27,3 @@ class PlaceService{
         return $this->placeRepository->allPlace();
     }
 }
-
-
