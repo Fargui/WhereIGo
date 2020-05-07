@@ -20,8 +20,6 @@
 <!-- Inclusion du formulaire de date !! -->
 {% include 'booking/form.html.twig' with {form: form} %}
 
-<a class="btn btn-prymary" href="{{ path('booking_checkout') }}">payer</a>
-        
 </div>
 
 {% endblock %}
@@ -32,12 +30,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-    <script>
-
-        
-
+<!-- Daterange picker calendar js -->
+ <script>
 $(document).ready(function(){
-
     var noValid = [{% for night in place.noDispoDate %}
                         '{{night.date | date("d-m-Y")}}',
                    {% endfor %}
@@ -64,7 +59,6 @@ $(document).ready(function(){
     });
     $('.range').on('change', totalNight);   
 });
-
 function totalNight(){
         // on prend les dates
         const startAt = new Date($('#booking_start_at').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
@@ -82,9 +76,6 @@ function totalNight(){
             $('#total').text(total.toLocaleString('fr-FR'));
         }
     }
-    
-    </script>
-{# {{ encore_entry_script_tags('datepicker') }} #}
-<!-- End Datepicker links js-->
-
+</script>
+<!-- End picker calendar js -->
 {% endblock %}
