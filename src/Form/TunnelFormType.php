@@ -25,23 +25,24 @@ class TunnelFormType extends AbstractType {
 
 
         /* dump($this->questions); */
-
+        $id = 0;
 
         foreach($this->questions as $question){
             
+            $id++;
+            
             $builder
             
-            ->add('reponse_'.$question->getId(),EntityType::class, [
+            
+            ->add('reponse_'.$id,EntityType::class, [
                 'class' => Reponse::class,  
                 'mapped' => false,
                 'multiple'  => false,
                 'expanded' => true,
-                'row_attr' => ['class' => 'question_'.$question->getId().' question'],
+                'row_attr' => ['class' => 'question_'.$id.' question'],
                 'label' => $question->getAsk(),
                 'choices'=> $question->getReponseHasQuestion(),
-                'choice_attr' => function() {
-                    return ['class' => 'attending'];
-                },  
+                
             ])
             
             ->add('valider', SubmitType::class, [
@@ -53,7 +54,7 @@ class TunnelFormType extends AbstractType {
         public function configureOptions(OptionsResolver $resolver)
         {
             $resolver->setDefaults([
-                'data_class'      => TunnelData::class,
+                
                 'method'          => 'GET',
                 'csrf_protection' => false,
             ]);

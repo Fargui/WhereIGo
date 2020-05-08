@@ -20,8 +20,8 @@ class TunnelService{
 
   
 
-   public function findTunnel($data){
-    return $this->placeRepository->findTunnel($data);   
+   public function findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4){
+    return $this->placeRepository->findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4);   
 }
 
    public function getQuestionRandom(){

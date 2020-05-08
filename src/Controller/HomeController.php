@@ -34,18 +34,25 @@ class HomeController extends AbstractController {
         $data = new TunnelData;
         $form = $this->createForm(TunnelFormType::class, $data);
         $form->handleRequest($request);
-        dump($form->getData());
+        
 
-        $places = $this->tunnelService->findTunnel($data);
+        
 
         if($form->isSubmitted() && $form->isValid()){
            
-            
+            $reponse_1 = $request->query->get('reponse_1');
+            $reponse_2 = $request->query->get('reponse_2');
+            $reponse_3 = $request->query->get('reponse_3');
+            $reponse_4 = $request->query->get('reponse_4');
+
+            $places = $this->tunnelService->findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4);
+
             $this->addFlash( 'success', "Voici le wig de vos reves" );
             return $this->render('home/result_tunnel.html.twig', [
                 'background' => $background,
-                'data'       => $data->reponse_,
                 'places'     => $places,
+                'form'       => $form,
+                'data'       => $data,
             ]);
         }
   
