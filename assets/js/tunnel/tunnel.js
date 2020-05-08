@@ -53,6 +53,8 @@ $(document).ready(function () {
            
           questions[i].css("display", "flex");
           questions[j].css("display", "none");
+
+          
           
        
      
