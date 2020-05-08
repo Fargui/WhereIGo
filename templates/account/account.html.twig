@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <div class="toaster">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }} alert-dismissible fade show">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    
+    <div class="container edit mb-5">
+        <h1>Bienvenue {{ app.user.username }}</h1>
+        <div class="d-flex flex-column align-items-center">
+            <a href="{{ path('account_profile') }}" class="btn btn-primary my-2">Modifier mes informations</a>
+            <a href="{{ path('account_password') }}" class="btn btn-primary my-2">Modifier mon mot de passe</a>
+            <a href="" class="btn btn-primary my-2">Mes achats</a>
+        </div>
+
+    </div>
+
+{% endblock %}
