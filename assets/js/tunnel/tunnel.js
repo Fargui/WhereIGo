@@ -8,9 +8,9 @@ $(document).ready(function () {
 
   var questions = [
     $(".question_1, #reponse_1"),
+    $(".question_2, #reponse_2"),
     $(".question_3, #reponse_3"),
-    $(".question_4, #reponse_4"),
-    $(".question_5, #reponse_5")
+    $(".question_4, #reponse_4")
   ]
 
 

@@ -85,21 +85,38 @@ class PlaceRepository extends ServiceEntityRepository
      /**
      * Renvoie une place random // reponses user
      */
-     public function findTunnel(TunnelData $data) {
+     public function findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4) {
         $query = $this->createQueryBuilder( 'p' )
         ->select('p', 'r')
-        ->leftJoin('p.idReponse', 'r')
+        ->join('p.idReponse', 'r')
         
-        ;
+              
+                     ->where('r.id = (:placeHasCategories) ')
+                     ->setParameter('placeHasCategories', $reponse_1 . ' && '.$reponse_2 . ' && '.$reponse_3 . ' && '.$reponse_4 )
+                     ->orderBy( 'RAND()' )
+                     ->setMaxResults( 1 );
+                
+               
+            
+                     /* ->andWhere('r.id = (:placeHasCategories2)')
+                     ->setParameter('placeHasCategories2', $reponse_2)
+                     
 
+               
+            
+                     ->andWhere('r.id = (:placeHasCategories3)')
+                     ->setParameter('placeHasCategories3', $reponse_3)
+                     
 
-        if (!empty($data->reponse_)){           
-            $query = $query
-                     ->andWhere('r.id IN(:placeHasCategories)')
-                     ->setParameter('placeHasCategories', $data->reponse_);
-                }        
+                  
+            
+                     ->andWhere('r.id = (:placeHasCategories4)')
+                     ->setParameter('placeHasCategories4', $reponse_4) */
+                    
         ;
+        dump($query);
         return $query->getQuery()->getResult();
+       
     }
      
    
