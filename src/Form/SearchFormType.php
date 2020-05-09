@@ -22,7 +22,7 @@ class SearchFormType extends AbstractType {
             
             ->add('placeHasCategories', EntityType::class, [
                 
-                'label'         =>'Catégories',
+                'label'         => false,
                 'required'      => false,
                 'class'         => Category::class,
                 'expanded'      => true,
@@ -30,7 +30,7 @@ class SearchFormType extends AbstractType {
             ])
 
             ->add('q', TextType::class, [
-                'label'         => false,       
+                'label'         => "Rechercher un WIG",       
                 'required'      => false,
                 'attr'          =>[
                   'placeholder' => 'Rechercher'
@@ -38,20 +38,13 @@ class SearchFormType extends AbstractType {
             ])
 
             ->add('min', NumberType::class, [
-                'label'         => 'Prix min',       
+                'label'         => 'Prix min :',       
                 'required'      => false,
-                'attr'          =>[
-                    'placeholder'=> 'Prix min',
-                    
-                ]
             ])
 
             ->add('max', NumberType::class, [
-                'label'         => 'Prix max',        
+                'label'         => 'Prix max :',        
                 'required'      => false,
-                'attr'          =>[
-                  'placeholder' => 'Prix max'
-                ]
             ])
 
             ->add('valider', SubmitType::class, [

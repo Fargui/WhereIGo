@@ -15,7 +15,6 @@
     margin-top: 10vh;
     height: 300px;
     padding-top: 18vh;
-    font-size: 1.5vw;
 
     .question{
       flex-direction: column;
@@ -29,7 +28,8 @@
 
       div{
 
-        margin-top: 7vh;
+        margin-top: 3vh;
+        font-size: 1rem;
         /* Reponses tunnel */
         label{
           border-radius: 0.4em;

@@ -1,6 +1,6 @@
 import '../css/app.scss';
 import './filtres/range'
-import './tunnel/tunnel'
+
 
 
 /************************
@@ -54,7 +54,7 @@ $(".toggle").click(function(e){
       $(this).text('Fermer');
       
       blurBg.css({
-          "filter": "blur(5px)"
+          "filter": "blur(2px)"
         });  
   }
   else

@@ -84,21 +84,21 @@ class PlaceRepository extends ServiceEntityRepository
      /**
      * Renvoie une place random // reponses user
      */
-     public function findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4) {
+     public function findTunnel() {
     
 
         $conn = $this->getEntityManager()->getConnection();
 
-    $sql = '
-    SELECT * FROM place p
+    $sql = 
+    'SELECT * FROM place p
     WHERE p.id IN
     ( select place_id FROM reponse_place rp WHERE rp.reponse_id = 4
-      intersect
+      INTERSECT
       select place_id FROM reponse_place rp WHERE rp.reponse_id = 7
-        intersect
+      INTERSECT
       select place_id FROM reponse_place rp WHERE rp.reponse_id = 9
-        intersect
-      select place_id FROM reponse_place rp WHERE rp.reponse_id =12
+      INTERSECT
+      select place_id FROM reponse_place rp WHERE rp.reponse_id = 12
     )';
     $stmt = $conn->prepare($sql);
     $stmt->execute();

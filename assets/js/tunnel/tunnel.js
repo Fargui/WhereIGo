@@ -1,3 +1,8 @@
+import '../../css/app.scss';
+
+
+
+
 $(document).ready(function () {
 
 
@@ -27,10 +32,6 @@ $(document).ready(function () {
 
      $(reponses).click(function () { 
          
-     
-          /* var val = this.innerHTML;
-          valeurs.push(val)
-          console.log(valeurs) */
 
           console.log("click");
           
@@ -55,14 +56,7 @@ $(document).ready(function () {
         }
            
           questions[i].css("display", "flex");
-          questions[j].css("display", "none");
-
-          
-          
-       
+          questions[j].css("display", "none");  
      
-     });
-
-    
-        
+     });        
 });
