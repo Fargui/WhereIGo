@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Reponse;
-use App\Data\TunnelData;
 use App\Repository\QuestionRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +23,7 @@ class TunnelFormType extends AbstractType {
     {
 
 
-        /* dump($this->questions); */
+        //Pour 
         $id = 0;
 
         foreach($this->questions as $question){

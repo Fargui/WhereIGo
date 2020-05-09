@@ -32,6 +32,9 @@ $(document).ready(function () {
           valeurs.push(val)
           console.log(valeurs) */
 
+          console.log("click");
+          
+
          i++
          j++
 

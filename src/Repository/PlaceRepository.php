@@ -85,41 +85,36 @@ class PlaceRepository extends ServiceEntityRepository
      /**
      * Renvoie une place random // reponses user
      */
-     public function findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4) {
+     public function findTunnel() {
     
 
         $conn = $this->getEntityManager()->getConnection();
 
     $sql = '
-    SELECT * FROM place p
+    select * FROM place p
     where p.id IN
-    ( SELECT place_id FROM reponse_place rp where rp.reponse_id = 4
+    ( select place_id FROM reponse_place rp where rp.reponse_id = 4
         intersect
-      SELECT place_id FROM reponse_place rp where rp.reponse_id = 7
+      select place_id FROM reponse_place rp where rp.reponse_id = 7
         intersect
-      SELECT place_id FROM reponse_place rp where rp.reponse_id = 9
+      select place_id FROM reponse_place rp where rp.reponse_id = 9
         intersect
-      SELECT place_id FROM reponse_place rp where rp.reponse_id =12
+      select place_id FROM reponse_place rp where rp.reponse_id =12
     )';
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
-   
-    return $query = $stmt->fetchAll();
+    $query = $stmt->fetchAll();
+
+    dump($query);
+
+    return $query;
     
-        dump($query);
        
     }
      
    
-    /**
-     * Recupere prix min & prix max lié à une recherche
-     */
-    public function findMinMax(SearchData $data) :array{
-
-        return [0 , 1000];
-    }
-
+  
 
     public function getPictureRandom(){
         $query = $this->createQueryBuilder( 'e' );
