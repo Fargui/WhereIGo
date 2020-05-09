@@ -38,15 +38,16 @@ class SearchFormType extends AbstractType {
             ])
 
             ->add('min', NumberType::class, [
-                'label'         => false,       
+                'label'         => 'Prix min',       
                 'required'      => false,
                 'attr'          =>[
-                    'placeholder'=> 'Prix min'
+                    'placeholder'=> 'Prix min',
+                    
                 ]
             ])
 
             ->add('max', NumberType::class, [
-                'label'         => false,       
+                'label'         => 'Prix max',        
                 'required'      => false,
                 'attr'          =>[
                   'placeholder' => 'Prix max'

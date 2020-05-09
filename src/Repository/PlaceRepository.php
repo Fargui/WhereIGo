@@ -2,13 +2,12 @@
 
 namespace App\Repository;
 
-use App\Data\SearchData;
-use App\Data\TunnelData;
 use App\Entity\Place;
+use App\Data\SearchData;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Place|null find($id, $lockMode = null, $lockVersion = null)
@@ -43,7 +42,7 @@ class PlaceRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('p')
              ->select('c', 'p')
              ->leftJoin('p.placeHasCategories', 'c');
-   
+        
 
         if (!empty($data->placeHasCategories)){           
         $query = $query
@@ -80,47 +79,46 @@ class PlaceRepository extends ServiceEntityRepository
                     8,
                 );
      }
+     
 
 
      /**
      * Renvoie une place random // reponses user
      */
      public function findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4) {
-        $query = $this->createQueryBuilder( 'p' )
-        ->select('p', 'r')
-        ->join('p.idReponse', 'r')
-        
-              
-                     ->where('r.id = (:placeHasCategories) ')
-                     ->setParameter('placeHasCategories', $reponse_1 . ' && '.$reponse_2 . ' && '.$reponse_3 . ' && '.$reponse_4 )
-                     ->orderBy( 'RAND()' )
-                     ->setMaxResults( 1 );
-                
-               
-            
-                     /* ->andWhere('r.id = (:placeHasCategories2)')
-                     ->setParameter('placeHasCategories2', $reponse_2)
-                     
+    
 
-               
-            
-                     ->andWhere('r.id = (:placeHasCategories3)')
-                     ->setParameter('placeHasCategories3', $reponse_3)
-                     
+        $conn = $this->getEntityManager()->getConnection();
 
-                  
-            
-                     ->andWhere('r.id = (:placeHasCategories4)')
-                     ->setParameter('placeHasCategories4', $reponse_4) */
-                    
-        ;
+    $sql = '
+    SELECT * FROM place p
+    where p.id IN
+    ( SELECT place_id FROM reponse_place rp where rp.reponse_id = 4
+        intersect
+      SELECT place_id FROM reponse_place rp where rp.reponse_id = 7
+        intersect
+      SELECT place_id FROM reponse_place rp where rp.reponse_id = 9
+        intersect
+      SELECT place_id FROM reponse_place rp where rp.reponse_id =12
+    )';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+   
+    return $query = $stmt->fetchAll();
+    
         dump($query);
-        return $query->getQuery()->getResult();
        
     }
      
    
+    /**
+     * Recupere prix min & prix max lié à une recherche
+     */
+    public function findMinMax(SearchData $data) :array{
 
+        return [0 , 1000];
+    }
 
 
     public function getPictureRandom(){
@@ -133,7 +131,7 @@ class PlaceRepository extends ServiceEntityRepository
     }
 
     /**
-     * Récupère les places en lien avec une recherche
+     * Récupère les places pour la map
      *
      * @return Place[]
      */
@@ -145,41 +143,11 @@ class PlaceRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+
+
+
+
+
 }
-
-/*     public function allCustomQuery()
-    {
-        $query = $this->createQueryBuilder('p');
-        $query->select('p.name, p.description');
-        return $query->getQuery()->getResult();
-    } */
-
-    // /**
-    //  * @return Place[] Returns an array of Place objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Place
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 

@@ -23,6 +23,12 @@ class PlaceService{
         return $this->placeRepository->findSearch($data);
     }
 
+    
+    public function findMinMax($data) :array{
+
+        return [0 , 1000];
+    }
+
     public function allPlace(){
         return $this->placeRepository->allPlace();
     }

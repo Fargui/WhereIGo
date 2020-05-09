@@ -1,6 +1,7 @@
 import '../css/app.scss';
-import 'noUiSlider/distribute/noUiSlider.css'
-import noUiSlider from 'noUiSlider';
+import './filtres/range'
+import './tunnel/tunnel'
+
 
 /************************
 
@@ -19,26 +20,6 @@ import noUiSlider from 'noUiSlider';
     
 }) */
 
-
-
-const slider = document.getElementById('price-slider');
-
-if(slider){
-
-    const range = noUiSlider.create(slider, {
-        start: [0, 100],
-        connect: true,
-        range: {
-            'min': 0,
-            'max': 100
-        }
-    });
-
-    range.on('slide', function(values, handle){
-      console.log(values, handle);
-      
-    })
-}
 
 $(document).ready(function(){ 
 

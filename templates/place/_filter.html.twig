@@ -6,9 +6,14 @@
 
         {{ form_row(form.q) }}
 
+        <div class="price-filter">
         {{ form_row(form.min) }}
         {{ form_row(form.max) }}
-       <div id="price-slider" class="w-25"></div>
+        </div>
+       <div id="price-slider" class="w-25" data-min={{min}} data-max={{max}}></div>
+       <pre>
+               {{ dump(min, max) }}
+       </pre>
         {{ form_row(form.valider) }}
         {{ form_end(form) }}
 
