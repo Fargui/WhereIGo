@@ -3,6 +3,7 @@ easy_admin:
         Place:
             class: App\Entity\Place
             list:
+                fields: ['id', 'name', 'address', 'zip_code', 'city', 'latitude', 'longitude', 'price']
                 actions:
                     - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
                     - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

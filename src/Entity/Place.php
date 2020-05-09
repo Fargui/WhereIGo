@@ -364,4 +364,24 @@ class Place
 
         return $this;
     }
+
+    /**
+     * Get the value of idReponse
+     */ 
+    public function getIdReponse()
+    {
+        return $this->idReponse;
+    }
+
+    /**
+     * Set the value of idReponse
+     *
+     * @return  self
+     */ 
+    public function setIdReponse($idReponse)
+    {
+        $this->idReponse = $idReponse;
+
+        return $this;
+    }
 }

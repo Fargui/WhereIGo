@@ -67,6 +67,16 @@ class UserController extends AbstractController
         ));
     }
 
+     /**
+     * @Route("/account/wig", name="account_wig")
+     */
+    public function myWigs(){
+
+        return $this->render( 'account/wig.html.twig', array(
+
+        ));
+    }
+
     /**
      * @Route("/account/profile", name="account_profile")
      */

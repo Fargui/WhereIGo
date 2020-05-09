@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaceHasCategory
 {
+    private $name = '';
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -53,6 +55,31 @@ class PlaceHasCategory
     public function setPlace(?Place $place): self
     {
         $this->place = $place;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
 
         return $this;
     }
