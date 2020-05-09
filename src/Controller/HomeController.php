@@ -31,20 +31,18 @@ class HomeController extends AbstractController {
     {
         $background = $this->backgroundService->getBackgroundRandom();
 
-        $data = new TunnelData;
-        $form = $this->createForm(TunnelFormType::class, $data);
-        $form->handleRequest($request);
-        dump($form->getData());
 
-        $places = $this->tunnelService->findTunnel($data);
+        $form = $this->createForm(TunnelFormType::class);
+        $form->handleRequest($request);
+
+ 
 
         if($form->isSubmitted() && $form->isValid()){
            
+            $places = $this->tunnelService->findTunnel($request);
             
-            $this->addFlash( 'success', "Voici le wig de vos reves" );
             return $this->render('home/result_tunnel.html.twig', [
                 'background' => $background,
-                'data'       => $data->reponse_,
                 'places'     => $places,
             ]);
         }

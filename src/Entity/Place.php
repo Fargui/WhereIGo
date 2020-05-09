@@ -88,6 +88,8 @@ class Place
     private $idReponse;
 
 
+
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -381,6 +383,18 @@ class Place
     public function setIdReponse($idReponse)
     {
         $this->idReponse = $idReponse;
+
+        return $this;
+    }
+
+    public function getCouchage(): ?string
+    {
+        return $this->couchage;
+    }
+
+    public function setCouchage(string $couchage): self
+    {
+        $this->couchage = $couchage;
 
         return $this;
     }

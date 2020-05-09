@@ -39,9 +39,6 @@ class TunnelFormType extends AbstractType {
                 'row_attr' => ['class' => 'question_'.$question->getId().' question'],
                 'label' => $question->getAsk(),
                 'choices'=> $question->getReponseHasQuestion(),
-                'choice_attr' => function() {
-                    return ['class' => 'attending'];
-                },  
             ])
             
             ->add('valider', SubmitType::class, [
