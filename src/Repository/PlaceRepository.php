@@ -56,7 +56,6 @@ class PlaceRepository extends ServiceEntityRepository
             $query = $query
                       ->andWhere( 'p.name LIKE :query' )
                       ->setParameter( 'query', '%' . ($data->q) . '%');
-            
          }  
 
 
@@ -85,31 +84,29 @@ class PlaceRepository extends ServiceEntityRepository
      /**
      * Renvoie une place random // reponses user
      */
-     public function findTunnel() {
+     public function findTunnel($reponse_1, $reponse_2, $reponse_3, $reponse_4) {
     
 
         $conn = $this->getEntityManager()->getConnection();
 
     $sql = '
-    select * FROM place p
-    where p.id IN
-    ( select place_id FROM reponse_place rp where rp.reponse_id = 4
+    SELECT * FROM place p
+    WHERE p.id IN
+    ( select place_id FROM reponse_place rp WHERE rp.reponse_id = 4
+      intersect
+      select place_id FROM reponse_place rp WHERE rp.reponse_id = 7
         intersect
-      select place_id FROM reponse_place rp where rp.reponse_id = 7
+      select place_id FROM reponse_place rp WHERE rp.reponse_id = 9
         intersect
-      select place_id FROM reponse_place rp where rp.reponse_id = 9
-        intersect
-      select place_id FROM reponse_place rp where rp.reponse_id =12
+      select place_id FROM reponse_place rp WHERE rp.reponse_id =12
     )';
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
-    $query = $stmt->fetchAll();
-
-    dump($query);
-
-    return $query;
+   
+    return $query = $stmt->fetchAll();
     
+        dump($query);
        
     }
      
