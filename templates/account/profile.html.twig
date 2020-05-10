@@ -19,7 +19,7 @@
     <div class="container edit">
         <h5>Modification du profil</h5>
 
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'class': 'label-none'}}) }}
             {{ form_row(form.lastname) }}
             {{ form_row(form.firstname) }}
                 
