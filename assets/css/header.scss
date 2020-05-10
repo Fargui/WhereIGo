@@ -97,6 +97,7 @@
                 font-weight: 600;
                 color:#7f7c71;
                 padding: 1.2em 2.6em;
+                @include shadow;
             }
         }
     } 
@@ -113,7 +114,8 @@
             font-weight: 600;
             color:#7f7c71;
             padding: 1.2em 2.6em;
-            margin: 1.5em;                     
+            margin: 1.5em;  
+            @include shadow;                   
         }
 
         input{
@@ -130,6 +132,11 @@
 
     .search{
         order: 3;
+    }
+
+    .deconnexion {
+        background-color: darkred;
+        opacity: 0.8;
     }
 
 

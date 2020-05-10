@@ -13,13 +13,16 @@ class PasswordUpdateType extends AbstractType
     {
         $builder
             ->add('oldPassword', PasswordType::class, array(
-                'label' => 'Ancien mot de passe',
+                'label' => '',
+                'attr' => array( 'placeholder'=> 'Ancien mot de passe'),
             ))
             ->add('newPassword', PasswordType::class, array(
-                'label' => 'Nouveau mot de passe'
+                'label' => '',
+                'attr' => array( 'placeholder'=> 'Nouveau mot de passe'),
             ))
             ->add('confirmPassword', PasswordType::class, array(
-                'label' => 'Confirmation du nouveau mot de passe'
+                'label' => '',
+                'attr' => array( 'placeholder'=> 'Confirmation du nouveau mot de passe'),
             ))
         ;
     }

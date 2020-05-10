@@ -17,11 +17,11 @@
     </div>
     
     <div class="container edit mb-5">
-        <h1>Bienvenue {{ app.user.username }}</h1>
-        <div class="d-flex flex-column align-items-center">
-            <a href="{{ path('account_profile') }}" class="btn btn-primary my-2">Modifier mes informations</a>
-            <a href="{{ path('account_password') }}" class="btn btn-primary my-2">Modifier mon mot de passe</a>
-            <a href="{{ path('account_wig') }}" class="btn btn-primary my-2">Mes réservations</a>
+        <h3 class="text-center">Bienvenue {{ app.user.username }}</h3>
+        <div class="flex-sm-lg text-center">
+            <a href="{{ path('account_profile') }}" class="btn btn-primary m-2">Modifier mes informations</a>
+            <a href="{{ path('account_password') }}" class="btn btn-primary m-2">Modifier mon mot de passe</a>
+            <a href="{{ path('account_wig') }}" class="btn btn-primary m-2">Mes réservations</a>
         </div>
 
     </div>
