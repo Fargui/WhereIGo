@@ -1,33 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        {% if app.request.query.get('withAlert') %}
-            <div class="container alert alert-success mt-5">
-                <h4 class="">Votre réservation à bien été enregistrée !</h4>
 
-            </div>
-        {% endif %}
-
-    <div class="container mt-5">
-        <h1>Votre réservation (n°{{booking.id}}) pour le WIG :<br><b>{{booking.place.name}}</b></h1>
+    <div class="container receipt">
+        <h5>Votre réservation (n°{{booking.id}}) pour le WIG :<br>{{booking.place.name}}</h5>
+        
 
 
 
-        <div class="row mt-5">
-            <div class="col">
-                <div class="alert alert-primary">
-                    <h2>Détails</h2>
+        <div class="row">
+            <div>
+                <div class="alert bg-light">
+                    <h5>Détails</h5>
                     <dl class="row">
-                        <dt class="col-md-4">Numéro</dt>
-                        <dd class="col-md-8">{{booking.id}}</dd>
-                        <dt class="col-md-4">Date d'arrivée</dt>
-                        <dd class="col-md-8">{{booking.startAt | date ('d/m/Y')}}</dd>
-                        <dt class="col-md-4">Date de départ</dt>
-                        <dd class="col-md-8">{{booking.endAt | date ('d/m/Y')}}</dd>
-                        <dt class="col-md-4">Nombre de nuits</dt>
-                        <dd class="col-md-8">{{booking.duration}}</dd>
-                        <dt class="col-md-4">Montant total</dt>
-                        <dd class="col-md-8">{{booking.totalPrice}} € TTC</dd>
+                        <dt class="col-sm-4">Numéro</dt>
+                        <dd class="col-sm-8">{{booking.id}}</dd>
+                        <dt class="col-sm-4">Date d'arrivée</dt>
+                        <dd class="col-sm-8">{{booking.startAt | date ('d/m/Y')}}</dd>
+                        <dt class="col-sm-4">Date de départ</dt>
+                        <dd class="col-sm-8">{{booking.endAt | date ('d/m/Y')}}</dd>
+                        <dt class="col-sm-4">Nombre de nuits</dt>
+                        <dd class="col-sm-8">{{booking.duration}}</dd>
+                        <dt class="col-sm-4">Montant total</dt>
+                        <dd class="col-sm-8">{{booking.totalPrice}} € TTC</dd>
                     </dl>
                 </div>
             </div>

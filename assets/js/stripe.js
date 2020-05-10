@@ -29,10 +29,10 @@ console.log(form);
 form.addEventListener('submit', function(ev) {
   ev.preventDefault();
 
-var name = document.getElementById('name').value
+var name      = document.getElementById('name').value
 var firstname = document.getElementById('firstname').value
 
-var fullname = firstname + '' + name
+var fullname  = firstname + ' ' + name
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
       card: card,

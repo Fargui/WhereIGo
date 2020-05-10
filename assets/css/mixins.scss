@@ -4,6 +4,12 @@
     box-shadow: 0px -1px 16px -7px black;
 }
 
+@mixin inset-shadow {
+    -webkit-box-shadow: inset 0px 0px 14px -9px rgba(0,0,0,0.61);
+    -moz-box-shadow: inset 0px 0px 14px -9px rgba(0,0,0,0.61);
+    box-shadow: inset 0px 0px 14px -9px rgba(0,0,0,0.61);
+}
+
 @mixin bg-pos {
     position: absolute;
     top: 0;

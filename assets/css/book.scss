@@ -1,0 +1,135 @@
+
+/* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
+
+
+.range {
+    
+    margin-top: 24px;
+    margin-bottom: 24px;
+    color: $green_color;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 0.8em;
+    border: solid transparent;
+    border-radius: 2em;
+    background-color: white;
+    @include inset-shadow;
+
+}
+
+.container {
+
+    margin-top: 18vh;
+}
+
+
+.booking {
+
+    margin-top: 1vh;
+
+    h4 {
+    color: $green_color;
+    font-weight: 500;
+    font-size: 1.5rem;
+    }
+
+    p {
+    color: $green_color;
+    font-weight: 500;
+    font-size: 1.5rem;
+
+    }
+
+    .details {
+
+        visibility:hidden;
+    }
+
+    span {
+        font-weight: 700;
+        border-bottom: solid 5px;
+        display: inline-block;
+        line-height: 1.4em;
+        
+    }
+
+    #nights {
+        border-bottom: none;
+    }
+    
+    .btn-book {
+    color: $green_color;
+    background-color: $btn_smooth;
+    padding: 0.9em 2.5em;
+    border-radius: 2em;
+    border: transparent;
+    font-size: 0.8em;
+    margin-bottom: 5em;
+    
+}
+    
+    
+}
+
+
+
+.daterangepicker {
+
+    border-radius: 15px;
+    border: transparent;
+    @include shadow;
+
+    .calendar-table td {
+
+        border:none;
+    }
+        
+        td, th  {
+            
+            color: $green_color;
+        }
+
+        .disabled {
+            opacity: 0.4;
+            text-decoration: none!important;
+        }
+
+        .start-date {
+            background-color:$green_color!important;
+            border-radius:50px!important;
+        }
+
+        .end-date {
+            background-color:$green_color!important;
+            border-radius:50px!important;
+        }
+
+
+        .drp-buttons {
+            display: flex!important;
+            border-top: none;
+            
+        }
+
+        .cancelBtn{
+            font-weight: 400!important;
+            border-radius:50px;
+            border: solid 1px;
+            padding: 0.5em 1.5em!important;
+            background-color: transparent;
+            color: $green_color;     
+        }
+
+        .applyBtn {
+            font-weight: 400!important;
+            border-radius:50px;
+            padding: 0.5em 1.5em!important;
+            background-color: $green_color;
+            color: white;
+        }
+
+        .drp-selected {
+            visibility: hidden;
+        }
+
+    }

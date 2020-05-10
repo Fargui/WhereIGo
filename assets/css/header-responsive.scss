@@ -46,6 +46,12 @@
     .logo{
         display: initial!important;
         margin-right: 5vw;
+
+        svg {
+            width:7vw;
+            fill: $green_color;
+
+        }
     }
 
     .row{

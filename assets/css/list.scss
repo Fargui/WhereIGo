@@ -1,4 +1,6 @@
 
+/* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
+
 /* Text top */
 
 #placeHasCategories{
@@ -112,6 +114,45 @@ html{
   .masonry > * .test:first-child::before {
     content: counter(div) '/ ';
   }
+
+  //------------- Pagination style ! -------------------//
+
+  
+.page-link {
+
+    border-radius: 30px;
+    margin: 0.2em;
+    color: $green_color;
+
+  }
+
+
+
+
+.page-item:first-child .page-link, .page-item:last-child .page-link {
+
+  border-radius: 30px!important;
+  background-color: transparent!important;
+  color: $green_color;
+
+    a {
+      color: $green_color;
+      background-color: transparent!important;
+    }
+
+    a:hover {
+
+      color:red;
+    }
+}
+
+.page-item.active .page-link {
+  background-color: $green_color;
+  border-color: $btn_smooth;
+}
+  
+
+  
 
   /* RESPONSIVE */
 
