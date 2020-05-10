@@ -16,12 +16,12 @@ if(slider){
         step: 5,
         range: {
             'min': 0,
-            'max': 1000,
+            'max': 219,
         }
     });
 
-    min.value = 0;
-    max.value = 219;
+    min.value = 0+" €";
+    max.value = 219+" €";
 
     
     range.on('slide', function(values, handle){
@@ -29,11 +29,11 @@ if(slider){
       
       if (handle === 0){
         
-        min.value = Math.round(values[0])
+        min.value = Math.round(values[0])+"€"
         
       }
       if (handle === 1){
-        max.value = Math.round(values[1])
+        max.value = Math.round(values[1])+"€"
       }
     })
 }
