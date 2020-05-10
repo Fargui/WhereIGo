@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Reponse;
-use App\Data\TunnelData;
 use App\Repository\QuestionRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,22 +22,22 @@ class TunnelFormType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-
-        /* dump($this->questions); */
-
+        $id = 0;
 
         foreach($this->questions as $question){
             
-            $builder
+            $id++;
             
-            ->add('reponse_'.$question->getId(),EntityType::class, [
+            $builder
+            ->add('reponse_'.$id,EntityType::class, [
                 'class' => Reponse::class,  
                 'mapped' => false,
                 'multiple'  => false,
                 'expanded' => true,
-                'row_attr' => ['class' => 'question_'.$question->getId().' question'],
+                'row_attr' => ['class' => 'question_'.$id.' question'],
                 'label' => $question->getAsk(),
                 'choices'=> $question->getReponseHasQuestion(),
+                
             ])
             
             ->add('valider', SubmitType::class, [
@@ -50,7 +49,7 @@ class TunnelFormType extends AbstractType {
         public function configureOptions(OptionsResolver $resolver)
         {
             $resolver->setDefaults([
-                'data_class'      => TunnelData::class,
+                
                 'method'          => 'GET',
                 'csrf_protection' => false,
             ]);

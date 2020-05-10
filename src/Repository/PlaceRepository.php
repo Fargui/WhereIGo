@@ -4,10 +4,15 @@ namespace App\Repository;
 
 use App\Entity\Place;
 use App\Data\SearchData;
+<<<<<<< HEAD
 use App\Data\TunnelData;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
+=======
+use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+>>>>>>> cssgen
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -44,7 +49,7 @@ class PlaceRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('p')
              ->select('c', 'p')
              ->leftJoin('p.placeHasCategories', 'c');
-   
+        
 
         if (!empty($data->placeHasCategories)){           
         $query = $query
@@ -58,7 +63,6 @@ class PlaceRepository extends ServiceEntityRepository
             $query = $query
                       ->andWhere( 'p.name LIKE :query' )
                       ->setParameter( 'query', '%' . ($data->q) . '%');
-            
          }  
 
 
@@ -81,6 +85,7 @@ class PlaceRepository extends ServiceEntityRepository
                     8,
                 );
      }
+     
 
 
      /**
@@ -125,8 +130,7 @@ class PlaceRepository extends ServiceEntityRepository
     }
      
    
-
-
+  
 
     public function getPictureRandom(){
         $query = $this->createQueryBuilder( 'e' );
@@ -138,7 +142,7 @@ class PlaceRepository extends ServiceEntityRepository
     }
 
     /**
-     * Récupère les places en lien avec une recherche
+     * Récupère les places pour la map
      *
      * @return Place[]
      */
@@ -150,41 +154,11 @@ class PlaceRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+
+
+
+
+
 }
-
-/*     public function allCustomQuery()
-    {
-        $query = $this->createQueryBuilder('p');
-        $query->select('p.name, p.description');
-        return $query->getQuery()->getResult();
-    } */
-
-    // /**
-    //  * @return Place[] Returns an array of Place objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Place
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 

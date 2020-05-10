@@ -21,8 +21,8 @@ class SearchFormType extends AbstractType {
         $builder
             
             ->add('placeHasCategories', EntityType::class, [
+                
                 'label'         => false,
-                'choice_attr'   => function () { return array('class' => 'flat'); },  
                 'required'      => false,
                 'class'         => Category::class,
                 'expanded'      => true,
@@ -30,7 +30,7 @@ class SearchFormType extends AbstractType {
             ])
 
             ->add('q', TextType::class, [
-                'label'         => false,       
+                'label'         => "Rechercher un WIG",       
                 'required'      => false,
                 'attr'          =>[
                   'placeholder' => 'Rechercher'
@@ -38,19 +38,13 @@ class SearchFormType extends AbstractType {
             ])
 
             ->add('min', NumberType::class, [
-                'label'         => false,       
+                'label'         => 'Prix min :',       
                 'required'      => false,
-                'attr'          =>[
-                    'placeholder'=> 'Prix min'
-                ]
             ])
 
             ->add('max', NumberType::class, [
-                'label'         => false,       
+                'label'         => 'Prix max :',        
                 'required'      => false,
-                'attr'          =>[
-                  'placeholder' => 'Prix max'
-                ]
             ])
 
             ->add('valider', SubmitType::class, [

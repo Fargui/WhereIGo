@@ -44,12 +44,17 @@
                             {{ dump(data) }}
                         </pre> -->
                         <div class="card-body py-1">
+<<<<<<< HEAD
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">{{ place.name }}</h5>
                                 <h5 class="card-title">{{ place.price }} &euro;/nuit</h5>
                             </div>
                             
                             <p class="card-text">{{ place.description| u.truncate(41, '...') }}</p>
+=======
+                            <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
+                            <p class="card-text">{{ place.description|slice(0, 28) }}...</p>
+>>>>>>> cssgen
                             <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus</a>
                         </div>
                     

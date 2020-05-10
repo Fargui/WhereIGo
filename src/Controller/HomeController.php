@@ -44,6 +44,8 @@ class HomeController extends AbstractController {
             return $this->render('home/result_tunnel.html.twig', [
                 'background' => $background,
                 'places'     => $places,
+                'form'       => $form,
+                'data'       => $data,
             ]);
         }
   

@@ -13,16 +13,22 @@
 
     {{ form_start(form, {'attr': {'class': 'form-tunnel'}}) }}
 
+        <div class="button-tunnel-container">
+            {{ form_row(form.valider, {'attr': {'class': 'button-tunnel'}}) }}
+        </div>  
 
-    <div class="button-tunnel-container">
-        {{ form_row(form.valider, {'attr': {'class': 'button-tunnel'}}) }}
-    </div>  
-    
     {{ form_end(form) }}
   
 </div>
 
-{% block javascripts %}{% endblock %}
+
+{% block javascripts %}
+
+{{ encore_entry_script_tags('tunnel') }}
+
+{% endblock %}
+
+
 {% endblock %}
 
 

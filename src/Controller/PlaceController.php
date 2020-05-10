@@ -6,7 +6,6 @@ use App\Data\SearchData;
 use App\Form\SearchFormType;
 use App\Service\PlaceService;
 use App\Service\BackgroundService;
-use App\Repository\PlaceRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,12 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PlaceController extends AbstractController
 {
 
+    private $placeService;
     private $backgroundService;
 
 
-    public function __construct( PlaceService $placeService, PlaceRepository $placeRepository, BackgroundService $backgroundService ){
+    public function __construct( PlaceService $placeService, BackgroundService $backgroundService ){
         $this->placeService      = $placeService;
-        $this->placeRepository   = $placeRepository;
         $this->backgroundService = $backgroundService;
         // $this->request = $request;
         
@@ -35,6 +34,7 @@ class PlaceController extends AbstractController
         $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchFormType::class, $data);
         $form->handleRequest($request);
+        [$min, $max] = $this->placeService->findMinMax($data);
         $places = $this->placeService->findSearch($data);
         $background = $this->backgroundService->getBackgroundRandom();
         dump($data);
@@ -44,6 +44,8 @@ class PlaceController extends AbstractController
             'form'       => $form->createView(),
             'data'       => $data->placeHasCategories, // Represente les category cochées et envoyé au via form
             'background' => $background,
+            'min'        => $min,
+            'max'        => $max,
         ]);
     }
 

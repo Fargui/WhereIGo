@@ -15,6 +15,7 @@
 
     {{ encore_entry_link_tags('app') }}
     {% block stylesheets %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
                         {# button menu #}
                         <div>
                             <ul class="menu-middle mt-3">
-                                <li><a id="" class="toggle btn btn-light" href="">Menu</a></li>
+                                <li><a id="" class="toggle  btn btn-light" href="">Menu</a></li>
                             </ul>
                             {# fin button menu #}
                         </div>
@@ -124,14 +125,12 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/e427cc501a.js"></script>
    
     {{ encore_entry_script_tags('app') }}
-    {{ encore_entry_script_tags('tunnel') }}
 
-    
     {% block javascripts %}{% endblock %}
 </body>
 

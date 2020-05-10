@@ -1,13 +1,18 @@
 
 
 
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'class': 'form-filter'}}) }}
+        {{ form_label(form.placeHasCategories, 'Catégories' ,{ 'label_attr': {'class': 'MYCLASSFOR_LABEL'} }) }}
         {{ form_row(form.placeHasCategories) }}
 
-        {{ form_row(form.q) }}
+        {{ form_label(form.q, 'Rechercher un WIG') }}
+        {{ form_widget(form.q, {'attr': {'class': 'search-wig form-control ' }}) }}
+
+        <div class="price-filter">
         {{ form_row(form.min) }}
-      
         {{ form_row(form.max) }}
+        </div>
+       <div id="price-slider" class="slider" ></div>
        
         {{ form_row(form.valider) }}
         {{ form_end(form) }}

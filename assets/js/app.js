@@ -1,4 +1,7 @@
 import '../css/app.scss';
+import './filtres/range'
+
+
 
 /************************
 
@@ -19,7 +22,33 @@ import '../css/app.scss';
 
 
 
+var eau = $('#reponse_1_1');
+
 $(document).ready(function(){ 
+
+
+ $(eau).append('<div id="eau"><i class="fas fa-water"></i></div>');
+  
+ /*  eau.hover(function () {
+    console.log($('#reponse_1_1::before'));
+
+    eau.animate({
+      opacity: 0,
+    }, 1000, function() {
+      // Animation complete.
+    });
+  
+   eau.css('background-image', 'url("/build/images/plage.jpeg")')
+      
+    }, function () {
+      
+      eau.animate({
+        opacity: 1,
+      }, 1000, function() {
+        // Animation complete.
+      });
+    }
+  );; */
 
 
 if (window.matchMedia("(min-width: 992px)").matches) {
@@ -50,7 +79,7 @@ $(".toggle").click(function(e){
       $(this).text('Fermer');
       
       blurBg.css({
-          "filter": "blur(5px)"
+          "filter": "blur(2px)"
         });  
   }
   else
@@ -78,3 +107,4 @@ $(".toggle").click(function(e){
 
 
 
+//Si les reponses liées aux reponses dans l'url, on add du background à la div concernéé

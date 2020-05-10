@@ -7,39 +7,156 @@
     z-index: -1;
 }
 
-.form-tunnel{
-    margin-top: 10em;
-    height: 300px;
-    font-size: 1.5vw;
 
+/* TUNNEL */
+.form-tunnel{
+    padding-top: 26vh;
+    height: 300px;
+    position: relative;
+    
+    input{
+      display: none;
+    }
+
+    /* Bloc Q/R */
     .question{
       flex-direction: column;
       align-items: center;
+      margin-top: 7vh;
 
-
-      div{
-
-        label{
-          border-radius: 2em;
-          padding: 0em 1em;
-          color: white;
-          @include text-disable;
-          margin-right: 0.5em;
-        }
-
-        input:checked + label{
-          background-color: rgb(88, 88, 88);
-        }
-
-        input:hover + label{
-          background-color: rgb(88, 88, 88);
-        }
+      /* Que les questions au dessus des Rep */
+      .questions{
+        font-size: 4vw;
+        background-color: rgba(128, 128, 128, 0.219);
+        color: wheat;
+        padding-bottom: 6vh;
       }
 
-      input{
-        display: none;
+      /* TOUTES les reponses */
+      .reponses{
+        @include label;
+        font-weight: 700;
+        font-size: 4vw;
       }
+
+
+      #reponse_1{
+        
+       .eau:hover{
+          .icn-eau{
+            color: blue;
+          }
+        }
+
+        .terre:hover{
+          .icn-leaf{
+            color: rgb(0, 255, 76);
+          }
+        }
+
+        .feu:hover{
+          .icn-fire{
+            color: rgb(236, 119, 22);
+          }
+        }
+
+        .air:hover{
+          .icn-wind{
+            color: rgb(255, 255, 255);
+          }
+        } 
+      }
+
+
+      #reponse_2{
+        .reponses{
+          color: transparent;
+          i{
+            color: initial;
+            font-size: 8vw;
+          }     
+        }
+        
+        .non-merci:hover{
+           .icn-non{
+             color: rgb(156, 33, 24);
+           }
+         }
+ 
+         .louche:hover{
+           .icn-adrenaline{
+             color: rgb(39, 228, 99);
+           }
+         } 
+       }   
     }
+
+    #reponse_3{
+
+      .questions{
+        font-size: 7vw;
+      }
+
+      .reponses{
+        color: transparent; 
+
+         i{
+          color: initial;
+        } 
+      }
+      
+      .nu:hover{
+           .icn-nu{
+             color: rgb(223, 19, 19);
+           }
+         } 
+
+      .devetu:hover{
+        .icn-devetu{
+          color: rgb(209, 130, 55);
+        }
+      } 
+
+      .habille:hover{
+        .icn-habille{
+          color: rgb(79, 216, 52);
+        }
+      } 
+  }
+
+
+  #reponse_4{
+
+    align-items: baseline;
+
+    .reponses{
+      color: transparent; 
+       i{
+        color: initial;
+      } 
+    }
+
+    .icn-avant-2{
+      display: none;
+      transition: 0.5s;
+    }
+
+    .icn-play{
+      display: none;
+      transition: 0.5s;
+    }
+   
+  
+    .icn-apres-2{
+      display: none;
+    }
+    
+}
+
+
+
+
+
 
     .button-tunnel-container{
       justify-content: center;

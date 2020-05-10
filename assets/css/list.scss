@@ -7,35 +7,6 @@
   font-size: 0.4em;
 }
 
-#placeHasCategories{
-
-  label{
-    background-color: $btn_color;
-    border-radius: 2em;
-    padding: 0em 1em;
-    color: white;
-    @include text-disable;
-    margin-right: 0.5em;
-
-  }
-  input:checked + label{
-    background-color: rgb(88, 88, 88);
-  }
-
-  input{
-    display: none;
-  }
-}
-
-.btn-filter{
-  background-color: rgba(35, 35, 202, 0.815);
-  border-radius: 2em;
-  padding: 0em 1em;
-  font-size: 1.3rem;
-  margin-top:1em ;
-  margin-bottom:1em ;
-}
-
 .filters-container{
   padding-top: 20vh;
   
@@ -46,6 +17,12 @@
   }  
 
   .second-container{
+
+    h2, p{
+      padding: 12px;
+    }
+
+
     width: 100%;
     height: 16em;
     background-size: cover;
@@ -62,6 +39,80 @@
     z-index: -1;
   }
 }
+
+
+
+/* Filtres */
+.form-filter{
+
+  label{
+    font-weight: 600;
+  }
+
+  #placeHasCategories{
+
+    margin-bottom: 1vh;
+
+    label{
+      background-color: transparent;
+      border-radius:  2em;
+      border: solid 1px $btn_color;
+      padding: 0em 1em;
+      color: $btn_color;
+      @include text-disable;
+      margin-right: 0.5em;
+      
+    }
+    
+   
+    input:checked + label {
+      background-color: rgb(88, 88, 88);
+      color: white;
+    }
+  
+    input{
+      display: none;
+    }
+  }
+
+  .price-filter{
+
+    margin-top: 1vh;
+    input{
+      border: none;
+      margin-left: 1vw;
+    }
+  }
+  
+  
+  /*SLIDER*/
+  
+  .slider{
+    width: 30vw;
+    margin-left: 1vw;
+    margin-bottom: 2.5vh;
+    
+  
+    .noUi-handle{
+      border-radius: 2em;
+      
+    }
+  
+  }
+  
+  .btn-filter{
+    background-color: rgba(35, 35, 202, 0.815);
+    border-radius: 2em;
+    padding: 0em 1em;
+    font-size: 1.3rem;
+    margin-top:1em ;
+    margin-bottom:1em ;
+  }
+
+
+  
+}
+
 
 /* CARDS */
 
@@ -160,7 +211,18 @@ html{
 
   /* RESPONSIVE */
 
+  @media screen and (min-width: 319px) {
+
+    .search-wig{
+      width: 50%;
+    }
+  }
+
   @media screen and (min-width: 768px) {
+
+    .search-wig{
+      width: 25%;
+    }
 
     .masonry {
       -webkit-column-count: 2;
@@ -183,6 +245,10 @@ html{
 }
 
   @media screen and (min-width: 1200px) {
+
+    .search-wig{
+      width: 23%;
+    }
     .masonry {
       -webkit-column-count: 4;
          -moz-column-count: 4;
