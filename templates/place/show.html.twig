@@ -1,24 +1,18 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Votre prochain voyage{% endblock %}
 
 {% block body %}
-    <div class="container showContainer text-center">
-        
-        <h1>{{place.name}}</h1>
-
-       
+    <div class="container-fluid showContainer text-center">
         <div id="demo" class="carousel slide" data-ride="carousel">
-
             <!-- Indicators -->
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
                 {% for i in 1..(place.pictures|length) %}
                     <li data-target="#demo" data-slide-to="{{i}}"></li>
                 {% endfor %}
-
             </ul>
-          
             <!-- The slideshow -->
             <div class="carousel-inner">
                 {% set length = (place.pictures|length) %}
@@ -29,32 +23,48 @@
                     <div class="carousel-item">
                         <img src="{{ asset('build/images/' ~ picture.name) }}" alt="...">
                     </div>
-                {% endfor %}
-                        
-                   
-            </div>
-          
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </a>
-          
-          </div>
+                {% endfor %}          
+            </div>   
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+           </div>
+           <div class="container mt-2">
+                <h2>{{place.name}}</h2>
+                    <div class="text-left mt-4">
+                        <h5>Descriptrion :</h5>
+                        <p>{{place.description}}</p>
+                        <h5>Couchages :</h5>
+                        <p>The standard chunk of Lorem Ipsum used since
+                            the 1500s is reproduced below for those interested.
+                            Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+                            Malorum" by Cicero are also reproduced in their exact original form, 
+                            accompanied by English versions from the 1914
+                            translation by H. Rackham.
+                        </p>
+                        <h5>Quand partir ?</h5>
+                        <p>the 1500s is reproduced below for those interested.</p>
+                        <h5>Prix de la nuit</h5>
+                        <p>{{ place.price }} € ttc petits déjeuner inclus</p>
 
+                    </div>
+           </div>
 
-        <p>{{place.description}}</p>
+           <div class="mt-5 mb-5">
+                <a href="{{ path('booking_create', {'id': place.id}) }}" class="btn-book">Consultez nos disponibilités</a> 
+           </div>
 
+        <div class="container" id="map"></div>
 
-        <a href="{{ path('booking_create', {'id': place.id}) }}" class="btn btn-primary mb-2">Réserver</a>
-
-
-        <div id="map"></div>
+        
         {% set latitude = place.latitude %}
         {% set longitude = place.longitude %}
 
+<!-- JS De La MAP !!!! -->
         <script>
             // Initialize and add the map
             function initMap() {
@@ -72,5 +82,8 @@
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvks-_bKH_gbWvVYqzTeUaK1p29FxJnKA&callback=initMap">
         </script>
+
+
     </div>
+   
 {% endblock %}

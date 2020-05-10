@@ -12,6 +12,14 @@
 @import 'show.scss';
 @import 'home.scss';
 @import 'map.scss';
+@import 'book.scss';
+@import 'book-responsive.scss';
+@import 'show-responsive.scss';
+@import 'map-responsive.scss';
+@import 'stripe-responsive.scss';
+@import 'stripe.scss';
+@import 'receipt-responsive.scss';
+@import 'receipt.scss';
 
 
 html{
@@ -41,6 +49,12 @@ li{
     background: 0 0;
     color: red!important;
     cursor: default;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+    
 }
 
 

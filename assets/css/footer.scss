@@ -1,20 +1,61 @@
+
+/* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
+
 .left-footer-container{
     display: flex;
+    width: 100vw;
 }
 
 footer{
+    
     height: 300px;
     background-color: $btn_color;
     
     a{
-        color: $text_color;
+        
+            color: white;
+            font-size: 0.5em;
+            font-weight: 400;
+            border: solid 1px white;
+            border-radius: 50px;
+            padding: 0.5em 1.2em;
+            white-space: nowrap;
+        
     }
 
+    li {
+        margin: 0.3em;
+    }
+
+    ul {
+        padding: 0em 0em 1em 1em;
+    }
+
+
+    .nav-footer {
+        width: 25vw;
+    }
+
+    
     .logo-footer{
-        visibility: hidden;
+        visibility: visible;
+
+        svg { 
+            width: 8em;
+            fill: white;
+            margin-top: 1em;
+        }
+    }
+
+    .line {
+
+        width: 89vw;
+        border-bottom: solid 1px white;
+        margin-bottom: 1em;
     }
 
     .row-footer{
         height: 300px;
     }
 }
+

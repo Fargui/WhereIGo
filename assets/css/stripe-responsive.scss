@@ -1,0 +1,104 @@
+@media screen and (min-width: 992px)
+{
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+ .StripeElement {
+    box-sizing: border-box;
+  
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid $green_color;
+    border-radius: 50px;
+    background-color: white;
+    margin-top: 0.5em;
+
+  }
+  
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+  .verify{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 50px;
+    font-size: 0.68em;
+    border: 1px solid $green_color;
+    padding: 9px 12px;
+    width: 48%;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+thead {
+    font-size: 1.3em!important;
+}
+tbody {
+    font-size: 1.3em!important;
+}
+
+td {
+    font-size: 0.8em;
+}
+
+h5 {
+    font-size: 0.8em;
+    border-bottom: none!important;
+}
+
+  .modal.show .modal-dialog {
+    -webkit-transform: translate(0,0);
+    transform: translate(0,40%);
+
+        .btn-book {
+            color: #717f7c;
+            text-align: center;
+            background-color: #dadad9;
+            padding: 1em 3em;
+            border-radius: 2em;
+            border: transparent;
+            font-size: 0.7em;
+            margin-bottom: 0em;
+        }
+
+        button:hover {
+            cursor:pointer;
+        }
+
+        span {
+            font-weight: 700;
+            border-bottom: 2px solid $green_color;
+        }
+
+        .none {
+            border-bottom: none
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $green_color;
+            opacity: 0.4; /* Firefox */
+            font-size: 1em;
+        }
+
+
+        .nom-prenom {
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+    }
+}

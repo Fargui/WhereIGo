@@ -15,6 +15,51 @@ footer{
     a{
         text-decoration: none;
         color: white;
+        font-size: 0.6em;
+        font-weight: 400;
+        border: solid 1px white;
+        border-radius: 50px;
+        padding: 0.5em 1.2em;
+        white-space: nowrap;
+    }
+
+    .nav-footer {
+        width: 8vw;
+    }
+
+    .left-footer-container {
+        width: 20vw;
+    }
+
+    a:hover {
+        background-color: white;
+        color: #696866a1;;
+    }
+
+    li {
+        margin: 0.5em;
+        
     }
 }
+
+.row {
+
+    display: flex!important;
+    justify-content: space-evenly!important;
+
+    svg { 
+        width: 13vw;
+        fill: white;
+    }
+
+}
+
+.line {
+
+    width: 34vw!important;
+    border-bottom: solid 2px white;
+    margin-left: 0.5em;
+}
+
+
 }
