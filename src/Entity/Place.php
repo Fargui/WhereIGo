@@ -87,7 +87,6 @@ class Place
      */
     private $idReponse;
 
-<<<<<<< HEAD
     /**
      * @ORM\Column(type="text", nullable=true)
      */
@@ -103,9 +102,6 @@ class Place
         $this->calendarHasPlaces = new ArrayCollection();
         $this->bookings = new ArrayCollection();
     }
-=======
-    
->>>>>>> cssgen
 
     /**
      * Donne un [] des jours nons dispos

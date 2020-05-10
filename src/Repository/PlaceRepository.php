@@ -4,15 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Place;
 use App\Data\SearchData;
-<<<<<<< HEAD
 use App\Data\TunnelData;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
-=======
-use Doctrine\Persistence\ManagerRegistry;
-use Knp\Component\Pager\PaginatorInterface;
->>>>>>> cssgen
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
