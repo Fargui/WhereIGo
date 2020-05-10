@@ -45,7 +45,11 @@
                             {{ dump(data) }}
                         </pre> -->
                         <div class="card-body py-1">
-                            <h5 class="card-title">{{ place.name }}/{{ place.country}}</h5>
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">{{ place.name }}</h5>
+                                <h5 class="card-title">{{ place.price }} &euro;</h5>
+                            </div>
+                            
                             <p class="card-text">{{ place.description| u.truncate(28, '...') }}</p>
                             <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus</a>
                         </div>

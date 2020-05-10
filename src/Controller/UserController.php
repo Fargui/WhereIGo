@@ -145,7 +145,7 @@ class UserController extends AbstractController
      */
     public function login_success(){
         $this->addFlash( 'success', 'Vous êtes bien connecté' );
-        return $this->redirectToRoute( 'homepage' );
+        return $this->redirectToRoute( 'list' );
     }
 
     /**
