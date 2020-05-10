@@ -38,6 +38,14 @@
 
 
       #reponse_1{
+
+        .reponses{
+          color: transparent;
+          i{
+            color: initial;
+            font-size: 8vw;
+          }     
+        }
         
        .eau:hover{
           .icn-eau{
@@ -141,6 +149,10 @@
     .icn-play{
       display: none;
       transition: 0.5s;
+
+      &:hover{
+        color: rgb(38, 180, 38);
+      }
     }
    
   
@@ -150,11 +162,6 @@
     
 }
 
-
-
-
-
-
     .button-tunnel-container{
       justify-content: center;
 
@@ -163,5 +170,7 @@
       }
     }
 }
+
+
 
 
