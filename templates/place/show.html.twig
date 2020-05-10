@@ -26,10 +26,10 @@
                 {% endfor %}          
             </div>   
                 <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <a class="carousel-control-prev btn-carou-l" href="#demo" data-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </a>
-                <a class="carousel-control-next" href="#demo" data-slide="next">
+                <a class="carousel-control-next btn-carou-r" href="#demo" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                 </a>
            </div>
@@ -39,17 +39,9 @@
                         <h5>Descriptrion :</h5>
                         <p>{{place.description}}</p>
                         <h5>Couchages :</h5>
-                        <p>The standard chunk of Lorem Ipsum used since
-                            the 1500s is reproduced below for those interested.
-                            Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
-                            Malorum" by Cicero are also reproduced in their exact original form, 
-                            accompanied by English versions from the 1914
-                            translation by H. Rackham.
-                        </p>
-                        <h5>Quand partir ?</h5>
-                        <p>the 1500s is reproduced below for those interested.</p>
-                        <h5>Prix de la nuit</h5>
-                        <p>{{ place.price }} € ttc petits déjeuner inclus</p>
+                        <p>{{ place.couche }}</p>
+                        <h5>Prix de la nuit :</h5>
+                        <p>{{ place.price }} € TTC petits déjeuner inclus</p>
 
                     </div>
            </div>
