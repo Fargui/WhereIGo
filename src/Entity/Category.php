@@ -33,6 +33,11 @@ class Category
      */
     private $placeHasCategories;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $tunnel_icn;
+
     public function __construct()
     {
         $this->placeHasCategories = new ArrayCollection();
@@ -101,5 +106,17 @@ class Category
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getTunnelIcn(): ?string
+    {
+        return $this->tunnel_icn;
+    }
+
+    public function setTunnelIcn(string $tunnel_icn): self
+    {
+        $this->tunnel_icn = $tunnel_icn;
+
+        return $this;
     }
 }

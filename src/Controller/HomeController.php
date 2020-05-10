@@ -35,9 +35,6 @@ class HomeController extends AbstractController {
         $form = $this->createForm(TunnelFormType::class, $data);
         $form->handleRequest($request);
         
-
-        
-
         if($form->isSubmitted() && $form->isValid()){
            
             $reponse_1 = $request->query->get('reponse_1');

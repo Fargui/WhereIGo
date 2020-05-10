@@ -22,8 +22,6 @@ class TunnelFormType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-
-        //Pour 
         $id = 0;
 
         foreach($this->questions as $question){
@@ -31,8 +29,6 @@ class TunnelFormType extends AbstractType {
             $id++;
             
             $builder
-            
-            
             ->add('reponse_'.$id,EntityType::class, [
                 'class' => Reponse::class,  
                 'mapped' => false,

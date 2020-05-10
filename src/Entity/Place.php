@@ -87,14 +87,7 @@ class Place
      */
     private $idReponse;
 
-
-    public function __construct()
-    {
-        $this->pictures = new ArrayCollection();
-        $this->placeHasCategories = new ArrayCollection();
-        $this->calendarHasPlaces = new ArrayCollection();
-        $this->bookings = new ArrayCollection();
-    }
+    
 
     /**
      * Donne un [] des jours nons dispos
@@ -364,4 +357,5 @@ class Place
 
         return $this;
     }
+
 }

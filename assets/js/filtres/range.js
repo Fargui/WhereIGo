@@ -21,7 +21,7 @@ if(slider){
     });
 
     min.value = 0;
-    max.value = 1000;
+    max.value = 219;
 
     
     range.on('slide', function(values, handle){

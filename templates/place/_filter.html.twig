@@ -2,7 +2,7 @@
 
 
         {{ form_start(form, {'attr': {'class': 'form-filter'}}) }}
-        {{ form_label(form.placeHasCategories, 'Catégories' ,{'attr': {'class': 'label-cat'}}) }}
+        {{ form_label(form.placeHasCategories, 'Catégories' ,{ 'label_attr': {'class': 'MYCLASSFOR_LABEL'} }) }}
         {{ form_row(form.placeHasCategories) }}
 
         {{ form_label(form.q, 'Rechercher un WIG') }}
