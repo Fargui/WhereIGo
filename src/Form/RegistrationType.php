@@ -19,26 +19,31 @@ class RegistrationType extends AbstractType
         $builder
             ->add('username', null, array(
                 'label' => "Nom d'utilisateur",
+                'attr' => array( 'placeholder'=> 'Nom d\'utilisateur'),
                 'help' => "Le nom affiché pour les autres utilisateurs"
             ))
             ->add('email', EmailType::class, array(
-                'label' => "E-mail"
+                'label' => "E-mail",
+                'attr' => array( 'placeholder'=> 'E-mail'),
             ))
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Confirmation du mot de passe'],
+                'first_options' => ['label' => 'Mot de passe', 'attr' =>['placeholder'=> 'Mot de passe'] ],
+                
+                'second_options' => ['label' => 'Confirmation du mot de passe', 'attr' =>['placeholder'=> 'Confirmation de mot de passe']],
                 'invalid_message' => "Les mots de passe ne correspondent pas."
             ))
             ->add('firstname', null, array(
                 'label' => "Prénom",
+                'attr' => array( 'placeholder'=> 'Prénom'),
             ))
             ->add('lastname', null, array(
                 'label' => "Nom",
+                'attr' => array( 'placeholder'=> 'Nom'),
             ))
             ->add('birthday', BirthdayType::class, array(
                 'label' => "Date de naissance",
-                'format' => 'dd/MMMM/y',
+                'format' => 'ddMMMMy',
                 'placeholder' => array(
                     'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
                 )

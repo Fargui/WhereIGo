@@ -2,6 +2,10 @@
 /* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
 
 /* Text top */
+.pagination {
+
+  font-size: 0.4em;
+}
 
 #placeHasCategories{
 
@@ -166,6 +170,11 @@ html{
               .card-img-top{
                 border-radius: 0.5em;
               }      
+    }
+
+    .pagination {
+
+      font-size: 0.8em;
     }
 
     .masonry-container {

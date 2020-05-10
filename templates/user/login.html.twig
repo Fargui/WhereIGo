@@ -4,26 +4,25 @@
 
 {% block body %}
     <div class="container login">
-        <h2 class="mb-5">Se connecter</h2>
+        <h5>Se connecter</h5>
         <div class="row">
             <form method="post" class="col-12 col-lg-6">
                 {% if error %}
-                    <div class="alert alert-danger">
+                    <div class="alert">
                         Les identifiants saisis ne sont pas corrects
                     </div>
                 {% endif %}
                 
-                <div class="form-group">
                     <label for="_username">Email de connexion</label>
-                    <input type="text" name="_username" placeholder="E-mail" class="form-control" value="{{ lastUsername }}">
-                </div>
-                <div class="form-group">
+                    <input type="text" name="_username" placeholder="E-mail" class="range" value="{{ lastUsername }}">
+               
+             
                     <label for="_password">Mot de passe</label>
-                    <input type="password" name="_password" placeholder="Mot de passe" class="form-control">
-                </div>
+                    <input type="password" name="_password" placeholder="Mot de passe" class="range">
+             
                 <input type="hidden" name="_target_path" value="{{ path('user_login_success') }}">
 
-                <button type="submit" class="btn btn-primary btn-lg mt-2">Connexion</button>
+                <button type="submit" class="btn btn-book btn-lg mt-2">Connexion</button>
             </form>
         </div>
     </div>

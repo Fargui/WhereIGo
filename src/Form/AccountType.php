@@ -14,22 +14,28 @@ class AccountType extends AbstractType
         $builder
             ->add('email')
             ->add('firstname',null,[
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'attr' => array( 'placeholder'=> 'Prénom'),
             ])
             ->add('lastname',null,[
-                'label' => "Nom de famille"
+                'label' => "Nom de famille",
+                'attr' => array( 'placeholder'=> 'Nom'),
             ])
             ->add('address',null,[
-                'label' => 'Adresse'
+                'label' => 'Adresse',
+                'attr' => array( 'placeholder'=> 'Adresse'),
             ])
             ->add('zip_code',null,[
-                'label' => 'Code postal'
+                'label' => 'Code postal',
+                'attr' => array( 'placeholder'=> 'Code postal'),
             ])
             ->add('city',null,[
-                'label' => 'Ville'
+                'label' => 'Ville',
+                'attr' => array( 'placeholder'=> 'Ville'),
             ])
             ->add('country',null,[
-                'label' => 'Pays'
+                'label' => 'Pays',
+                'attr' => array( 'placeholder'=> 'Pays'),
             ])
         ;
     }
