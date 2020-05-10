@@ -92,9 +92,9 @@ class PlaceRepository extends ServiceEntityRepository
 
                  
         $reponse_1 = $request->query->get('reponse_1');
+        $reponse_2 = $request->query->get('reponse_2');
         $reponse_3 = $request->query->get('reponse_3');
         $reponse_4 = $request->query->get('reponse_4');
-        $reponse_5 = $request->query->get('reponse_5');
 
         $sql = '
         select p.name, pic.name as picname, p.description, p.country, p.id from place p
@@ -102,11 +102,11 @@ class PlaceRepository extends ServiceEntityRepository
         where p.id in
         ( select place_id from reponse_place rp where rp.reponse_id = :reponse_1
           intersect
+          select place_id from reponse_place rp where rp.reponse_id = :reponse_2
+            intersect
           select place_id from reponse_place rp where rp.reponse_id = :reponse_3
             intersect
           select place_id from reponse_place rp where rp.reponse_id = :reponse_4
-            intersect
-          select place_id from reponse_place rp where rp.reponse_id = :reponse_5
         )
         ORDER BY RAND()
         LIMIT 1
@@ -115,9 +115,9 @@ class PlaceRepository extends ServiceEntityRepository
         
         $stmt = $conn->prepare($sql);
         $stmt->bindValue('reponse_1', $reponse_1);
+        $stmt->bindValue('reponse_2', $reponse_2);
         $stmt->bindValue('reponse_3', $reponse_3);
         $stmt->bindValue('reponse_4', $reponse_4);
-        $stmt->bindValue('reponse_5', $reponse_5);
         $stmt->execute();
 
         // returns an array of arrays (i.e. a raw data set)
