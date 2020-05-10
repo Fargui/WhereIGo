@@ -2,13 +2,14 @@
 
 namespace App\Repository;
 
+use App\Entity\Place;
 use App\Data\SearchData;
 use App\Data\TunnelData;
-use App\Entity\Place;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Place|null find($id, $lockMode = null, $lockVersion = null)
@@ -85,21 +86,42 @@ class PlaceRepository extends ServiceEntityRepository
      /**
      * Renvoie une place random // reponses user
      */
-     public function findTunnel(TunnelData $data) {
-        $query = $this->createQueryBuilder( 'p' )
-        ->select('p', 'r')
-        ->leftJoin('p.idReponse', 'r')
+     public function findTunnel(Request $request) {
+
+        $conn = $this->getEntityManager()->getConnection();
+
+                 
+        $reponse_1 = $request->query->get('reponse_1');
+        $reponse_3 = $request->query->get('reponse_3');
+        $reponse_4 = $request->query->get('reponse_4');
+        $reponse_5 = $request->query->get('reponse_5');
+
+        $sql = '
+        select p.name, pic.name as picname, p.description, p.country, p.id from place p
+        INNER JOIN picture pic ON p.id = pic.place_id
+        where p.id in
+        ( select place_id from reponse_place rp where rp.reponse_id = :reponse_1
+          intersect
+          select place_id from reponse_place rp where rp.reponse_id = :reponse_3
+            intersect
+          select place_id from reponse_place rp where rp.reponse_id = :reponse_4
+            intersect
+          select place_id from reponse_place rp where rp.reponse_id = :reponse_5
+        )
+        ORDER BY RAND()
+        LIMIT 1
+        ;
+            ';
         
-        ;
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue('reponse_1', $reponse_1);
+        $stmt->bindValue('reponse_3', $reponse_3);
+        $stmt->bindValue('reponse_4', $reponse_4);
+        $stmt->bindValue('reponse_5', $reponse_5);
+        $stmt->execute();
 
-
-        if (!empty($data->reponse_)){           
-            $query = $query
-                     ->andWhere('r.id IN(:placeHasCategories)')
-                     ->setParameter('placeHasCategories', $data->reponse_);
-                }        
-        ;
-        return $query->getQuery()->getResult();
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
     }
      
    

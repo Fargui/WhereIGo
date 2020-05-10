@@ -18,6 +18,20 @@
     margin-right: 1em!important;
 }
 
+
+.logo{
+        
+    
+    margin-right: 5vw;
+
+    svg {
+        visibility: visible;
+        width:7vw;
+        fill: $green_color;
+
+    }
+}
+
 .background-header{
         height: 0px;
         width: 100%;
@@ -44,8 +58,16 @@
 
 
     .logo{
-        display: initial!important;
+
+        
         margin-right: 5vw;
+
+        svg {
+            visibility: visible;
+            width:7vw;
+            fill: $green_color;
+
+        }
     }
 
     .row{
@@ -79,6 +101,7 @@
       top: initial;
       transition: top 0.8s;
       padding-right: 1vw;
+      
      
       .bloc-middle{
           flex-direction: row;
@@ -93,6 +116,7 @@
                 font-weight: 600;
                 color:#7f7c71;
                 padding: 1em 2.6em;
+                @include shadow;
               }   
           }
       }
@@ -100,6 +124,7 @@
       .bloc-end{
         flex-direction: row;
         margin-left: 0;
+        
 
         a{
             border-radius: 3em !important;
@@ -107,6 +132,7 @@
             font-weight: 600;
             color:#7f7c71;
             padding: 1em 2.6em;
+            @include shadow;
         }
 
         input {
@@ -133,6 +159,10 @@
         }
         .deconnexion{
             order: 3;
+            margin: 0.5em;
+        }
+        .account{
+            order: 2;
             margin: 0.5em;
         }
 

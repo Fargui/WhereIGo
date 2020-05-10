@@ -3,7 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\AccountType;
+use App\Entity\PasswordUpdate;
 use App\Form\RegistrationType;
+use App\Form\PasswordUpdateType;
+use Symfony\Component\Form\FormError;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,7 +38,7 @@ class UserController extends AbstractController
             $em->flush();
 
             $this->addFlash( 'success', "Votre compte à bien été créé" );
-            return $this->redirectToRoute( 'user_register' );
+            return $this->redirectToRoute( 'user_login' );
         }
 
         return $this->render('user/register.html.twig', [
@@ -52,6 +57,84 @@ class UserController extends AbstractController
         ));
     }
 
+     /**
+     * @Route("/account", name="account")
+     */
+    public function myAccount(){
+
+        return $this->render( 'account/account.html.twig', array(
+
+        ));
+    }
+
+     /**
+     * @Route("/account/wig", name="account_wig")
+     */
+    public function myWigs(){
+
+        return $this->render( 'account/wig.html.twig', array(
+
+        ));
+    }
+
+    /**
+     * @Route("/account/profile", name="account_profile")
+     */
+    public function profile(Request $request, ObjectManager $manager){
+        $user = $this->getUser();
+
+        $form = $this->createForm(AccountType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            $manager->persist($user);
+            $manager->flush();
+            $this->addFlash( 'success', "Votre profil a bien été modifié" );
+            return $this->redirectToRoute( 'homepage' );
+        }
+
+        return $this->render( 'account/profile.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+
+
+    /**
+     * @Route("/account/update-password", name="account_password")
+     */
+    public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder, ObjectManager $manager){
+        $passwordUpdate = new PasswordUpdate();
+
+        $user = $this->getUser();
+
+        $form = $this->createForm(PasswordUpdateType::class, $passwordUpdate);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            if(!password_verify($passwordUpdate->getOldPassword(), $user->getPassword())){
+                $form->get('oldPassword')->addError(new FormError("Le mot de passe que vous avez tapé n'est pas votre mot de passe actuel"));
+            }
+            else{
+                $newPassword = $passwordUpdate->getNewPassword();
+                $hash = $encoder->encodePassword($user, $newPassword);
+
+                $user->setPassword($hash);
+
+                $manager->persist($user);
+                $manager->flush();
+
+                $this->addFlash( 'success', "Votre mot de passe a bien été modifié" );
+                return $this->redirectToRoute('homepage');
+            }
+            
+        }
+        return $this->render('account/password.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
     /**
      * @Route("/logout", name="user_logout")
      */
@@ -62,7 +145,7 @@ class UserController extends AbstractController
      */
     public function login_success(){
         $this->addFlash( 'success', 'Vous êtes bien connecté' );
-        return $this->redirectToRoute( 'homepage' );
+        return $this->redirectToRoute( 'list' );
     }
 
     /**

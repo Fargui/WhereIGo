@@ -3,8 +3,27 @@
 {% block body %}
 
   {% for place in places %}
-  
     
+  <div class="container edit">
+    <div>
+      <h1 class="my-3 text-center">Voici le WIG de vos rêves</h1>
+      <hr>
+      <div class="d-flex justify-content-center">
+        <img src="{{ asset('build/images/' ~ place.picname) }}" class="card-img-top img-result" alt="...">
+      </div>
+      <div class="card-body py-1 text-center">
+          <h5 class="card-title mt-3">{{ place.name }}</h5>
+          <p class="card-text">{{ place.description|slice(0, 28) }}...</p>
+          <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary mb-3">Voir plus</a>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
   
   
   

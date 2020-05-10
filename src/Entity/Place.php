@@ -87,6 +87,13 @@ class Place
      */
     private $idReponse;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $couche;
+
+
+
 
     public function __construct()
     {
@@ -361,6 +368,50 @@ class Place
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idReponse
+     */ 
+    public function getIdReponse()
+    {
+        return $this->idReponse;
+    }
+
+    /**
+     * Set the value of idReponse
+     *
+     * @return  self
+     */ 
+    public function setIdReponse($idReponse)
+    {
+        $this->idReponse = $idReponse;
+
+        return $this;
+    }
+
+    public function getCouchage(): ?string
+    {
+        return $this->couchage;
+    }
+
+    public function setCouchage(string $couchage): self
+    {
+        $this->couchage = $couchage;
+
+        return $this;
+    }
+
+    public function getCouche(): ?string
+    {
+        return $this->couche;
+    }
+
+    public function setCouche(?string $couche): self
+    {
+        $this->couche = $couche;
 
         return $this;
     }

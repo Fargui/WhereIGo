@@ -1,12 +1,16 @@
 {{ form_start(form) }}
-<div class="alert alert-secondary">
-    <h2>Nous vous laissons le choix dans la date !</h2>      
+<div>      
         {{ form_row(form.start_at) }}
-            <input class="range form-control" type="text" name="daterange"/>
+            <input class="range form-control text-center" type="text" name="daterange"/>
         {{ form_row(form.end_at) }}
-            <h4>Prix de votre Wig :  <span id="total">...</span> € TTC </h4>
-    <span id="nights">0</span> nuit(s) à {{ place.price }} € / nuit     
+    <div class="details">
+            <p><span>Canon !</span></span><br>Vous avez choisis d'y passer <span id="nights"></span> nuit(s) !<br>
+            {# Voici le prix de votre Wig :  <span id="total"></span> € #}</p>
+         
+        <button type="submit" class="btn-book">Je bloque mes dates</button>
+    </div>
+       
 </div>
 
-<button type="submit" class="btn btn-success mt-5">J'y vais !</button>
+
 {{ form_end(form) }}

@@ -1,0 +1,39 @@
+@media screen and (min-width: 992px)
+{
+
+    .booking {
+
+
+        p {
+            font-size: 1.8em!important;
+            line-height: 1.6em!important;
+        }
+
+        
+
+    }
+    
+    .btn-book {
+            
+            font-size: 0.7em!important;
+            
+        }
+
+    .range {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+
+.daterangepicker {
+
+    .drp-buttons {
+        display: flex!important;
+        justify-content: flex-end;
+        border-top: none;
+        
+    }
+}
+
+
+}

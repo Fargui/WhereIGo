@@ -1,0 +1,89 @@
+@media screen and (min-width: 992px)
+{
+
+
+
+.alert {
+
+    border-radius: 30px;
+
+    p {
+        font-size: 1em!important
+    }
+
+    
+}
+
+.login {
+
+    .range {
+        
+       width: 30vw; 
+    }
+    
+}
+
+
+
+.register{        
+
+        ul {
+           
+                margin-top: 0;
+                display: flex;
+                margin-bottom: 1rem;
+                justify-content: center;
+            
+        }
+    
+    
+      
+        input {
+            font-size: 0.7em;
+            width:25vw;
+            padding: 1em;
+            margin: 1em;
+            
+        }
+
+        li {
+            font-size: 0.7em;
+            color: darkred;
+        }
+
+
+        
+
+        
+    
+
+        
+    }
+
+::placeholder {
+    
+    font-size: 1.2em!important;
+    padding: 1em;
+    opacity: 0.5;
+}
+
+select {
+
+    color: white;
+    font-size: 0.9em;
+    
+    background-color: $green_color;
+    border-radius: 3em;
+    padding: 0.2em 0.5em;
+    text-align: center;
+    margin: 1.3em;
+    border: solid 1px white;
+    
+}
+    
+}
+
+
+    
+
+

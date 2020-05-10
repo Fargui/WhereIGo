@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mes réservations{% endblock %}
+
+{% block body %}
+    <div class="container edit">
+        <h2 class="mb-5">Mes réservations</h2>
+
+
+        {% for booking in app.user.bookings %}
+            <div class="row">
+
+                <div class="col-6">
+                    <h5>{{ booking.place.name }}</h5>
+                    <p>
+                        Réservation <strong>n°{{ booking.id }}</strong><br>
+                        Du {{ booking.startAt|date('d/m/Y') }} au {{ booking.endAt|date('d/m/Y') }} ({{ booking.getTotalPrice() }} &euro;)
+                    </p>
+                </div>
+
+                {% set today = date() %}
+                {% if date( booking.startAt ) > today %}
+                    {% set status = {class: "primary", text: "A venir"} %}
+                {% elseif date( booking.endAt ) > today %}
+                    {% set status = {class: "warning", text: "En cours"} %}
+                {% else %}
+                    {% set status = {class: "danger", text: "Passé"} %}
+                {% endif %}
+
+                <div class="col-4 text-{{ status.class }} d-flex align-items-center">
+                    <h6>
+                        {{ status.text }}
+                    </h6>
+                    
+                </div>
+                <div class="col-2-sm-lg d-flex align-items-center">
+                    <a href="{{ path('booking_show', {'id': booking.id}) }}" class="btn-book">Plus d'informations</a>
+                </div>
+                
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+{% endblock %}

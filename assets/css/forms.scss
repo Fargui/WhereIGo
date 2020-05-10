@@ -1,21 +1,19 @@
+
+/* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
+
 @import 'variables.scss';
 
-.form-error {
-	color: #e04447;
-    font-size: 13px;
-    li{
-        list-style:none;
-    }
+::placeholder {
+    color:$green_color!important;
+    font-size: 0.7em!important;
+    padding: 1em;
+    opacity: 0.5;
 }
 
-.form-control{
-    margin-top: 10px;
+label {
+    display: none;
 }
 
-.btn-primary{
-    background-color: $btn_color;
-    border-color: $btn-color;
-}
 
 .toaster{
     position: fixed;
@@ -26,13 +24,73 @@
 }
 
 .register{
-    padding-top: 15vh;
+    
+
+    input {
+        font-size: 0.6em;
+        border-radius: 50px;
+        border: none;
+        @include inset-shadow;
+        margin: 0.3em;
+        width:70vw;
+        
+    }
+
+    li {
+        
+        font-size: 0.6em;
+        color: darkred;
+    }
+
+    p {
+        font-size: 0.6em!important;
+        color: white;
+    }
+    
 }
+
+.alert {
+
+    background-color: $green_color;
+}
+
+
 
 .login{
     padding-top: 15vh;
+
+    .alert {
+        background-color: darkred;
+        color: white;
+        border-radius: 4em;
+        font-size: 0.5em;
+        text-align: center;
+        padding: 0.8em 0.5em;
+    }
+
+    .range {
+        width: 80vw;
+        font-size: 0.8em;
+        font-weight: 400;
+    }
 }
 
 #contactForm{
     padding-top: 13vh;
+}
+
+.edit{
+    padding-top: 100px;
+}
+
+select {
+    background-color: $green_color;
+    color:white;
+    border: solid 1px white;
+    border-radius: 3em;
+    padding: 0.2em 0.5em;
+    text-align: center;
+    margin: 0.2em;
+    font-size: 0.7em;
+    
 }

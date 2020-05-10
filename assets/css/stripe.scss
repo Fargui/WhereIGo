@@ -1,0 +1,77 @@
+
+/* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
+.StripeElement {
+    box-sizing: border-box;
+  
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid $green_color;
+    border-radius: 50px;
+    background-color: white;
+    margin-top: 0.5em;
+
+  }
+  
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+  .verify{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 50px;
+    font-size: 0.68em;
+    border: 1px solid $green_color;
+    padding: 9px 12px;
+    width: 48%;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+
+thead {
+    font-size: 0.6em;
+}
+tbody {
+    font-size: 0.3em;
+}
+
+.btn-book {
+    font-size: 0.5em;
+}
+
+h5 {
+    font-size: 0.8em;
+    border-bottom: solid 1px;
+}
+
+.modal.show .modal-dialog {
+    -webkit-transform: translate(0,0);
+    transform: translate(0,20%)!important;
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $green_color;
+        opacity: 0.4; /* Firefox */
+        font-size: 1em;
+      }
+
+      span {
+        font-weight: 700;
+        border-bottom: 1px solid $green_color;
+    }
+
+    .none {
+      border-bottom: none
+  }
+
+}

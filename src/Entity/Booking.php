@@ -51,6 +51,8 @@ class Booking
      */
     private $total_price;
 
+    private $name = '';
+
 
 
     /**
@@ -201,5 +203,10 @@ class Booking
         $this->total_price = $total_price;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

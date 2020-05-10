@@ -2,24 +2,18 @@
 
 {% block title %}Réserver votre WIG!{% endblock %}
 
-{% block stylesheets %}
-<!-- Datepicker link css-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
-<!-- End Datepicker link css-->
-{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>Réservez pour le WIG : {{place.name}}</h1>
-
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-        elit. Alias ex officiis quae corrupti nemo iusto, possimus 
-        illo, aliquid rem voluptatibus amet at optio dolores autem do
-        loribus quibusdam numquam. Dolores, iure!
-    </p>
-<!-- Inclusion du formulaire de date !! -->
-{% include 'booking/form.html.twig' with {form: form} %}
-
+<div class="container">
+    {# <img src="{{ asset('build/images/' ~ place.pictures.0) }}" class="card-img-top" alt="..."> #}
+    <div class="booking">
+       <p><span>Super !</span><br>
+        Vous avez décidé de vivre une expérience unique à <span>{{place.name}} !</span><br>
+        Regardons un peu à quelle date il y a de la place !</p>
+    <!-- Inclusion du formulaire de date !! -->
+    {% include 'booking/form.html.twig' with {form: form} %}
+    </div>
 </div>
 
 {% endblock %}
@@ -31,25 +25,41 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 <!-- Daterange picker calendar js -->
- <script>
+<script>
+
 $(document).ready(function(){
-    var noValid = [{% for night in place.noDispoDate %}
+
+
+   var noValid = [{% for night in place.noDispoDate %}
                         '{{night.date | date("d-m-Y")}}',
                    {% endfor %}
                   ]
     $(function() {
-        //console.log(noValid);
+         
         $('.range').daterangepicker({
+
           opens: 'center',
           "maxSpan": {
               "days": 7
-           },  
+              
+           },
+
+           locale: {
+                    cancelLabel: 'Annuler',
+                    applyLabel: 'Go !',
+                    daysOfWeek: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve','Sa'],
+                    monthNames: ['Janvier','Fevrier','Mars','Avril','Mai','Juin',
+                                'Juillet','Août','Septembre','Octobre','Novembre','Decembre'],
+                    monthNamesShort: ['Jan','Fev','Mar','Avr','Mai','Jun',
+                                'Jul','Aou','Sep','Oct','Nov','Dec'],
+                    }, 
            minDate: new Date(),
           isInvalidDate: function(date){
-        //console.log(date);   
+            //console.log(date);   
           return noValid.includes(date.format("DD-MM-YYYY"));
 
-          }
+          },
+          
         },
         function(start, end, label) {
             console.log(start, end);
@@ -58,9 +68,12 @@ $(document).ready(function(){
         });
     });
     $('.range').on('change', totalNight);   
+      
 });
 function totalNight(){
         // on prend les dates
+        console.log(nights);
+        
         const startAt = new Date($('#booking_start_at').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
         const endAt   = new Date($('#booking_end_at').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
 
@@ -72,10 +85,12 @@ function totalNight(){
             const nights   = interval / DAY_TIME;
             const total    = nights * '{{ place.price }}';
 
+            $('.details').css({visibility:"visible", opacity: 0.0}).animate({opacity: 1.0},200);
             $('#nights').text(nights);
             $('#total').text(total.toLocaleString('fr-FR'));
         }
     }
+
 </script>
 <!-- End picker calendar js -->
 {% endblock %}
