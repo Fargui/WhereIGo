@@ -17,10 +17,9 @@
             <div class="second-container" style="background-image: url({{bg}});">
                 <div class="voile"></div>
                 <h2>Bienvenue sur la liste de nos wigs !</h2>
-                <p>La Paz Fugitate mporeptata sitiam haritFuga. Sedi dendi odist ut fugit re volorro magnihilit autas
-                    asinum
-                    quas autenti busanto maio molecaboreri doluptae debissi blabo. Maionsequae nus, qui- busa pelectat.
-                    Sapidendae. Occabor endenient rero to incil eos volorrovitis elendeb itiatem alitium quodita turiam
+                <p>
+                    Découvrez les WIG (Where I Go) sélectionnés par notre équipe. De la montagne à la mer en passant par la forêt, nuls doutes que que vous trouverez un WIG qui vous convienne et ce peu importe vos goûts. <br>
+                    Prenez le temps de prendre le temps, Where I Go a déjà fait les recherches pour vous. Il n'y a plus qu'à prendre un sac et réserver votre WIG.
                 </p>
 
             </div>
@@ -47,10 +46,10 @@
                         <div class="card-body py-1">
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">{{ place.name }}</h5>
-                                <h5 class="card-title">{{ place.price }} &euro;</h5>
+                                <h5 class="card-title">{{ place.price }} &euro;/nuit</h5>
                             </div>
                             
-                            <p class="card-text">{{ place.description| u.truncate(28, '...') }}</p>
+                            <p class="card-text">{{ place.description| u.truncate(41, '...') }}</p>
                             <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus</a>
                         </div>
                     
