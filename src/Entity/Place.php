@@ -87,6 +87,11 @@ class Place
      */
     private $idReponse;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $couche;
+
 
 
 
@@ -395,6 +400,18 @@ class Place
     public function setCouchage(string $couchage): self
     {
         $this->couchage = $couchage;
+
+        return $this;
+    }
+
+    public function getCouche(): ?string
+    {
+        return $this->couche;
+    }
+
+    public function setCouche(?string $couche): self
+    {
+        $this->couche = $couche;
 
         return $this;
     }
