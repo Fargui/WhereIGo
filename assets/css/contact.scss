@@ -1,0 +1,53 @@
+.form-contact {
+    margin-top: 4vh;
+}
+
+
+.contact {
+    color: $green_color;
+    border: solid 1px $green_color;
+    border-radius: 2em;
+    font-size: 0.9em;
+    padding: 0.5em 4em 0.5em 0em;
+    margin-top: 1em;
+
+    
+}
+.message {
+    color: $green_color;
+    border: solid 1px $green_color;
+    border-radius: 1em;
+    font-size: 0.8em;
+    font-size: 0.8em;
+    height: 25vh;
+    width: 71vw;
+    margin-top: 1em;
+
+}
+
+// ------------ Desktop here !!!! --------------
+
+@media screen and (min-width: 992px)
+
+{
+
+    .contact {
+        
+        padding: 0.5em 31em 0.5em 0em;
+        
+    
+        
+    }
+    .message {
+        color: $green_color;
+        border: solid 1px $green_color;
+        border-radius: 1em;
+        font-size: 0.8em;
+        font-size: 0.8em;
+        height: 35vh;
+        width: 33vw;
+        margin-top: 1em;
+    
+    }
+
+}

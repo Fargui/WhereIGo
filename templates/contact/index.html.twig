@@ -4,21 +4,21 @@
 
 {% block body %}
     
-    <div id="contactForm" class="mt-4">
+    <div id="contactForm">
         
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'class': 'label-none'}}) }}
 
-            <div class="container text-center">
+            <div class="form-contact container text-center">
                 <h2 class="text-left mb-5">Nous contacter</h2>
          
-                <div class="col">{{ form_row(form.firstname) }}</div>
-                <div class="col">{{ form_row(form.lastname) }}</div>
-                <div class="col">{{ form_row(form.email) }}</div>
-                <div class="col">{{ form_row(form.message) }}</div>
+                <div class="col">{{ form_row(form.firstname, {'attr': {'class': 'contact'}}) }}</div>
+                <div class="col">{{ form_row(form.lastname, {'attr': {'class': 'contact'}}) }}</div>
+                <div class="col">{{ form_row(form.email, {'attr': {'class': 'contact'}}) }}</div>
+                <div class="col">{{ form_row(form.message, {'attr': {'class': 'message'}}) }}</div>
         
         {{ form_rest(form) }}
                 <div class="form-group">
-                    <button class="btn btn-primary">Envoyer</button>
+                    <button class="btn-book mt-2">Envoyer</button>
                 </div>
             </div>
         {{ form_end(form) }}
