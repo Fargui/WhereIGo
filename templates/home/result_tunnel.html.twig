@@ -13,7 +13,7 @@
       </div>
       <div class="card-body py-1 text-center">
           <h5 class="card-title mt-3">{{ place.name }}</h5>
-          <p class="card-text">{{ place.description|slice(0, 28) }}...</p>
+          <p class="card-text">{{ place.description}}</p>
           <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary mb-3">Voir plus</a>
       </div>
 
