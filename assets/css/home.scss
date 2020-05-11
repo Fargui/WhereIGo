@@ -50,32 +50,37 @@
         .reponses{
           color: transparent;
           i{
-            color: initial;
-            font-size: 8vw;
+            color: white;
+            font-size: 4vw;
           }     
         }
         
        .eau:hover{
           .icn-eau{
-            color: blue;
+            color: rgb(40, 114, 226);
+            transition: 0.6s;
+            
           }
         }
 
         .terre:hover{
           .icn-leaf{
-            color: rgb(0, 255, 76);
+            color: rgb(73, 131, 90);
+            transition: 0.6s;
           }
         }
 
         .feu:hover{
           .icn-fire{
-            color: rgb(236, 119, 22);
+            color: rgb(231, 143, 71);
+            transition: 0.6s;
           }
         }
 
         .air:hover{
           .icn-wind{
             color: rgb(255, 255, 255);
+            transition: 0.6s;
           }
         } 
       }
