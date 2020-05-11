@@ -18,12 +18,12 @@
                 <div class="voile"></div>
                 <h2>Bienvenue sur la liste de nos wigs !</h2>
                 <p>
-                    Découvrez les WIG (Where I Go) sélectionnés par notre équipe. De la montagne à la mer en passant par la forêt, nuls doutes que que vous trouverez un WIG qui vous convienne et ce peu importe vos goûts. <br>
+                    Découvrez les WIG (Where I Go) sélectionnés par notre équipe. De la montagne à la mer en passant par la forêt, nuls doutes que que vous trouverez un WIG qui vous convienne et ce peu importe vos goûts.
                     Prenez le temps de prendre le temps, Where I Go a déjà fait les recherches pour vous. Il n'y a plus qu'à prendre un sac et réserver votre WIG.
                 </p>
 
             </div>
-            <div class="first-container mt-5">
+            <div class="first-container mt-2">
 
                 {# inclusion du formulaire de filtre de recherche #}
                 {% include 'place/_filter.html.twig' with {form: form} only %}
@@ -43,14 +43,17 @@
                     <!-- <pre>
                             {{ dump(data) }}
                         </pre> -->
-                        <div class="card-body py-1">
-                            <div class="d-flex justify-content-between">
+                        <div class="brique card-body py-1 mb-4">
+                            <div class="title-card d-flex justify-content-between">
+                                
                                 <h5 class="card-title">{{ place.name }}</h5>
                                 <h5 class="card-title">{{ place.price }} &euro;/nuit</h5>
+                                
                             </div>
                             
+                            
                             <p class="card-text">{{ place.description| u.truncate(41, '...') }}</p>
-                            <a href="{{path( 'show', {id: place.id} )}}" class="btn btn-primary">Voir plus</a>
+                            <a href="{{path( 'show', {id: place.id} )}}" class="btn-book">Voir plus</a>
                         </div>
                     
                 </div>

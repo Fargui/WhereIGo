@@ -1,5 +1,5 @@
 
-/* MOBILE FIRST => CETTE PAGE CONCERNE LLE DISPLAY MOBILE */
+/* MOBILE FIRST => CETTE PAGE CONCERNE LE DISPLAY MOBILE */
 
 /* Text top */
 .pagination {
@@ -16,29 +16,21 @@
     padding-left: 1em;
   }  
 
-  .second-container{
-
-    h2, p{
-      padding: 12px;
-    }
-
-
-    width: 100%;
-    height: 16em;
-    background-size: cover;
-    position: relative;
-    z-index: -2;
-  }
+  
+}
 
   .voile{
+    
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0.5;
     background-color: white;
     z-index: -1;
+
+    
   }
-}
+
 
 
 
@@ -46,22 +38,32 @@
 .form-filter{
 
   label{
-    font-weight: 600;
+    font-weight: 700;
+    color: $green_color;
+    border-bottom: solid 2px $green_color;
+    margin-bottom: 3vh;
   }
 
   #placeHasCategories{
 
-    margin-bottom: 1vh;
+    
+    margin-top: 2vh;
 
     label{
+      color: $green_color;
+      font-weight: 400;
       background-color: transparent;
       border-radius:  2em;
-      border: solid 1px $btn_color;
-      padding: 0em 1em;
-      color: $btn_color;
+      border: solid 2px $green_color;
+      padding: 0.2em 1.3em;
       @include text-disable;
       margin-right: 0.5em;
       
+      
+    }
+
+    label:hover {
+      cursor: pointer;
     }
     
    
@@ -91,10 +93,12 @@
     width: 30vw;
     margin-left: 1vw;
     margin-bottom: 2.5vh;
+   
     
   
     .noUi-handle{
-      border-radius: 2em;
+      
+      background-color: white;
       
     }
   
@@ -109,6 +113,10 @@
     margin-bottom:1em ;
   }
 
+  .noUi-connect {
+    background: $green_color;
+}
+
 
   
 }
@@ -120,8 +128,16 @@
     border: none;
 
     a{
-        border-radius: 1.5em;
+        border-radius: 2.5em;
     }
+}
+
+.title-card {
+  
+
+  span {
+    font-weight: 400;
+  }
 }
 
 .photo-wigs{
@@ -136,6 +152,11 @@ html{
 .wigs{
   
     padding: 0px;
+}
+
+.brique {
+
+  padding:0.1em;
 }
 
 
@@ -213,15 +234,27 @@ html{
 
   @media screen and (min-width: 319px) {
 
-    .search-wig{
-      width: 50%;
+    .brique {
+
+      padding:0.5em;
     }
+
+    .search-wig{
+      width: 70%;
+    padding: 0.1em;
+      border-radius: 3em;
+      font-size: 1em;
+    }
+
+
   }
 
   @media screen and (min-width: 768px) {
 
     .search-wig{
       width: 25%;
+      border-radius: 3em;
+      font-size: 1em;
     }
 
     .masonry {
@@ -242,12 +275,29 @@ html{
     .masonry-container {
               padding: 1em;
     }
+
+    .second-container {
+
+      h2 {
+        font-size:2em;
+        margin-left: 0.3em;
+      }
+      
+      p{
+        padding: 12px;
+        width: 60vw;
+        width: 39vw;
+        font-size: 1.3em;
+        font-weight: 500;
+      }
+    }
 }
 
   @media screen and (min-width: 1200px) {
 
     .search-wig{
       width: 23%;
+      border-radius: 3em;
     }
     .masonry {
       -webkit-column-count: 4;

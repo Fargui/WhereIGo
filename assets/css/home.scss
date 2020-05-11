@@ -26,17 +26,22 @@
 
       /* Que les questions au dessus des Rep */
       .questions{
-        font-size: 4vw;
-        background-color: rgba(128, 128, 128, 0.219);
-        color: wheat;
+        font-size: 5vw;
+        font-weight: 200;
+        text-shadow: 0px 0px 7px rgba(150, 150, 150, 1);
+        color: white;
         padding-bottom: 6vh;
       }
 
+
       /* TOUTES les reponses */
       .reponses{
+
         @include label;
-        font-weight: 700;
-        font-size: 4vw;
+        color: white;
+        font-weight: 500;
+        font-size: 0.8em;
+        text-shadow: 0px 0px 7px rgba(150, 150, 150, 1);
       }
 
 
@@ -76,11 +81,13 @@
       }
 
 
+
+
       #reponse_2{
         .reponses{
           color: transparent;
           i{
-            color: initial;
+            color: white;
             font-size: 8vw;
           }     
         }
@@ -103,13 +110,14 @@
 
       .questions{
         font-size: 7vw;
+        color: white;
       }
 
       .reponses{
         color: transparent; 
 
          i{
-          color: initial;
+          color: white;
         } 
       }
       
@@ -140,7 +148,7 @@
     .reponses{
       color: transparent; 
        i{
-        color: initial;
+        color: white;
       } 
     }
 
@@ -165,6 +173,22 @@
     
 }
 
+
+
+
+
+    .button-tunnel {
+      
+        color: white;
+        border: solid 4px white;
+        background-color: transparent;
+        border-radius: 2em;
+        padding: 1em 2em;
+        font-size: 0.8em;
+  
+    }
+
+
     .button-tunnel-container{
       justify-content: center;
 
@@ -172,6 +196,38 @@
         justify-content: center;
       }
     }
+}
+
+.button-tunnel {
+  margin-top: 18vh;
+  
+}
+
+@media screen and (min-width: 992px)
+{
+
+  .button-tunnel {
+      
+    border-radius: 4em;
+    padding: 1em 2em;
+    font-size: 1.3em!important;
+    margin-top: 20vh;
+    text-shadow: 0px 4px 5px rgba(150, 150, 150, 1);
+    @include shadow;
+}
+
+    .button-tunnel:hover {
+      cursor: pointer;
+    }
+
+  .form-tunnel .question .reponses {
+
+    font-size: 1.8em;
+  }
+
+
+ 
+
 }
 
 

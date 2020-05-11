@@ -48,7 +48,7 @@ class SearchFormType extends AbstractType {
             ])
 
             ->add('valider', SubmitType::class, [
-                'attr' => ['class' => 'btn btn-primary'],
+                'attr' => ['class' => 'btn-book'],
             ]);
             
             ; 
